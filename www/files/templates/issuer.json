@@ -1,0 +1,9 @@
+{
+  "@context": "%BADGES_ISSUER_CONTEXT%",
+  "type": "%BADGES_ISSUER_INSTITUTION_TYPE%",
+  "id": "%BADGES_ISSUER_INSTITUTION_ID%",
+  "name": "%BADGES_ISSUER_INSTITUTION_NAME%",
+  "url": "%BADGES_ISSUER_INSTITUTION_URL%",
+  "email": "%BADGES_ISSUER_INSTITUTION_EMAIL%",
+  "revocationList": ""
+}

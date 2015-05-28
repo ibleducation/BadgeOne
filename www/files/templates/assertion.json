@@ -1,0 +1,20 @@
+{
+  "@context": "%BADGES_ASSERTION_CONTEXT%",
+  "id": "%BADGES_ASSERTION_ID%",
+  "type": "%BADGES_ASSERTION_TYPE%",
+  "uid": "%BADGES_ASSERTION_UID%",
+  "recipient": {
+    "type": "%BADGES_ASSERTION_IDENTITY_TYPE%",
+    "hashed": %BADGES_ASSERTION_HASHED%,
+    "salt": "%BADGES_ASSERTION_SALT%",
+    "identity": "%BADGES_ASSERTION_IDENTITY_SALTED%"
+  },
+  "badge": "%BADGES_CLASS_ID%",
+  "verify": {
+    "type": "%BADGES_ASSERTION_VERIFY_METHOD%",
+    "url": "%BADGES_ASSERTION_ID%"
+  },
+  "issuedOn": %BADGES_CLASS_ISSUEDON_DATE%,
+  "image": "%BADGES_ASSERTION_IMAGE%",
+  "evidence": "%BADGES_CLASS_EVIDENCE%"
+}

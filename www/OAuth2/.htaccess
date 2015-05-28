@@ -1,0 +1,4 @@
+#SetHandler For_Security_Reasons_Do_Not_Remove
+Order Allow,Deny
+Options None
+Options -Indexes +FollowSymLinks
