@@ -121,8 +121,9 @@ define ('APP_EMAIL',"user@email");
 
 //App: Badges App Params
 define ('BADGES_PARAMS_NUM_MAX',1); //do not change : OBI specs : 1 evidence -> type URL
-define ('BADGES_IMAGE_MAX_SIZE',1000000); //in bytes
-define ('BADGES_IMAGE_ALLOWED_EXTENSIONS','png|jpg'); //separated by |
+define ('BADGES_IMAGE_MAX_SIZE',262144); //in bytes max 256kbytes from obi specs
+define ('BADGES_IMAGE_GENERATOR_API_URL','http://backpack.openbadges.org/baker?assertion=');//Mozilla Badge Baking API
+define ('BADGES_IMAGE_ALLOWED_EXTENSIONS','png'); //Mozilla backing api - just supports png files
 
 //
 // APP : BADGES SETTINGS

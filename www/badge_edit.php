@@ -25,34 +25,34 @@
 	<!-- contents -->
 	<?php 
 	include("events.php");
-	$badge_id 	= ( isset($_POST["badge_id"]) && $_POST["badge_id"]!="") ? COMMONDB_MODULE::decrypt_id("badges_issuers", $_POST["badge_id"]) : '';
-	$badge_id 	= ( $badge_id=='' && isset($_POST["event"]) && $_POST["event"]=='new_badge' && isset($new_badge_id) && $new_badge_id>0 ) ? $new_badge_id : $badge_id; 
-	$user_id	= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
+	$badge_id 		= ( isset($_POST["badge_id"]) && $_POST["badge_id"]!="") ? COMMONDB_MODULE::decrypt_id("badges_issuers", $_POST["badge_id"]) : '';
+	$badge_id 		= ( $badge_id=='' && isset($_POST["event"]) && $_POST["event"]=='new_badge' && isset($new_badge_id) && $new_badge_id>0 ) ? $new_badge_id : $badge_id; 
+	$user_id		= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
 	$event_action	= ($badge_id>0) ? "update_badge" : "new_badge";
 	
 	//create object
 	$obj_bg 	= new COMMONDB_MODULE("badges_issuers", $badge_id);
-	$cryted_id  	= ( $badge_id>0 ) ? $obj_bg->crypted_id : "";
-	$user_id  	= ( $badge_id>0 ) ? $obj_bg->user_id : $user_id;
-	$institution  	= $obj_bg->institution;
-	$course  	= $obj_bg->course;
-	$course_desc	= $obj_bg->course_desc;
-	$course_url	= $obj_bg->course_url;
-	$enabled	= $obj_bg->enabled;
-	$published	= $obj_bg->published;
-	$deleted	= $obj_bg->deleted;
-
-	//badge
-	$badge_img_name	= $obj_bg->badge_img_name;
-	$show_badge_img = ( $badge_id>0 && $badge_img_name!='') ? "fileissuer.php?bgid=$cryted_id&amp;".NOCACHE : "";
+		$cryted_id  	= ( $badge_id>0 ) ? $obj_bg->crypted_id : "";
+		$user_id  		= ( $badge_id>0 ) ? $obj_bg->user_id : $user_id;
+		$institution  	= $obj_bg->institution;
+		$course  		= $obj_bg->course;
+		$course_desc	= $obj_bg->course_desc;
+		$course_url		= $obj_bg->course_url;
+		$enabled		= $obj_bg->enabled;
+		$published		= $obj_bg->published;
+		$deleted		= $obj_bg->deleted;
 	
-	//get params
-	$arr_params		= ($badge_id>0) ? COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_issuers_params","param_id,label,description","WHERE badge_id='$badge_id' AND deleted='0' ORDER BY param_id","") : array();
-	$count_params 		= count($arr_params);
-	$count_less_params 	= BADGES_PARAMS_NUM_MAX-$count_params;
-	
-	//get awars
-	$total_badges_earns = ($badge_id>0) ? COMMONDB_MODULE::count_values("badges_earns","earn_id","WHERE badge_id='$badge_id'") : 0;
+		//badge
+		$badge_img_name	= $obj_bg->badge_img_name;
+		$show_badge_img =  ( $badge_id>0 && $badge_img_name!='') ? "fileissuer.php?bgid=$cryted_id&amp;".NOCACHE : "";
+		
+		//get params
+		$arr_params			= ($badge_id>0) ? COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_issuers_params","param_id,label,description","WHERE badge_id='$badge_id' AND deleted='0' ORDER BY param_id","") : array();
+		$count_params 		= count($arr_params);
+		$count_less_params 	= BADGES_PARAMS_NUM_MAX-$count_params;
+		
+		//get awars
+		$total_badges_earns = ($badge_id>0) ? COMMONDB_MODULE::count_values("badges_earns","earn_id","WHERE badge_id='$badge_id'") : 0;
 	?>
 	
 	<?php if ( isset($event_errors) && $event_errors!="" ) { print '<div class="row col-lg-12 alert alert-danger" style="color:red; margin-top:10px;">'.$event_errors.'</div>'; }?>
@@ -86,7 +86,7 @@
 			</div>
 			<div class="form-group">
 				<label for="badge_img">Badge Image</label>
-				<input type="file" name="badge_img" id="badge_img" class=""> (allowed <?php echo BADGES_IMAGE_ALLOWED_EXTENSIONS?>)
+				<input type="file" name="badge_img" id="badge_img" class=""> (allowed <?php echo BADGES_IMAGE_ALLOWED_EXTENSIONS?> | Max. size <?php echo BADGES_IMAGE_MAX_SIZE/1024?>kb)
 			</div>
 			<div class="form-group">
 				<label>View Badge Image</label><br>

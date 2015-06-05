@@ -165,8 +165,6 @@ switch ($event) {
 	break;
 	
 	case "new_badge":
-		//TODO-check validation : user_id and badge_id
-		
 		//1. step : check badge
 		$new_badge_id 	= 0;
 		$bage_id 		= "";
@@ -206,7 +204,7 @@ switch ($event) {
 				COMMONDB_MODULE::set_value("badges_issuers", "badge_img_name", $badge_file_info['badge_img_name'], $new_badge_id, 0);
 			} else {
 				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='none' ) ? "Bage IMG : Required" : "";
-				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='size' ) ? "Bage IMG : Error size" : $event_errors;
+				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='size' ) ? "Bage IMG : Error size (max.".(BADGES_IMAGE_MAX_SIZE/1024)."kb)" : $event_errors;
 				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='extension' ) ? "Bage IMG : Error extension" : $event_errors;
 				//control enable
 				COMMONDB_MODULE::set_value("badges_issuers", "enabled", '0', $new_badge_id, 0);
