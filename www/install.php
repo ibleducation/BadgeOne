@@ -11,7 +11,8 @@
 <div id="private"></div>
 
 <div id="main">
-    <div class='page_header'>Install and Setup your application <br></div>
+    <div class='page_header'>Install and Setup your application<br></div>
+	<p>This content is only available in English</p>
 
     <!-- contents -->
     <div class="col-lg-12">
@@ -22,15 +23,16 @@
     		<p>
     			<b>(*) Setup your database settings on files: <span class="label label-info">/config.php</span> and <span class="label label-info">/api/config.php</span> </b><br>
     			
-    			<pre>
-    				define("DB_NAME", "<?php echo DB_NAME ?>");
-				define("DB_USER", "<?php echo DB_USER ?>");
-				define("DB_PASS", "<?php echo DB_PASS ?>");
-			</pre>
+    			<pre>define("DB_NAME", "<?php echo DB_NAME ?>");
+define("DB_USER", "<?php echo DB_USER ?>");
+define("DB_PASS", "<?php echo DB_PASS ?>");</pre>
+    			
+    			
     			
     			<b>Database name default:</b> <?php echo DB_NAME ?><br>
     			<b>Database user default:</b> <?php echo DB_USER ?><br>
     			<b>Database passwd default:</b> <?php echo DB_PASS ?><br>
+    		
     		</p>
     		<br>
     		
@@ -83,8 +85,8 @@ try {
 	    	
 	    	foreach ( $dirsfiles_to_check AS $repo ) 
 	    	{
-	    		$if_exists = ( check_system_dir_files($repo['dir']) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>';
-	    		$is_writable = ( $repo["perms"]=='writable' && check_system_dir_files($repo['dir'],$repo["perms"]) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : ( ($repo["perms"]=='writable') ? '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>' : '<span class="label label-warning"> N/A</span>' );
+	    		$if_exists 		= ( check_system_dir_files($repo['dir']) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>';
+	    		$is_writable 	= ( $repo["perms"]=='writable' && check_system_dir_files($repo['dir'],$repo["perms"]) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : ( ($repo["perms"]=='writable') ? '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>' : '<span class="label label-warning"> N/A</span>' );
 	    		
 	    		print '<tr>';
 	    			print '<td>'.$repo['name'].'</td>';
@@ -172,8 +174,8 @@ try {
 	    	
 	    	foreach ( $configuration AS $conf ) 
 	    	{
-	    		$if_exists = ( check_system_dir_files($conf['dir']) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>';
-	    		$is_writable = ( $conf["perms"]=='writable' && check_system_dir_files($conf['dir'],$conf["perms"]) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : ( ($conf["perms"]=='writable') ? '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>' : '<span class="label label-warning"> N/A</span>' );
+	    		$if_exists 		= ( check_system_dir_files($conf['dir']) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>';
+	    		$is_writable 	= ( $conf["perms"]=='writable' && check_system_dir_files($conf['dir'],$conf["perms"]) == 1) ? '<span class="label label-success"><i class="fa fa-check"></i> YES</span>'  : ( ($conf["perms"]=='writable') ? '<span class="label label-danger"><i class="fa fa-times"></i> NO</span>' : '<span class="label label-warning"> N/A</span>' );
 	    		
 	    		print '<tr>';
 	    			print '<td>'.$conf['name'].'</td>';
@@ -189,17 +191,17 @@ try {
     		
     		<div class="form-group"><b>Edit or Update your Issuer Master File with your configuration</b></div>
     		This is the final result for  <strong><?php echo APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".BADGES_ISSUER_INSTITUTION_FILE_ID ?></strong>
-		<pre>{
-		"@context": "<?php echo BADGES_ISSUER_CONTEXT?>",
-		"id" : "<?php echo BADGES_ISSUER_INSTITUTION_ID?>",
-		"@type": "IssuerOrg",
-		"name": "<?php echo BADGES_ISSUER_INSTITUTION_NAME?>",
-		"url": "<?php echo BADGES_ISSUER_INSTITUTION_URL?>",
-		"email": "<?php echo BADGES_ISSUER_INSTITUTION_EMAIL?>",
-		}
-		</pre>
+<pre>{
+"@context": "<?php echo BADGES_ISSUER_CONTEXT?>",
+"id" : "<?php echo BADGES_ISSUER_INSTITUTION_ID?>",
+"@type": "IssuerOrg",
+"name": "<?php echo BADGES_ISSUER_INSTITUTION_NAME?>",
+"url": "<?php echo BADGES_ISSUER_INSTITUTION_URL?>",
+"email": "<?php echo BADGES_ISSUER_INSTITUTION_EMAIL?>",
+}
+</pre>
     		
-    
+    		
     		<p class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> The data defined in JSON issuer file must be the same as configured in the system, if not, the system will not work propertly</p>
     		<p class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Never change the configuration data once the system is released</p>
     		
@@ -323,6 +325,8 @@ try {
 				
 				<?php } ?> 
 			</div>
+			
+			
 			
     	</div>
     	<!-- /check dirs and files -->    	

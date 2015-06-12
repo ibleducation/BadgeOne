@@ -21,18 +21,18 @@ include("config.php");
 
 <div id="main">
 
-    <div id='bread'><a href='/'>Home</a> > Password Reset</div>
+    <div id='bread'><a href='/'><?php echo __("Home")?></a> > <?php echo __("Password Reset")?></div>
     <div class='page_header'>Password Reset</div>
 
-    <div id="msg1">Please enter your email address below, and we will email instructions for setting a new password.</div>
+    <div id="msg1"><?php echo __("Please enter your email address below, and we will email instructions for setting a new password.")?></div>
 
     <div class='error_div' id='errordiv'></div>
-    <div class='reset_div' id='resetdiv'>xx</div>
+    <div class='reset_div' id='resetdiv'>x</div>
 
     <form id='resetform' name='resetform' class='resetform' action='a_reset.php' method='post'>
 
         <input type=text name="email" class='forms toleft' placeholder="Email" id='emailreg' tabindex="1"><br>
-        <span class="tips1">* This is the e-mail address you used to register</span><br>
+        <span class="tips1">* <?php echo __("This is the email address you used to register")?></span><br>
 
         <input type="submit" value="Reset" class="greybutton" tabindex="2"><br>
 

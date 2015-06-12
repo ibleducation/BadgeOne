@@ -16,8 +16,8 @@
 
 <div id="main">
 
-    <div id='bread'><a href='/'>Home</a> >Earns of Issuer Badges</div>
-    <div class='page_header'>Earns of Issuer Badges</div>
+    <div id='bread'><a href='/'><?php echo __("Home")?></a> > <?php echo __("Earns of Issuer Badges")?></div>
+    <div class='page_header'><?php echo __("Earns of Issuer Badges")?></div>
 
 	<!-- contents -->
     <?php include "events.php";?>
@@ -28,42 +28,43 @@
 	      <thead>
 	        <tr>
 	          <th>#</th>
-	          <th>UserID</th>
-	          <th>Fullname</th>
-	          <th>Email</th>
-	          <th>Course</th>
-	          <th>Institution</th>
-	          <th>Preview</th>
-	          <th>Delete</th>
+	          <th><?php echo __("UserID")?></th>
+	          <th><?php echo __("Fullname")?></th>
+	          <th><?php echo __("Email")?></th>
+	          <th><?php echo __("Course")?></th>
+	          <th><?php echo __("Institution")?></th>
+	          <th><?php echo __("Preview")?></th>
+	          <th><?php echo __("Delete")?></th>
 	        </tr>
-	        </thead>
-	        <tbody>
+	      </thead>
+	      <tbody>
 		<?php
-		$user_id =  ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
-		$arr_earn_list = COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_issuers bi,badges_earns be","be.earn_id AS earn_id,be.user_id AS user_id,be.earn_email AS earn_email, be.earn_fullname AS earn_fullname,bi.institution AS institution,bi.course AS course","WHERE bi.badge_id=be.badge_id AND be.deleted=0 AND bi.user_id='$user_id'","earn_id");
+		$user_id		=  ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
+		$arr_earn_list	= COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_issuers bi,badges_earns be","be.earn_id AS earn_id,be.user_id AS user_id,be.earn_email AS earn_email, be.earn_fullname AS earn_fullname,bi.institution AS institution,bi.course AS course","WHERE bi.badge_id=be.badge_id AND be.deleted=0 AND bi.user_id='$user_id'","earn_id");
 		foreach ($arr_earn_list as $item) { ?>
-		  <tr>
-	            <td><?php echo $item['earn_id']?></td>
-	            <td><?php echo $item['user_id']?></td>
-		    <td><?php echo $item['earn_fullname']?></td>
-		    <td><?php echo $item['earn_email']?></td>
-		    <td><?php echo $item['course']?></td>
-		    <td><?php echo $item['institution']?></td>
-	 	    <td>
-	 	      <a href="view_badge_earn.php?badge_id=<?php echo get_crypted_id($item["earn_id"]);?>" target="_blank">Preview</a>
-	            </td>
-	            <td>
-		      <form action="#" method="post" onsubmit="return checkConfirm('Are you sure?');">
-		        <input type="hidden" name="event" value="delete_earn">
-		        <input type="hidden" name="earn_id" value="<?php echo get_crypted_id($item["earn_id"]);?>">
-		        <button type="submit" class="">Delete</button>
-		       </form>
-	            </td>
-	          </tr>
+		   <tr>
+	          <td><?php echo $item['earn_id']?></td>
+	          <td><?php echo $item['user_id']?></td>
+	          <td><?php echo $item['earn_fullname']?></td>
+	          <td><?php echo $item['earn_email']?></td>
+	          <td><?php echo $item['course']?></td>
+	          <td><?php echo $item['institution']?></td>
+	 			<td>
+	 			  <a href="view_badge_earn.php?badge_id=<?php echo get_crypted_id($item["earn_id"]);?>" target="_blank"><?php echo __("Preview")?></a>
+	          </td>
+	          <td>
+		          <form action="#" method="post" onsubmit="return checkConfirm('<?php echo __("Are you sure?")?>');">
+		          <input type="hidden" name="event" value="delete_earn">
+		          <input type="hidden" name="earn_id" value="<?php echo get_crypted_id($item["earn_id"]);?>">
+		          <button type="submit" class=""><?php echo __("Delete")?></button>
+		          </form>
+	          </td>
+	        </tr>
 		<?php }?>
 		</tbody>
 	</table>	
 	<!-- /contents -->
+
 </div>
 
 <div class="container"><div class="col-lg-12"><br></div></div>

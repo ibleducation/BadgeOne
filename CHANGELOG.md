@@ -1,3 +1,8 @@
+## BadgeOne (0.9) beta; urgency=low
+  * Released : 20150612
+  * Renamed project name
+  * Added Multilang (default EN, sample ES)
+
 ## IBLOpenBadges-Server (0.1-1) master; urgency=low
 
   * Released : 20150605

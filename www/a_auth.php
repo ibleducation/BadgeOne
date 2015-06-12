@@ -2,7 +2,7 @@
 //auth pages
 if ( (!isset($logged_user) || $logged_user< 1)  )  {
 	print '<div id="main">';
-	print '<div class="alert alert-danger">You have not privileges to access this page</div>';
+	print '<div class="alert alert-danger">'.__("You have not privileges to access this page").'</div>';
 	print '</div>';
 	exit;
 }
@@ -31,7 +31,7 @@ if ( (isset($logged_user) || $logged_user> 1)  )  {
 	
 	if ( $disallow_auth == 1 ) {
 		print '<div id="main">';
-		print '<div class="alert alert-danger">You have not privileges to access this page</div>';
+		print '<div class="alert alert-danger">'.__("You have not privileges to access this page").'</div>';
 		print '</div>';
 		exit;		
 	}

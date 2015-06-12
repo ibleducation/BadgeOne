@@ -1,0 +1,5 @@
+Don't forget to remove the source file (.po) under production mode.
+
+FYI: Poedit is the best translations editor for translating apps 
+and sites (that use gettext).
+http://poedit.net/

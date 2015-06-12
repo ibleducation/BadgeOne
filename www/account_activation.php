@@ -26,13 +26,13 @@
 	
 		<div id='bread'>
 			
-			<a href='/'>Home</a> > Account Activation
+			<a href='/'><?php echo __("Home")?></a> > <?php echo __("Account Activation")?>
 			
 		</div>
 		
 		<div class='page_header'>
 			
-			Account Activation
+			<?php echo __("Account Activation")?>
 			
 		</div>
 		

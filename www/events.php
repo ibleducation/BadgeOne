@@ -132,13 +132,13 @@ switch ($event) {
 				move_files($file_image_assertion_from,$file_image_assertion_to);
 
 				//show result
-				$event_success = "Badge Earn deleted";
+				$event_success = __("Badge Earn deleted");
 			} else {
-				$event_errors = "Could not be deleted";
+				$event_errors = __("Could not be deleted");
 			}
 			
 		} else {
-			$event_errors = "Could not be deleted";
+			$event_errors = __("Could not be deleted");
 		}
 	break;
 
@@ -158,9 +158,9 @@ switch ($event) {
 			//COMMONDB_MODULE::delete_multiple_values("badges_issuers_params","WHERE badge_id='$bage_id'"); //delete real
 			$q = "UPDATE badges_issuers SET deleted=1, deleted_by='$user_id', date_deleted=NOW(), lastupdate_by='$user_id' WHERE badge_id='$badge_id' LIMIT 1";
 			COMMONDB_MODULE::launch_direct_system_query($q);
-			$event_success = "Badge deleted";
+			$event_success = __("Badge deleted");
 		} else {
-			$event_errors = "Could not be deleted";
+			$event_errors = __("Could not be deleted");
 		}
 	break;
 	
@@ -175,7 +175,6 @@ switch ($event) {
 		$validate_curl 	= ($course_url!='' && validateURL($course_url)==1) ? 1 : 0;
 		
 		//from config : fixed data
-		//$institution	= ( isset($_POST["institution"]) && strlen(trim($_POST["institution"]))>0 ) ? $_POST["institution"] : "";
 		$institution	= (defined('BADGES_ISSUER_INSTITUTION_NAME') && BADGES_ISSUER_INSTITUTION_NAME!='') ? BADGES_ISSUER_INSTITUTION_NAME : ""; //required : obi specs
 		$institution_url= (defined('BADGES_ISSUER_INSTITUTION_URL') && BADGES_ISSUER_INSTITUTION_URL!='') ? BADGES_ISSUER_INSTITUTION_URL : ""; //required : obi specs
 		$institution_img= (defined('BADGES_ISSUER_INSTITUTION_IMAGE') && BADGES_ISSUER_INSTITUTION_IMAGE!='') ? BADGES_ISSUER_INSTITUTION_IMAGE : "";
@@ -188,7 +187,7 @@ switch ($event) {
 			$new_badge_id = COMMONDB_MODULE::launch_direct_system_query_get_lastId($q);
 			$event_success = "Your Badge has been created";
 		} else {
-			$event_errors = ($validate_curl==0) ? "Could not proceed. Invalid syntax for Course Criteria URL" : "Could not proceed";
+			$event_errors = ($validate_curl==0) ? __("Could not proceed. Invalid syntax for Course Criteria URL") : __("Could not proceed");
 		}
 		
 		//2. step: check image
@@ -203,9 +202,9 @@ switch ($event) {
 				COMMONDB_MODULE::set_value("badges_issuers", "badge_img_type", $badge_file_info['badge_img_type'], $new_badge_id, 0);
 				COMMONDB_MODULE::set_value("badges_issuers", "badge_img_name", $badge_file_info['badge_img_name'], $new_badge_id, 0);
 			} else {
-				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='none' ) ? "Bage IMG : Required" : "";
-				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='size' ) ? "Bage IMG : Error size (max.".(BADGES_IMAGE_MAX_SIZE/1024)."kb)" : $event_errors;
-				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='extension' ) ? "Bage IMG : Error extension" : $event_errors;
+				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='none' ) ? __("Bage IMG") ." : ".__("Required") : "";
+				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='size' ) ? __("Bage IMG") ." : ".__("Error size")." (".__("max.").(BADGES_IMAGE_MAX_SIZE/1024).__("kb").")" : $event_errors;
+				$event_errors = ( isset($badge_file_info[1]) && $badge_file_info[1] =='extension' ) ? __("Bage IMG"). " : ".__("Error extension") : $event_errors;
 				//control enable
 				COMMONDB_MODULE::set_value("badges_issuers", "enabled", '0', $new_badge_id, 0);
 				//control published
@@ -232,7 +231,7 @@ switch ($event) {
 						VALUES('','$new_badge_id', '$field_label','$field_description','text',1,NOW(),$user_id,$user_id) ";
 						COMMONDB_MODULE::launch_direct_system_query($q);
 					} else {
-						$event_errors = "Max params reached";
+						$event_errors = __("Max params reached");
 					}
 				}
 			}
@@ -343,7 +342,7 @@ switch ($event) {
 			}
 
 		} else {
-			$event_errors = ( $total_badges_earns > 0 ) ? "You Could not modify this badged. Is being awarded." : (  ($validate_curl==0) ? "Could not proceed. Invalid syntax for Course Criteria URL" : "Could not proceed"   ) ;
+			$event_errors = ( $total_badges_earns > 0 ) ? __("You Could not modify this badged. Is being awarded.") : (  ($validate_curl==0) ? __("Could not proceed. Invalid syntax for Course Criteria URL") : __("Could not proceed" ) );
 		}
 	break;
 	
@@ -472,17 +471,17 @@ switch ($event) {
 					$new_earn_id = 0;
 					$event_errors = ( $params_error!='' ) ? "The badge could not be created. Evidences syntax incorrect (url)." : "The badge could not be created. The json files could not be set.";
 				} else {
-					$event_success = "The badge is being created";
+					$event_success = __("The badge is being created");
 				}
 				
 			} else {
-				$event_errors = "The badge could not be created";
+				$event_errors = __("The badge could not be created");
 			}
 		} else {
 			if ( $check_earn_exists > 0 ) {
-				$event_errors = "The badge could not be created, because it already exists.";
+				$event_errors = __("The badge could not be created, because it already exists.");
 			} else {
-				$event_errors = "The badge could not be created. Some data is missing.";
+				$event_errors = __("The badge could not be created. Some data is missing.");
 			}
 			
 		}
@@ -509,9 +508,9 @@ switch ($event) {
 			$event_success = "The badge has been $text_event";
 		} else {
 			if ( $check_enable_badge == 0 ) {
-				$event_errors = "The badge could not be published because is disabled";
+				$event_errors = __("The badge could not be published because is disabled");
 			} else {
-				$event_errors = "This action could not be performed";
+				$event_errors = __("This action could not be performed");
 			}
 		}
 	break;
@@ -533,9 +532,9 @@ switch ($event) {
 		{
 			$q = "UPDATE badges_issuers_params SET deleted='1', deleted_by='$this_editor_id', date_deleted=NOW(), lastupdate_by='$this_editor_id' WHERE param_id='$this_param_id' AND badge_id='$this_badge_id' ";
 			COMMONDB_MODULE::launch_direct_system_query($q);
-			$event_success = "The evidence has been deleted";
+			$event_success = __("The evidence has been deleted");
 		} else {
-			$event_errors = "This action could not be performed";
+			$event_errors = __("This action could not be performed");
 		}
 	break;
 	
@@ -569,9 +568,9 @@ switch ($event) {
 		
 		if ( $check_user == $this_editor_id && $allow_changes == 1 ) {
 			COMMONDB_MODULE::set_value("users", "password",  md5($u_pwd_check), $this_editor_id);
-			$event_success = "Your profile data has been updated";
+			$event_success = __("Your profile data has been updated");
 		} else {
-			$event_errors = ( $u_pwd!='') ? "Password could not be updated < $min_pwd_chars chars" : "Nothing to change";
+			$event_errors = ( $u_pwd!='') ? __("Password could not be updated")." < ". $min_pwd_chars. __("chars") : __("Nothing to change");
 		}
 	break;
 
@@ -591,11 +590,11 @@ switch ($event) {
 				COMMONDB_MODULE::set_value("users", "profile", "$new_profile", $requested_user_id);
 				$event_success = "The new profile is set";
 			} else {
-				$event_errors = "This profile could not be changed";
+				$event_errors = __("This profile could not be changed");
 			}
 			
 		} else {
-			$event_errors = "You could not grant this action";
+			$event_errors = __("You could not grant this action");
 		}
 	break;
 
@@ -606,18 +605,18 @@ switch ($event) {
 			$requested_user_id	= ( isset($_POST['user_id']) && strlen(trim($_POST['user_id']))>0 ) ? COMMONDB_MODULE::decrypt_id("users", $_POST['user_id']) : '0';
 			$old_active			= ($requested_user_id>0) ? COMMONDB_MODULE::get_selected_value("users", "activated","WHERE id_user=$requested_user_id") : '';
 			$new_active			= ( $old_active ==1 ) ? 0 : 1; 
-			$text_event			= ( $old_active ==1 ) ? "deactivated" : "activated";
+			$text_event			= ( $old_active ==1 ) ? __("deactivated") : __("activated");
 			//validation changes
 			$allow_change_active = ($requested_user_id>0 && $requested_user_id!=$this_editor_id && $old_active!='' ) ? 1 : 0;
 
 			if ( $allow_change_active == 1  ) {
 				COMMONDB_MODULE::set_value("users", "activated", "$new_active", $requested_user_id);
-				$event_success = "The users has been $text_event";
+				$event_success = __("The user has been")." ".$text_event;
 			} else {
-				$event_errors = "This user could not be $text_event";
+				$event_errors = __("This user could not be")." ".$text_event;
 			}
 		} else {
-			$event_errors = "You could not grant this action";
+			$event_errors = __("You could not grant this action");
 		}
 	break;
 	
@@ -636,12 +635,12 @@ switch ($event) {
 			if ( $allow_delete == 1  ) {
 				COMMONDB_MODULE::delete_multiple_values("users","WHERE id_user='$requested_user_id'");
 				COMMONDB_MODULE::delete_multiple_values("oauth_clients","WHERE user_id='$requested_user_id'");
-				$event_success = "The users has been deleted";
+				$event_success = __("The user has been deleted");
 			} else {
-				$event_errors = "This user could not be deleted";
+				$event_errors = __("This user could not be deleted");
 			}
 		} else {
-			$event_errors = "You could not grant this action";
+			$event_errors = __("You could not grant this action");
 		}		
 	break;
 		

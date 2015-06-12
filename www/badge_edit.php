@@ -16,10 +16,10 @@
 
 <div id="main">
 
-    <div id='bread'><a href='/'>Home</a> > Edit Badge</div>
-    <div class='page_header'>Edit Badge</div>
+    <div id='bread'><a href='/'><?php echo __("Home")?></a> > <?php echo __("Edit Badge")?></div>
+    <div class='page_header'><?php echo __("Edit Badge")?></div>
     
-    <div class="pull-right"><a href="./issuer.php" class="btn btn-info btn-md"><i class="fa fa-backward"></i> BACK TO ISSUER LIST</a></div>
+    <div class="pull-right"><a href="./issuer.php" class="btn btn-info btn-md"><i class="fa fa-backward"></i> <?php echo __("BACK TO ISSUER LIST")?></a></div>
     <div class="container"><div class="col-lg-12"><br></div></div>
     
 	<!-- contents -->
@@ -65,61 +65,61 @@
 		<!-- main data -->
 		<div class="col-lg-6">
 			
-			<div class="form-group"><h3>Main Badge Data (* Required)</h3></div>
+			<div class="form-group"><h3><?php echo __("Main Badge Data")?> (* <?php echo __("Required")?>)</h3></div>
 			
 			<div class="form-group">
-				<label for="institution">Institution</label>
+				<label for="institution"><?php echo __("Institution")?></label>
 				<p class="alert alert-warning"><?php echo BADGES_ISSUER_INSTITUTION_NAME?></p>
 			</div>
 			<div class="form-group">
-				<label for="course">Course Name</label>
-				<input type="text" name="course" id="course" value="<?php echo $course?>" class="form-control" required="required" placeholder="course name">
+				<label for="course"><?php echo __("Course")?> <?php echo __("Name")?></label>
+				<input type="text" name="course" id="course" value="<?php echo $course?>" class="form-control" required="required" placeholder="<?php echo __("Course")?> <?php echo __("Name")?>">
 			</div>
 			<div class="form-group">
-				<label for="course">Course Criteria URL</label>
-				<input type="url" name="course_url" id="course_url" value="<?php echo $course_url?>" class="form-control" required="required" placeholder="course criteria url">
-				<small><em>URL of the criteria for earning the achievement.</em></small>
+				<label for="course"><?php echo __("Course")?> <?php echo __("Criteria URL")?></label>
+				<input type="url" name="course_url" id="course_url" value="<?php echo $course_url?>" class="form-control" required="required" placeholder="<?php echo __("Course")?> <?php echo __("Criteria URL")?>">
+				<small><em><?php echo __("URL of the criteria for earning the achievement.")?></em></small>
 			</div>			
 			<div class="form-group">
-				<label for="course_desc">Course Description</label><br>
-				<textarea id="course_desc" name="course_desc" class="form-control" required="required" rows="10" placeholder="description here"><?php echo $course_desc?></textarea>
+				<label for="course_desc"><?php echo __("Course")?> <?php echo __("Description")?></label><br>
+				<textarea id="course_desc" name="course_desc" class="form-control" required="required" rows="10" placeholder="<?php echo __("Description here")?>"><?php echo $course_desc?></textarea>
 			</div>
 			<div class="form-group">
-				<label for="badge_img">Badge Image</label>
-				<input type="file" name="badge_img" id="badge_img" class=""> (allowed <?php echo BADGES_IMAGE_ALLOWED_EXTENSIONS?> | Max. size <?php echo BADGES_IMAGE_MAX_SIZE/1024?>kb)
+				<label for="badge_img"><?php echo __("Badge")?> <?php echo __("Image")?></label>
+				<input type="file" name="badge_img" id="badge_img" class=""> (<?php echo __("allowed")?> <?php echo BADGES_IMAGE_ALLOWED_EXTENSIONS?> | <?php echo __("Max. size")?> <?php echo BADGES_IMAGE_MAX_SIZE/1024?>kb)
 			</div>
 			<div class="form-group">
-				<label>View Badge Image</label><br>
-				<center><?php if ( $badge_img_name !='') { ?><img src='<?php echo $show_badge_img?>'><?php } else { ?><p class="">Image Required</p><?php }?></center>
+				<label><?php echo __("View")?> <?php echo __("Badge")?> <?php echo __("Image")?></label><br>
+				<center><?php if ( $badge_img_name !='') { ?><img src='<?php echo $show_badge_img?>'><?php } else { ?><p class=""><?php echo __("Image")?> <?php echo __("Required")?></p><?php }?></center>
 			</div>
 		</div>
 		<!-- /main data -->
 			
 		<!-- params -->
 		<div class="col-lg-6">
-		<div class="form-group"><h3>Evidence (Optional)</h3></div>
-		<div class="form-group">URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.</div>
+		<div class="form-group"><h3><?php echo __("Evidence")?> (<?php echo __("Optional")?>)</h3></div>
+		<div class="form-group"><?php echo __("URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.")?></div>
 	
 		<?php for ($i = 0; $i < $count_params; $i++) { ?>
 			<div class="form-group small">
-				<div class="col-lg-2"><label for="label-<?php echo $i?>-<?php echo $arr_params[$i]['param_id'] ?>">Label</label></div>
+				<div class="col-lg-2"><label for="label-<?php echo $i?>-<?php echo $arr_params[$i]['param_id'] ?>"><?php echo __("Label")?></label></div>
 				<div class="col-lg-10"><input type="text" id="label-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" name="label-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" value="<?php echo $arr_params[$i]['label']?>" class="form-control input-sm" maxlength="80"></div>
 			</div>
 			<div class="form-group small">
-				<div class="col-lg-2"><label for="label-<?php echo $i?>">Description</label></div>
+				<div class="col-lg-2"><label for="label-<?php echo $i?>"><?php echo __("Description")?></label></div>
 				<div class="col-lg-10"><input type="text" id="description-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" name="description-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" value="<?php echo $arr_params[$i]['description']?>" class="form-control input-sm" maxlength="200"></div>
 			</div>
-			<div class="form-group"><div class="col-lg-12"><br><a href="#" class="pull-right btn btn-xs btn-danger" onclick="return del_evidence(<?php echo $arr_params[$i]['param_id']?>);"><i class="fa fa-trash-o"></i> Remove evidence</a></div></div>
+			<div class="form-group"><div class="col-lg-12"><br><a href="#" class="pull-right btn btn-xs btn-danger" onclick="return del_evidence(<?php echo $arr_params[$i]['param_id']?>);"><i class="fa fa-trash-o"></i> <?php echo __("Remove evidence")?></a></div></div>
 			<div class="form-group"><div class="col-lg-12"><hr></div></div>
 		<?php }?>
 		
 		<?php for ($i = 0; $i < $count_less_params; $i++) { ?>
 			<div class="form-group small">
-				<div class="col-lg-2"><label for="label-<?php echo $i?>">Label</label></div>
+				<div class="col-lg-2"><label for="label-<?php echo $i?>"><?php echo __("Label")?></label></div>
 				<div class="col-lg-10"><input type="text" id="label-<?php echo $i?>" name="label-<?php echo $i?>" value="" class="form-control input-sm" maxlength="80"></div>
 			</div>
 			<div class="form-group small">
-				<div class="col-lg-2"><label for="label-<?php echo $i?>">Description</label></div>
+				<div class="col-lg-2"><label for="label-<?php echo $i?>"><?php echo __("Description")?></label></div>
 				<div class="col-lg-10"><input type="text" id="description-<?php echo $i?>" name="description-<?php echo $i?>" value="" class="form-control input-sm" maxlength="200"></div>
 			</div>
 			<div class="form-group"><div class="col-lg-12"><hr></div></div>
@@ -131,9 +131,9 @@
 		<!--actions -->
 		<div class="col-lg-12">
 			<center>
-				<button type="submit" class="btn btn-primary"><?php echo ($badge_id>0) ? "UPDATE BADGE" : "CREATE A NEW BADGE" ?> <i class="fa fa-forward"></i></button>
+				<button type="submit" class="btn btn-primary"><?php echo ($badge_id>0) ? __("UPDATE BADGE") : __("CREATE A NEW BADGE") ?> <i class="fa fa-forward"></i></button>
 				<?php if ( $badge_id>0 ) { ?>
-				<div class="pull-right"><a href="./badge_edit.php" class="btn btn-success"> ADD NEW BADGE <i class="fa fa-star"></i></a></div> 
+				<div class="pull-right"><a href="./badge_edit.php" class="btn btn-success"> <?php echo __("ADD NEW BADGE")?> <i class="fa fa-star"></i></a></div> 
 				<?php } ?>
 			</center>
 		</div>

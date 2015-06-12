@@ -48,13 +48,13 @@ if (defined('BADGES_ASSERTION_HASHED') && BADGES_ASSERTION_HASHED=='true') {
 //App: Badges Issuer Institution
 define ('BADGES_ISSUER_CONTEXT','https://w3id.org/openbadges/v1');
 define ('BADGES_ISSUER_INSTITUTION_TYPE','IssuerOrg'); //old documentation 'Issuer'
-define ('BADGES_ISSUER_INSTITUTION_FILE_ID',"iblstudios.json");
+define ('BADGES_ISSUER_INSTITUTION_FILE_ID',"badgeone.json");
 define ('BADGES_ISSUER_INSTITUTION_ID',APP_GENERAL_REPO_BADGES_ISSUER_REMOTE."/".BADGES_ISSUER_INSTITUTION_FILE_ID);
 define ('BADGES_ISSUER_INSTITUTION_NAME','IBLStudios Institution'); //required : obi specs
-define ('BADGES_ISSUER_INSTITUTION_URL','http://iblstudiosbadges.com'); //required : obi specs
+define ('BADGES_ISSUER_INSTITUTION_URL','http://badgeone.com'); //required : obi specs
 define ('BADGES_ISSUER_INSTITUTION_DESC',''); //not used in json constructor. do not change and do not remove on this version
 define ('BADGES_ISSUER_INSTITUTION_IMAGE',''); //not used in json constructor. do not change and do not remove on this version
-define ('BADGES_ISSUER_INSTITUTION_EMAIL','user@email');
+define ('BADGES_ISSUER_INSTITUTION_EMAIL','user@email.local');
 define ('BADGES_ISSUER_INSTITUTION_REVOCATION_LIST',''); //not needed for hosted version
 
 //App: Badges Class Params

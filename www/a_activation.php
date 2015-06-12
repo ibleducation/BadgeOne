@@ -2,9 +2,9 @@
 $form = get_form();
 
 //required data
-$seed		= $form["s"] ;
-$email		= $form["e"] ;
-$valid_email	= ( strlen(trim($email))>0 && preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+[.]+[a-zA-Z0-9-.]+$/", $email) ) ?  1 : 0;
+$seed		 =	$form["s"] ;
+$email		 =	$form["e"] ;
+$valid_email = ( strlen(trim($email))>0 && preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+[.]+[a-zA-Z0-9-.]+$/", $email) ) ?  1 : 0;
 
 //reckeck data to prevent direct posts without js validation
 if ( $valid_email==1 && strlen(trim($seed))>0 ) {
@@ -33,15 +33,16 @@ if ( $valid_email==1 && strlen(trim($seed))>0 ) {
 		setcookie("UID", $id_user, $expire);
 		setcookie("SEED", $seddme, $expire);
 		
-		print "<p class='alert alert-success'> <i class='fa fa-hand-o-up'></i> Activation Complete. You could Sign-In now </p>";
+		print "<p class='alert alert-success'> <i class='fa fa-hand-o-up'></i> ".__("Activation Complete. You could Sign-In now")."</p>";
 		
 	} else {
+		
 		// error
-		print "<p class='alert alert-warning'> <i class='fa fa-exclamation-triangle'></i> The activation is not longer available.</p>";
+		print "<p class='alert alert-warning'> <i class='fa fa-exclamation-triangle'></i> ".__("The activation is not longer available.")."</p>";
 	}
 
 } else { 
 	//error
-	print "<p class='alert alert-danger'> <i class='fa fa-exclamation-triangle'></i> Error. Incorrect credentials </p>";
+	print "<p class='alert alert-danger'> <i class='fa fa-exclamation-triangle'></i> ".__("Error. Incorrect credentials")."</p>";
 }
 ?>

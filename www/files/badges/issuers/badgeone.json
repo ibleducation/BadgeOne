@@ -1,8 +1,8 @@
 {
 "@context": "https://w3id.org/openbadges/v1",
-"id" : "http://iblstudiosbadges.com/files/badges/issuers/iblstudios.json",
+"id" : "http://badgeone.com/files/badges/issuers/badgeone.json",
 "@type": "IssuerOrg",
 "name": "IBLStudios Institution",
-"url": "http://iblstudiosbadges.com",
+"url": "http://badgeone.com",
 "email": "user@email"
 }

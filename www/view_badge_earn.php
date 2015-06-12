@@ -3,41 +3,15 @@ include("config.php");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-    <?php
-
-    include("head.php");
-
-    ?>
-
-</head>
+<head><?php include("head.php"); ?></head>
 <body>
 
-<div id="head">
-    <div id="menu">
-
-        <?php
-
-        include("menu.php");
-
-        ?>
-
-    </div>
-</div>
+<div id="head"><div id="menu"><?php include("menu.php"); ?></div></div>
 
 <div id="main">
 
-    <div id='bread'>
-
-        <a href='/'>Home</a> > View Badge Earn
-
-    </div>
-
-    <div class='page_header'>
-
-        View Badge Earn
-
-    </div>
+	<div id='bread'><a href='/'><?php echo __("Home")?></a> > <?php echo __("View Badge Earn")?></div>
+	<div class='page_header'><?php echo __("View Badge Earn")?></div>
 
 	<!-- content -->
 	<?php 
@@ -69,7 +43,7 @@ include("config.php");
 	?>
 	<?php if ( $earn_id> 0 && $allow_preview==1) {?>
 	<div class="container">
-	<div class="col-lg-12"><a href="<?php echo $url_download_badge_image?>" target="_blank" class="btn btn-info btn-lg pull-right"><i class="fa fa-download"></i> Download this Badge</a></div>
+	<div class="col-lg-12"><a href="<?php echo $url_download_badge_image?>" target="_blank" class="btn btn-info btn-lg pull-right"><i class="fa fa-download"></i> <?php echo __("Download this Badge")?></a></div>
 	<div style="max-width:600px;">
 		<div class="col-lg-12">
 			<div>
@@ -80,7 +54,7 @@ include("config.php");
 					<p><small><em><?php echo $course_desc?></em></small></p>
 					<?php if ( $count_params > 0 ) { ?>
 					<p>
-						<strong>Evidences</strong><br>
+						<strong><?php echo __("Evidences")?></strong><br>
 						<?php for ($i = 0; $i < $count_params; $i++) { ?>
 							<p><strong><?php echo $arr_params[$i]['label']?></strong>: <?php echo $arr_params[$i]['content']?></p>
 						<?php }?>
@@ -95,26 +69,8 @@ include("config.php");
 
 </div>
 
-<div id='footer' class='wrapper'>
-
-    <?php
-
-    include("footer.php");
-
-    ?>
-
-</div>
-<div id='copyright' class='wrapper'>
-
-    <?php
-
-    include("copyright.php");
-
-    ?>
-
-</div>
+<div id='footer' class='wrapper'><?php include("footer.php"); ?></div>
+<div id='copyright' class='wrapper'><?php include("copyright.php"); ?></div>
 
 </body>
 </html>
-
-

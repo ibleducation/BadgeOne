@@ -10,41 +10,41 @@
 
 <div id="main">
 
-    <div id='bread'><a href='/'>Home</a> > Dashboard</div>
-    <div class='page_header'>Dashboard</div>
+    <div id='bread'><a href='/'><?php echo __("Home")?></a> > <?php echo __("Dashboard")?></div>
+    <div class='page_header'><?php echo __("Dashboard")?></div>
 
     <!-- contents -->
-    <div class="container"><div class="col-lg-12"><br></div></div>
+	<div class="container"><div class="col-lg-12"><br></div></div>
     
     <div class="col-lg-3 col-md-3">
     	<div class="list-group text-center">
     		<a href="./my_profile.php" class="list-group-item list-group-item-success">
-    			<h4 class="list-group-item-heading">My Profile</h4>
+    			<h4 class="list-group-item-heading"><?php echo __("My Profile")?></h4>
     			<p class="list-group-item-text"><i class="fa fa-key fa-4x"></i></p>
     			<p class="list-group-item-text"><br></p>
-  		</a>
-  	</div>
+  			</a>
+  		</div>
     </div>
 	
     <div class="col-lg-3 col-md-3">
     	<div class="list-group text-center">
     		<a href="./my_earn.php" class="list-group-item active">
-    			<h4 class="list-group-item-heading">My Badges</h4>
+    			<h4 class="list-group-item-heading"><?php echo __("My Badges")?></h4>
     			<p class="list-group-item-text"><i class="fa fa-picture-o fa-4x"></i></p>
     			<p class="list-group-item-text"><br></p>
-  		</a>
-  	</div>
+  			</a>
+  		</div>
     </div>
     
     <?php if ( isset($logged_profile) && $logged_profile!='general') { ?>
     <div class="col-lg-3 col-md-3">
     	<div class="list-group text-center">
     		<a href="./issuer.php" class="list-group-item list-group-item-info">
-    			<h4 class="list-group-item-heading">Issue Badges</h4>
+    			<h4 class="list-group-item-heading"><?php echo __("Issue Badges")?></h4>
     			<p class="list-group-item-text"><i class="fa fa-graduation-cap fa-4x"></i></p>
     			<p class="list-group-item-text"><br></p>
-  		</a>
-  	</div>
+  			</a>
+  		</div>
     </div>
     <?php } ?>
     
@@ -52,11 +52,11 @@
     <div class="col-lg-3 col-md-3">
     	<div class="list-group text-center">
     		<a href="./users.php" class="list-group-item list-group-item-warning">
-    			<h4 class="list-group-item-heading">Users</h4>
+    			<h4 class="list-group-item-heading"><?php echo __("Users")?></h4>
     			<p class="list-group-item-text"><i class="fa fa-users fa-4x"></i></p>
     			<p class="list-group-item-text"><br></p>
-  		</a>
-  	</div>
+  			</a>
+  		</div>
     </div>
 	<?php } ?>
     

@@ -109,15 +109,15 @@ define ('SERVER_HTTP_HOST', getSiteURL() );
 define("NOCACHE", sha1(microtime()));
 
 //App : Info Settings
-define ('APP_NAME', "IBLStudiosBadges");
-define ('APP_OWNER', "IBL");
-define ('APP_VERSION', "v.0.1");
-define ('APP_PREFIX', "[iblstudiosbadges]"); //used in composed emails if needed
+define ('APP_NAME', "BadgeOne");
+define ('APP_OWNER', "IBLStudios");
+define ('APP_VERSION', "v.0.9");
+define ('APP_PREFIX', "[badgeone]"); //used in composed emails if needed
 define ('APP_USER_MIN_CHARS_PWD', 5); //min chars for user passwords
 
 //App: General Options
 define ('APP_ALLOW_NOCONFIRM_REGISTRATION',1); //1: allows direct registration instead email confirmation 
-define ('APP_EMAIL',"user@email");
+define ('APP_EMAIL',"user@email.local");
 
 //App: Badges App Params
 define ('BADGES_PARAMS_NUM_MAX',1); //do not change : OBI specs : 1 evidence -> type URL
@@ -141,6 +141,9 @@ define ("CURRENT_PAGE", $current_page);
 // SESSION START
 //
 session_start();
+
+// Multilang config
+include 'config.langs.php';
 
 //
 // Setup DB Connection

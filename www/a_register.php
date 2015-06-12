@@ -5,10 +5,10 @@ $form = get_form();
 
 //required data
 (int) 		$allow_noconfirm_registration = ( defined('APP_ALLOW_NOCONFIRM_REGISTRATION') && APP_ALLOW_NOCONFIRM_REGISTRATION==1 ) ? 1  : 0;
-(string) 	$email		= strtolower( $form["email"] ) ; //to lower
-(int) 		$valid_email	= ( strlen(trim($email))>0 && preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+[.]+[a-zA-Z0-9-.]+$/", $email) ) ?  1 : 0;
-(string) 	$name		= $form["name"];
-(string) 	$upwd		= $form["password"];
+(string) 	$email		 =	strtolower( $form["email"] ) ; //to lower
+(int) 		$valid_email = ( strlen(trim($email))>0 && preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+[.]+[a-zA-Z0-9-.]+$/", $email) ) ?  1 : 0;
+(string) 	$name		 = $form["name"];
+(string) 	$upwd		 = $form["password"];
 
 
 //reckeck data to prevent direct posts without js validation
@@ -20,20 +20,22 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 	$rows = $stmt->fetchAll();
 	
 	if($stmt->rowCount()>0){
-		// error
-		print "2";
+	
+	    // error
+	    print "2";
+	
 	} else {
-		//params
-		$date_now		= date("Y-m-d H:i:s"); 
-		$seddme			= md5(time());
-		$institution		= BADGES_ISSUER_INSTITUTION_NAME;
-		$institution_url 	= BADGES_ISSUER_INSTITUTION_URL;
-		$institution_image	= BADGES_ISSUER_INSTITUTION_IMAGE;
-		$institution_email	= BADGES_ISSUER_INSTITUTION_EMAIL;
-		$activated 		= ( $allow_noconfirm_registration == 1 ) ? 1 : 0;
-		$activate_seed 		= ( $allow_noconfirm_registration == 1 ) ? '' : "$seddme";
-		$date_activated		= ( $allow_noconfirm_registration == 1 ) ? $date_now : NULL;
-		$date_created		= $date_now;
+			//params
+			$date_now			= date("Y-m-d H:i:s"); 
+			$seddme				= md5(time());
+			$institution		= BADGES_ISSUER_INSTITUTION_NAME;
+			$institution_url 	= BADGES_ISSUER_INSTITUTION_URL;
+			$institution_image	= BADGES_ISSUER_INSTITUTION_IMAGE;
+			$institution_email	= BADGES_ISSUER_INSTITUTION_EMAIL;
+			$activated 			= ( $allow_noconfirm_registration == 1 ) ? 1 : 0;
+			$activate_seed 		= ( $allow_noconfirm_registration == 1 ) ? '' : "$seddme";
+			$date_activated		= ( $allow_noconfirm_registration == 1 ) ? $date_now : NULL;
+			$date_created		= $date_now;
 			
 	        //add new user and seed data
 	        $sdata = array($email,$name,$institution,$institution_url,$institution_image,$institution_email,md5($upwd),$seddme,$activated,$activate_seed,$date_created,$date_activated);
@@ -44,8 +46,8 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 	        $user_id = $dbh->lastInsertId();
         
 	        //setup oauth2 client
-	        $client_id = $email."-".rand_chars();
-	        $client_secret = rand_chars(8) ."-". rand_chars(4) ."-". rand_chars(4) ."-". rand_chars(4) ."-". rand_chars(12);
+	        $client_id 		= $email."-".rand_chars();
+	        $client_secret 	= rand_chars(8) ."-". rand_chars(4) ."-". rand_chars(4) ."-". rand_chars(4) ."-". rand_chars(12);
 	        $sdata = array($client_id,$client_secret,$user_id);
 	        $stmt = $dbh->prepare("INSERT INTO oauth_clients (client_id,client_secret,user_id) VALUES(?,?,?) ");
 	        $stmt->execute($sdata);
@@ -54,9 +56,9 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 	        if ( $allow_noconfirm_registration !=1 ) 
 	        {
 	        	$to = "$email";
-	        	$subject = APP_PREFIX." Confirm your account";
+	        	$subject = APP_PREFIX." ".__("Confirm your account");
 	        	$url_activation = SERVER_HTTP_HOST."/account_activation.php?s=$seddme&e=$email";
-	        	$message = "To activate your account, click this link : $url_activation";
+	        	$message = __("To activate your account, click this link :").$url_activation;
 	        	$header = "From: ".APP_EMAIL."\nContent-Type: text/html";
 	        	$params = "-f".APP_EMAIL."";
 	        	mail($to, $subject, $message, $header,$params);
@@ -67,7 +69,7 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 	        {
 		        //setup cookie session
 		        $expire=time()+60*60*24*30;
-	    		setcookie("UID", $user_id, $expire);
+	    	    setcookie("UID", $user_id, $expire);
 	        	setcookie("SEED", $seddme, $expire);
 	        	
 	        	print "11";

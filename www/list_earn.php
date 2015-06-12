@@ -16,28 +16,28 @@
 
 <div id="main">
 
-    	<div id='bread'><a href='/'>Home</a> >Earns of Issuer Badges</div>
-    	<div class='page_header'>List of Earned Badges</div>
+    <div id='bread'><a href='/'><?php echo __("Home")?></a> > <?php echo __("Earns of Issuer Badges")?></div>
+    <div class='page_header'><?php echo __("List of Earned Badges")?></div>
     
-    	<?php 
-    	//
-    	// Get needed values
-    	//
-	$sel_badge_id	= ( isset($_POST["badge_id"]) && $_POST["badge_id"]!='') ? $_POST["badge_id"] : '';
-    	$badge_id 	= ( $sel_badge_id!="") ? COMMONDB_MODULE::decrypt_id("badges_issuers", $sel_badge_id) : '0';
-    	$user_id	= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
-    	?>
+    <?php 
+    //
+    // Get needed values
+    //
+    $sel_badge_id	= ( isset($_POST["badge_id"]) && $_POST["badge_id"]!='') ? $_POST["badge_id"] : '';
+    $badge_id 		= ( $sel_badge_id!="") ? COMMONDB_MODULE::decrypt_id("badges_issuers", $sel_badge_id) : '0';
+    $user_id		= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
+    ?>
     
-    	<div class="pull-left">
+    <div class="pull-left">
 		<form action="badge_earn.php" method="post">
-			<input type="hidden" name="badge_id" id="badge_id" value="<?php echo $sel_badge_id;?>">
-			<button type="submit" class="btn btn-success" type="button"> <i class="fa fa-star"></i> EARN A NEW BADGE</button>
+		<input type="hidden" name="badge_id" id="badge_id" value="<?php echo $sel_badge_id;?>">
+		<button type="submit" class="btn btn-success" type="button"> <i class="fa fa-star"></i> <?php echo __("EARN A NEW BADGE")?> </button>
 		</form>
-    	</div>
-    	<div class="pull-right"><a href="./issuer.php" class="btn btn-info btn-md"><i class="fa fa-backward"></i> BACK TO ISSUER LIST</a></div>
+    </div>
+	<div class="pull-right"><a href="./issuer.php" class="btn btn-info btn-md"><i class="fa fa-backward"></i> <?php echo __("BACK TO ISSUER LIST")?> </a></div>
 
-    	<!-- contents -->
-    	<?php include "events.php";?>
+	<!-- contents -->
+    <?php include "events.php";?>
 	<?php if ( isset($event_errors) && $event_errors!="" ) { print '<div class="row col-lg-12 alert alert-danger" style="color:red; margin-top:10px;">'.$event_errors.'</div>'; }?>
 	<?php if ( isset($event_success) && $event_success!="" ) { print '<div class="row col-lg-12  alert alert-success" style="color:green; margin-top:10px;">'.$event_success.'</div>'; }?>
     	
@@ -45,15 +45,15 @@
 	      <thead>
 	        <tr>
 	          <th>#</th>
-	          <th>UserID</th>
-	          <th>Fullname</th>
-	          <th>Email</th>
-	          <th>Course</th>
-	          <th>Institution</th>
-	          <th class="tocenter">Preview</th>
+	          <th><?php echo __("UserID")?></th>
+	          <th><?php echo __("Fullname")?></th>
+	          <th><?php echo __("Email")?></th>
+	          <th><?php echo __("Course")?></th>
+	          <th><?php echo __("Institution")?></th>
+	          <th class="tocenter"><?php echo __("Preview")?></th>
 	          <th class="tocenter" title="Json File Badge Assertion">JAsser</th>
 	          <th class="tocenter" title="Json File Badge Class">JClass</th>
-	          <th class="tocenter">Revoke</th>
+	          <th class="tocenter"><?php echo __("Revoke")?></th>
 	        </tr>
 	      </thead>
 	      <tbody>
@@ -66,31 +66,31 @@
 			$badges_assertion_file_path = APP_GENERAL_REPO_BADGES_EARN_LOCAL."/".get_crypted_id($item['earn_id']).BADGES_ASSERTION_PREFIX_JSON_FILES;
 			$badges_assertion_file_path = (file_exists($badges_assertion_file_path)) ? $badges_assertion_file_path : "#";
 			$badges_assertion_css 		= ($badges_assertion_file_path=='#') ? "btn-danger" : "btn-warning";
-			$badges_assertion_target	= ($badges_assertion_file_path=='#') ? " onclick=\"alert('None');return false;\" " : ' target="_blank" ';
+			$badges_assertion_target	= ($badges_assertion_file_path=='#') ? " onclick=\"alert('".__("None")."');return false;\" " : ' target="_blank" ';
 			
 			$badges_class_file_path = APP_GENERAL_REPO_BADGES_EARN_LOCAL."/".get_crypted_id($item['earn_id']).BADGES_CLASS_PREFIX_JSON_FILES;
 			$badges_class_file_path = (file_exists($badges_class_file_path)) ? $badges_class_file_path : "#";
 			$badges_class_css 		= ($badges_class_file_path=='#') ? "btn-danger" : "btn-warning"; 
-			$badges_class_target	= ($badges_class_file_path=='#') ? " onclick=\"alert('None');return false;\" " : ' target="_blank" ';
+			$badges_class_target	= ($badges_class_file_path=='#') ? " onclick=\"alert('".__("None")."');return false;\" " : ' target="_blank" ';
 		?>
-		<tr>
+		   <tr>
 	          <td><?php echo $item['earn_id']?></td>
 	          <td><?php echo $item['user_id']?></td>
 	          <td><?php echo $item['earn_fullname']?></td>
 	          <td><?php echo $item['earn_email']?></td>
 	          <td><?php echo $item['course']?></td>
 	          <td><?php echo $item['institution']?></td>
-	          <td class="tocenter"><a href="view_badge_earn.php?badge_id=<?php echo get_crypted_id($item["earn_id"]);?>" target="_blank" class="btn btn-info" title="Preview"><i class="fa fa-search"></i></a></td>
+	          <td class="tocenter"><a href="view_badge_earn.php?badge_id=<?php echo get_crypted_id($item["earn_id"]);?>" target="_blank" class="btn btn-info" title="<?php echo __("Preview")?>"><i class="fa fa-search"></i></a></td>
 	         
 	          <th class="tocenter"><a href="<?php echo $badges_assertion_file_path?>" <?php echo $badges_assertion_target?> class="btn <?php echo $badges_assertion_css?>"><i class="fa fa-file-code-o"></i></a></th>
 	          <th class="tocenter"><a href="<?php echo $badges_class_file_path?>" <?php echo $badges_class_target?> class="btn <?php echo $badges_class_css?>"><i class="fa fa-file-code-o"></i></a></th>
 	         
 	          <td class="tocenter">
-		          <form action="#" method="post" onsubmit="return checkConfirm('Are you sure?');">
-			          <input type="hidden" name="event" value="delete_earn">
-			          <input type="hidden" name="badge_id" value="<?php echo $sel_badge_id;?>">
-			          <input type="hidden" name="earn_id" value="<?php echo get_crypted_id($item["earn_id"]);?>">
-			          <button type="submit" class="btn btn-danger">Revoke <i class="fa fa-trash"></i></button>
+		          <form action="#" method="post" onsubmit="return checkConfirm('<?php echo __("Are you sure?")?>');">
+		          <input type="hidden" name="event" value="delete_earn">
+		          <input type="hidden" name="badge_id" value="<?php echo $sel_badge_id;?>">
+		          <input type="hidden" name="earn_id" value="<?php echo get_crypted_id($item["earn_id"]);?>">
+		          <button type="submit" class="btn btn-danger"><?php echo __("Revoke")?> <i class="fa fa-trash"></i></button>
 		          </form>
 	          </td>
 	        </tr>
@@ -105,11 +105,11 @@
 
 <div class="container"><div class="col-lg-12">
 	<p class="alert alert-warning">
-		<b>More Info</b><br>
-		* JAsser => Links to Json File "Badge Assertion" (standards openbadges)<br>
-		* JBClass => Links to Json File "Badge Class" (standards openbadges)<br>	
-		* Online tool => validate json structure: <a href="http://jsonlint.com/" target="_blank">http://jsonlint.com/</a> <br>
-		* Online tool => validate openbadges Assertion: <a href="http://validator.openbadges.org/" target="_blank">http://validator.openbadges.org/</a> <br>
+		<b><?php echo __("More Info")?></b><br>
+		* JAsser => <?php echo __("Links to Json File")?> "Badge Assertion" (standards openbadges)<br>
+		* JBClass => <?php echo __("Links to Json File")?> "Badge Class" (standards openbadges)<br>	
+		* <?php echo __("Online tool")?> => <?php echo __("validate")." ".__("json structure")?>: <a href="http://jsonlint.com/" target="_blank">http://jsonlint.com/</a> <br>
+		* <?php echo __("Online tool")?> => <?php echo __("validate")?> openbadges Assertion: <a href="http://validator.openbadges.org/" target="_blank">http://validator.openbadges.org/</a> <br>
 	</p>
 </div></div>
 

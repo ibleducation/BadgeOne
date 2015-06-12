@@ -16,8 +16,8 @@
 
 <div id="main">
 
-    <div id='bread'><a href='/'>Home</a> >Earn a new Badge</div>
-    <div class='page_header'>Earn a new Badge</div>
+    <div id='bread'><a href='/'><?php echo __("Home")?></a> > <?php echo __("Earn a new Badge")?></div>
+    <div class='page_header'><?php echo __("Earn a new Badge")?></div>
 
     <!-- contents -->
 	<?php 
@@ -33,7 +33,6 @@
 	$earn_granted_id	= 0;
 	$earn_granted_id	= ($earn_granted_id==0 && isset($new_earn_id) && $new_earn_id>0) ? $new_earn_id : $earn_granted_id;
 	$earn_granted_id	= ($earn_granted_id==0 && $badge_id>0 && isset($_POST["earn_email"]) && $_POST["earn_email"]!='') ? COMMONDB_MODULE::get_selected_value("badges_earns", "earn_id", "WHERE badge_id='$badge_id' AND earn_email='".$_POST["earn_email"]."'") : $earn_granted_id;
-	//$earn_granted_id	= ($earn_granted_id==0 && $user_id>0) ? COMMONDB_MODULE::get_selected_value("badges_earns", "earn_id", "WHERE badge_id='$badge_id' AND user_id='$user_id'") : $earn_granted_id;
 	$url_earn_badge		= ($earn_granted_id>0) ? "view_badge_earn.php?badge_id=".get_crypted_id($earn_granted_id) : "";
 	
 	//create object
@@ -63,7 +62,7 @@
     <div class="pull-right">
 		<form action="list_earn.php" method="post">
 		<input type="hidden" name="badge_id" id="badge_id" value="<?php echo $sel_badge_id?>">
-		<button type="submit" class="btn btn-info" type="button"> <i class="fa fa-backward"></i> BACK TO EARN LIST</button>
+		<button type="submit" class="btn btn-info" type="button"> <i class="fa fa-backward"></i> <?php echo __("BACK TO EARN LIST")?></button>
 		</form>    
     </div>	
 	
@@ -75,22 +74,22 @@
 		<?php if ( isset($event_errors) && $event_errors!="" ) { print '<div class="row col-lg-12 alert alert-danger" style="color:red; margin-top:10px;">'.$event_errors.'</div>'; }?>
 		<?php if ( isset($event_success) && $event_success!="" ) { print '<div class="row col-lg-12  alert alert-success" style="color:green; margin-top:10px;">'.$event_success.'</div>'; }?>
 	
-		<h3>View the new Badge </h3>
-		<h4>Course : <?php echo ($badge_id>0) ? "$course" : ""?></h4>
+		<h3><?php echo __("View the new Badge")?> </h3>
+		<h4><?php echo __("Course")?> : <?php echo ($badge_id>0) ? "$course" : ""?></h4>
 		
 		<div class="col-lg-6">
-			<?php echo "<a href='".$url_earn_badge."' class='btn btn-info' target='_blank'>VIEW THE BADGE <i class='fa fa-search'></i></a>"?>
+			<?php echo "<a href='".$url_earn_badge."' class='btn btn-info' target='_blank'>".__("VIEW THE BADGE")." <i class='fa fa-search'></i></a>"?>
 		</div>
 		<div class="col-lg-6">
 			<form action="badge_earn.php" method="post">
 			<input type="hidden" name="badge_id" id="badge_id" value="<?php echo $sel_badge_id;?>">
-			<button type="submit" class="btn btn-success" type="button"> <i class="fa fa-star"></i> EARN A NEW BADGE</button>
+			<button type="submit" class="btn btn-success" type="button"> <i class="fa fa-star"></i> <?php echo __("EARN A NEW BADGE")?> </button>
 			</form>		
 		</div>
 		
 		<?php } else { ?>
 	
-		<h3>Course : <?php echo ($badge_id>0) ? "$course" : ""?></h3>
+		<h3><?php echo __("Course")?> : <?php echo ($badge_id>0) ? "$course" : ""?></h3>
 		
 		<?php if ( isset($event_errors) && $event_errors!="" ) { print '<p class="" style="color:red;">'.$event_errors.'</p>'; }?>
 		<?php if ( isset($event_success) && $event_success!="" ) { print '<p class="" style="color:green;">'.$event_success.'</p>'; }?>
@@ -101,16 +100,16 @@
 
 			<!-- main data -->
 			<div class="col-lg-6">
-				<div class="form-group"><h3>User Data (* Required)</h3></div>
+				<div class="form-group"><h3><?php echo __("User Data")?> (* <?php echo __("Required")?>)</h3></div>
 				
 				<div class="form-group">
-					<label for="earn_fullname">Full name</label>
-					<input type="text" name="earn_fullname" id="earn_fullname" value="<?php echo $earn_fullname?>" class="form-control" required="required" placeholder="full name">
+					<label for="earn_fullname"><?php echo __("Full name")?></label>
+					<input type="text" name="earn_fullname" id="earn_fullname" value="<?php echo $earn_fullname?>" class="form-control" required="required" placeholder="<?php echo __("Full name")?>">
 				</div>
 				
 				<div class="form-group">
-					<label for="earn_email">Email</label>
-					<input type="email" name="earn_email" id="earn_email" value="<?php echo $earn_email?>" class="form-control" required="required" placeholder="email">
+					<label for="earn_email"><?php echo __("Email")?></label>
+					<input type="email" name="earn_email" id="earn_email" value="<?php echo $earn_email?>" class="form-control" required="required" placeholder="<?php echo __("Email")?>">
 				</div>
 			</div>
 			<!-- /main data -->
@@ -118,13 +117,13 @@
 			<!-- params -->
 			<div class="col-lg-6">
 			<?php if ($count_params > 0 ) {  ?>
-				<div class="form-group"><h3>Evidence (Optional)</h3></div>
+				<div class="form-group"><h3><?php echo __("Evidence")?> (<?php echo __("Optional")?>)</h3></div>
 				<?php for ($i = 0; $i < $count_params; $i++) { ?>
 				<div class="form-group small">
 					<label for="label-<?php echo $i?>-<?php echo $arr_params[$i]['param_id'] ?>"><?php echo $arr_params[$i]['label']?></label>
 					<small><?php echo $arr_params[$i]['description']?></small><br>
-					<input type="text" id="description-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" name="description-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" value="" class="form-control" placeholder="http:// or https://">
-					<small>(*) required valid URL</small>
+					<input type="text" id="description-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" name="description-<?php echo $i?>-<?php echo $arr_params[$i]['param_id']?>" value="" class="form-control" placeholder="http:// <?php echo __("or")?> https://">
+					<small>(*) <?php echo __("Required")?> <?php echo __("valid URL")?></small>
 				</div>
 				<?php }?>
 			<?php }?>
@@ -132,7 +131,7 @@
 
 			<!--actions -->
 			<div class="col-lg-12">
-				<center><button type="submit" class="btn btn-success">EARN A NEW BADGE <i class="fa fa-forward"></i></button></center>
+				<center><button type="submit" class="btn btn-success"><?php echo __("EARN A NEW BADGE")?> <i class="fa fa-forward"></i></button></center>
 			</div>
 			<!--/actions -->
 		
@@ -140,7 +139,7 @@
 	<?php } ?>
 	
 	<?php } else { ?>
-	<p class="" style="color:red">Badge does not exists or is not enabled</p>
+	<p class="" style="color:red"><?php echo __("Badge does not exists or is not enabled")?></p>
 	<?php } ?>	
 	<!-- /contents -->
     

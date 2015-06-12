@@ -24,15 +24,11 @@ if( isset($logged_user) && $logged_user>0 && isset($_COOKIE["UID"]) && isset($_C
 <div id="main">
 
     <div id='bread'>
-
-        <a href='/'>Home</a> > Sign in
-
+        <a href='/'><?php echo __("Home")?></a> > <?php echo __("Sign in")?>
     </div>
 
     <div class='page_header'>
-
-       Sign In
-
+       <?php echo __("Sign in")?>
     </div>
 
 
@@ -40,13 +36,9 @@ if( isset($logged_user) && $logged_user>0 && isset($_COOKIE["UID"]) && isset($_C
     <div class='login_div' id='logindiv'></div>
 
     <form id='logform' name='logform' class='logform' action='a_login.php' method='post'>
-
-        <input type=text name="email" class='forms toleft' placeholder="Email" id='emailreg' tabindex="1"><br>
-
-        <input type=password name="password" class='forms toleft' placeholder="Password" id='password1' tabindex="2"><br>
-
-        <input type="submit" value="Sign In" class="greybutton" tabindex="3"><br>
-
+        <input type=text name="email" class='forms toleft' placeholder="<?php echo __("Email")?>" id='emailreg' tabindex="1"><br>
+        <input type=password name="password" class='forms toleft' placeholder="<?php echo __("Password")?>" id='password1' tabindex="2"><br>
+        <input type="submit" value="<?php echo __("Sign In")?>" class="greybutton" tabindex="3"><br>
     </form>
 
 </div>

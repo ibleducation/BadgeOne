@@ -1,0 +1,841 @@
+# BadgeOne po file.
+# Copyright (C) 2015, IBLStudios <iblstudios@iblstudios.com>
+# This file is distributed under the same license as the IBLOpenBadges-Server package.
+# IBLStudios <iblstudios@iblstudios.com>, 2015
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BadgeOne 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-08 14:12+0200\n"
+"PO-Revision-Date: 2015-06-12 12:47+0100\n"
+"Last-Translator: IBLStudios <iblstudios@iblstudios.com>\n"
+"Language-Team: es_ES <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es_ES\n"
+
+#: ../www/badge_edit.php:136 ../www/issuer.php:48
+msgid "ADD NEW BADGE"
+msgstr "NUEVA INSIGNIA"
+
+#: ../www/account_activation.php:29 ../www/account_activation.php:35
+msgid "Account Activation"
+msgstr "Activación de Cuenta"
+
+#: ../www/a_activation.php:36
+msgid "Activation Complete. You could Sign-In now"
+msgstr "Activación Completada. Ya puede acceder"
+
+#: ../www/my_profile.php:138 ../www/my_profile.php:129
+#: ../www/my_profile.gt.php:129
+msgid "Activation Date"
+msgstr "Fecha activación"
+
+#: ../www/users.php:47
+msgid "Active"
+msgstr "Activo"
+
+#: ../www/earn.php:56 ../www/issuer.php:135 ../www/list_earn.php:89
+#: ../www/users.php:105
+msgid "Are you sure?"
+msgstr "Está seguro?"
+
+#: ../www/my_profile.php:179 ../www/my_profile.php:170
+#: ../www/my_profile.gt.php:170
+msgid "Assertion Template"
+msgstr "Plantilla Assertion"
+
+#: ../www/badge_earn.php:66 ../www/badge_earn.php:65
+msgid "BACK TO EARN LIST"
+msgstr "VOLVER AL LISTADO DE ASGINADAS"
+
+#: ../www/badge_edit.php:22 ../www/badge_revoked.php:48
+#: ../www/list_earn.php:37
+msgid "BACK TO ISSUER LIST"
+msgstr "VOLVER AL LISTADO DE EMISORES"
+
+#: ../www/badge_edit.php:88 ../www/badge_edit.php:92
+msgid "Badge"
+msgstr "Insignia"
+
+#: ../www/events.php:135
+msgid "Badge Earn deleted"
+msgstr "Eliminación de Insignia asignada"
+
+#: ../www/events.php:161
+msgid "Badge deleted"
+msgstr "Eliminación de Insignia"
+
+#: ../www/badge_earn.php:143 ../www/badge_earn.php:142
+msgid "Badge does not exists or is not enabled"
+msgstr "Insignia inexistente o desactivada"
+
+#: ../www/issuer.php:116
+msgid "Badge not enabled"
+msgstr "Insignia no activada"
+
+#: ../www/my_profile.php:180 ../www/my_profile.php:171
+#: ../www/my_profile.gt.php:171
+msgid "BadgeClass Template"
+msgstr "BadgeClass Plantilla"
+
+#: ../www/badge_revoked.php:19 ../www/badge_revoked.php:20
+msgid "Badges revoked"
+msgstr "Insignia revocada"
+
+#: ../www/events.php:205 ../www/events.php:206 ../www/events.php:207
+msgid "Bage IMG"
+msgstr "Insignia IMG"
+
+#: ../www/badge_edit.php:134
+msgid "CREATE A NEW BADGE"
+msgstr "CREAR NUEVA INSIGNIA"
+
+#: ../www/my_profile.php:162 ../www/my_profile.php:153
+#: ../www/my_profile.gt.php:153
+msgid "Check directories and required files"
+msgstr "Verificar directorios y ficheros requeridos"
+
+#: ../www/a_register.php:59
+msgid "Confirm your account"
+msgstr "Confirma tu cuenta"
+
+#: ../www/events.php:137 ../www/events.php:141 ../www/events.php:163
+#: ../www/issuer.php:133 ../www/users.php:103
+msgid "Could not be deleted"
+msgstr "No puede eliminarse"
+
+#: ../www/issuer.php:99
+msgid "Could not be modified"
+msgstr "No puede modificarse"
+
+#: ../www/events.php:190 ../www/events.php:345
+msgid "Could not proceed"
+msgstr "No se puede procesar"
+
+#: ../www/events.php:190 ../www/events.php:345
+msgid "Could not proceed. Invalid syntax for Course Criteria URL"
+msgstr ""
+"No se puede procesar. Sintaxis inválida para URL del Criterio del Curso"
+
+#: ../www/badge_earn.php:79 ../www/badge_earn.php:93 ../www/badge_edit.php:75
+#: ../www/badge_edit.php:79 ../www/badge_edit.php:84 ../www/earn.php:34
+#: ../www/badge_earn.php:78 ../www/badge_earn.php:92 ../www/badge_edit.php:76
+#: ../www/badge_edit.php:80 ../www/issuer.php:58 ../www/my_earn.php:32
+#: ../www/view_badge_issuer.php:60 ../www/list_earn.php:51
+msgid "Course"
+msgstr "Curso"
+
+#: ../www/register.php:25
+msgid "Create Account"
+msgstr "Crear una Cuenta"
+
+#: ../www/menu.php:53 ../www/register.php:24
+msgid "Create Free Account"
+msgstr "Crear una Cuenta Gratuita"
+
+#: ../www/users.php:48
+msgid "Created"
+msgstr "F.Creación"
+
+#: ../www/badge_edit.php:79 ../www/badge_edit.php:80
+msgid "Criteria URL"
+msgstr "URL Criterio"
+
+#: ../www/dashboard.php:13 ../www/dashboard.php:14 ../www/menu.php:37
+msgid "Dashboard"
+msgstr "Escritorio"
+
+#: ../www/badge_revoked.php:57
+msgid "Date"
+msgstr "Fecha"
+
+#: ../www/earn.php:37 ../www/earn.php:59 ../www/issuer.php:65
+#: ../www/issuer.php:133 ../www/users.php:49 ../www/users.php:103
+#: ../www/users.php:109
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ../www/badge_edit.php:84 ../www/badge_edit.php:109
+#: ../www/badge_edit.php:122
+msgid "Description"
+msgstr "Descripción"
+
+#: ../www/badge_edit.php:85
+msgid "Description here"
+msgstr "Descripción aquí"
+
+#: ../www/view_badge_earn.php:46
+msgid "Download this Badge"
+msgstr "Descargar la insignia"
+
+#: ../www/badge_earn.php:87 ../www/badge_earn.php:135 ../www/badge_earn.php:86
+#: ../www/badge_earn.php:134 ../www/list_earn.php:34
+msgid "EARN A NEW BADGE"
+msgstr "ASIGNAR NUEVA INSIGNIA"
+
+#: ../www/issuer.php:63 ../www/issuer.php:113 ../www/issuer.php:116
+msgid "Earn"
+msgstr "Asignar"
+
+#: ../www/badge_earn.php:19 ../www/badge_earn.php:20
+msgid "Earn a new Badge"
+msgstr "Asignar nueva insignia"
+
+#: ../www/earn.php:19 ../www/earn.php:20 ../www/list_earn.php:19
+msgid "Earns of Issuer Badges"
+msgstr "Insignias asignadas de los emisores"
+
+#: ../www/issuer.php:61 ../www/issuer.php:99 ../www/issuer.php:101
+msgid "Edit"
+msgstr "Editar"
+
+#: ../www/badge_edit.php:19 ../www/badge_edit.php:20
+msgid "Edit Badge"
+msgstr "Editar Insignia"
+
+#: ../www/badge_earn.php:112 ../www/earn.php:33 ../www/login.php:39
+#: ../www/register.php:35 ../www/badge_revoked.php:60
+#: ../www/badge_earn.php:111 ../www/my_earn.php:31 ../www/list_earn.php:50
+#: ../www/my_profile.php:65 ../www/my_profile.php:66 ../www/users.php:45
+#: ../www/my_profile.php:56 ../www/my_profile.php:57
+#: ../www/my_profile.gt.php:56 ../www/my_profile.gt.php:57
+msgid "Email"
+msgstr "Email"
+
+#: ../www/my_profile.php:126 ../www/my_profile.php:117
+#: ../www/my_profile.gt.php:117
+msgid "Email Institution"
+msgstr "Institución Email"
+
+#: ../www/issuer.php:59 ../www/issuer.php:158
+msgid "Enabled"
+msgstr "Activo"
+
+#: ../www/events.php:207
+msgid "Error extension"
+msgstr "Error extensión"
+
+#: ../www/events.php:206
+msgid "Error size"
+msgstr "Error tamaño"
+
+#: ../www/a_activation.php:46
+msgid "Error. Incorrect credentials"
+msgstr "Error. Credenciales incorrectas"
+
+#: ../www/badge_earn.php:121 ../www/badge_edit.php:100
+#: ../www/badge_earn.php:120
+msgid "Evidence"
+msgstr "Evidencia"
+
+#: ../www/view_badge_earn.php:57 ../www/view_badge_issuer.php:64
+msgid "Evidences"
+msgstr "Evidencias"
+
+#: ../www/my_profile.php:166 ../www/my_profile.php:157
+#: ../www/my_profile.gt.php:157
+msgid "Exists"
+msgstr "Existe"
+
+#: ../www/badge_revoked.php:39 ../www/users.php:30
+msgid "Find user"
+msgstr "Encontrar usuario"
+
+#: ../www/badge_earn.php:107 ../www/badge_earn.php:106
+#: ../www/my_profile.php:60 ../www/my_profile.php:61 ../www/my_profile.php:51
+#: ../www/my_profile.php:52 ../www/my_profile.gt.php:51
+#: ../www/my_profile.gt.php:52
+msgid "Full name"
+msgstr "Nombre Completo"
+
+#: ../www/earn.php:32 ../www/my_earn.php:30 ../www/list_earn.php:49
+msgid "Fullname"
+msgstr "Nombre Completo"
+
+#: ../www/my_profile.php:171 ../www/my_profile.php:162
+#: ../www/my_profile.gt.php:162
+msgid "General Repository"
+msgstr "Repositorio General"
+
+#: ../www/my_profile.php:177 ../www/my_profile.php:168
+#: ../www/my_profile.gt.php:168
+msgid "General Repository Templates"
+msgstr "Repositorio General Plantillas"
+
+#: ../www/badge_earn.php:19 ../www/badge_edit.php:19 ../www/dashboard.php:13
+#: ../www/earn.php:19 ../www/login.php:27 ../www/register.php:24
+#: ../www/account_activation.php:29 ../www/badge_revoked.php:19
+#: ../www/issuer.php:19 ../www/reset.php:24 ../www/view_badge_earn.php:13
+#: ../www/view_badge_issuer.php:13 ../www/list_earn.php:19 ../www/users.php:19
+#: ../www/my_profile.php:15 ../www/my_profile.gt.php:15
+msgid "Home"
+msgstr "Inicio"
+
+#: ../www/register.php:39
+msgid "I accept the Terms of Service"
+msgstr "Accepto los Términos del Servicio"
+
+#: ../www/issuer.php:161
+msgid ""
+"If you want to disable temporally or permanently the earn process, just "
+"unpublish the item."
+msgstr ""
+"Si deseas desactivar temporal o permanentemente el proceso de asignación, "
+"solo tienes que despublicar el item."
+
+#: ../www/badge_edit.php:88 ../www/badge_edit.php:92 ../www/badge_edit.php:93
+msgid "Image"
+msgstr "Imagen"
+
+#: ../www/my_profile.php:166 ../www/my_profile.php:157
+#: ../www/my_profile.gt.php:157
+msgid "Info"
+msgstr "Info"
+
+#: ../www/badge_edit.php:71 ../www/earn.php:35 ../www/my_earn.php:33
+#: ../www/list_earn.php:52 ../www/my_profile.php:118 ../www/my_profile.php:109
+#: ../www/my_profile.gt.php:109
+msgid "Institution"
+msgstr "Institución"
+
+#: ../www/dashboard.php:43
+msgid "Issue Badges"
+msgstr "Emisión de Insignias"
+
+#: ../www/menu.php:43
+msgid "Issuer"
+msgstr "Emisores"
+
+#: ../www/issuer.php:20
+msgid "Issuer : Managed badges"
+msgstr "Emisores : Gestión de insignias"
+
+#: ../www/my_profile.php:181 ../www/my_profile.php:172
+#: ../www/my_profile.gt.php:172
+msgid "Issuer JSON master file"
+msgstr "Emisor JSON fichero master"
+
+#: ../www/issuer.php:19
+msgid "Issuer Panel"
+msgstr "Panel del Emisor"
+
+#: ../www/my_profile.php:178 ../www/my_profile.php:169
+#: ../www/my_profile.gt.php:169
+msgid "Issuer Template"
+msgstr "Emisor Plantilla"
+
+#: ../www/badge_edit.php:105 ../www/badge_edit.php:118
+msgid "Label"
+msgstr "Etiqueta"
+
+#: ../www/my_profile.php:142 ../www/my_profile.php:133
+#: ../www/my_profile.gt.php:133
+msgid "Lastupdate"
+msgstr "Actualizado"
+
+#: ../www/list_earn.php:109 ../www/list_earn.php:110
+msgid "Links to Json File"
+msgstr "Enlaces a Ficheros JSON"
+
+#: ../www/list_earn.php:20
+msgid "List of Earned Badges"
+msgstr "Listado de Insignias Asignadas"
+
+#: ../www/menu.php:49
+msgid "Logout"
+msgstr "Salir"
+
+#: ../www/badge_edit.php:68
+msgid "Main Badge Data"
+msgstr "Datos principales de la Insignia"
+
+#: ../www/my_profile.php:116 ../www/my_profile.php:107
+#: ../www/my_profile.gt.php:107
+msgid "Main Institution Information"
+msgstr "Datos principales de la Insitución"
+
+#: ../www/my_profile.php:57 ../www/my_profile.php:48
+#: ../www/my_profile.gt.php:48
+msgid "Main User Data"
+msgstr "Datos principales del Usuario"
+
+#: ../www/my_profile.php:206 ../www/my_profile.php:197
+#: ../www/my_profile.gt.php:197
+msgid "Master Issuer Json File"
+msgstr "Fichero JSON principal del emisor"
+
+#: ../www/events.php:234
+msgid "Max params reached"
+msgstr "Superado max parámetros"
+
+#: ../www/badge_edit.php:89
+msgid "Max. size"
+msgstr "Max. tamaño"
+
+#: ../www/list_earn.php:108
+msgid "More Info"
+msgstr "Más Info"
+
+#: ../www/dashboard.php:32 ../www/menu.php:46
+msgid "My Badges"
+msgstr "Mis Insignias"
+
+#: ../www/dashboard.php:22 ../www/menu.php:48 ../www/my_profile.php:21
+#: ../www/my_profile.php:25 ../www/my_profile.php:15 ../www/my_profile.php:16
+#: ../www/my_profile.gt.php:15 ../www/my_profile.gt.php:16
+msgid "My Profile"
+msgstr "Mi Cuenta"
+
+#: ../www/issuer.php:85 ../www/issuer.php:88 ../www/my_profile.php:186
+#: ../www/my_profile.php:187 ../www/users.php:91 ../www/my_profile.php:177
+#: ../www/my_profile.php:178 ../www/my_profile.gt.php:177
+#: ../www/my_profile.gt.php:178
+msgid "NO"
+msgstr "NO"
+
+#: ../www/badge_edit.php:75 ../www/register.php:33 ../www/badge_revoked.php:59
+#: ../www/badge_edit.php:76 ../www/users.php:44
+msgid "Name"
+msgstr "Nombre"
+
+#: ../www/list_earn.php:69 ../www/list_earn.php:74
+msgid "None"
+msgstr "Nada"
+
+#: ../www/badge_revoked.php:84 ../www/issuer.php:145 ../www/users.php:116
+msgid "Nothing found"
+msgstr "No se ha encontrado ningún resultado"
+
+#: ../www/events.php:573
+msgid "Nothing to change"
+msgstr "Nada que cambiar"
+
+#: ../www/list_earn.php:111 ../www/list_earn.php:112
+msgid "Online tool"
+msgstr "Herramienta online"
+
+#: ../www/badge_earn.php:121 ../www/badge_edit.php:100
+#: ../www/badge_earn.php:120
+msgid "Optional"
+msgstr "Opcional"
+
+#: ../www/login.php:40 ../www/register.php:34 ../www/my_profile.php:70
+#: ../www/my_profile.php:61 ../www/my_profile.gt.php:61
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../www/register.php:36
+msgid "Password Confirmation"
+msgstr "Confirmar contraseña"
+
+#: ../www/reset.php:24
+msgid "Password Reset"
+msgstr "Restablecer Contraseña"
+
+#: ../www/events.php:573
+msgid "Password could not be updated"
+msgstr "La contraseña no se puede actualizar"
+
+#: ../www/my_profile.php:166 ../www/my_profile.php:157
+#: ../www/my_profile.gt.php:157
+msgid "Path"
+msgstr "Ruta"
+
+#: ../www/reset.php:27
+msgid ""
+"Please enter your email address below, and we will email instructions for "
+"setting a new password."
+msgstr ""
+"Por favor, introduzca su email a continuación, recibirá uncorreo con las "
+"instrucciones para reestablecer su clave."
+
+#: ../www/register.php:27
+msgid "Please fill the form below to create a new"
+msgstr "Por favor cumplimenta el siguiente formulario para crearuna nueva"
+
+#: ../www/earn.php:36 ../www/earn.php:53 ../www/issuer.php:62
+#: ../www/my_earn.php:34 ../www/my_earn.php:48 ../www/list_earn.php:53
+#: ../www/list_earn.php:83
+msgid "Preview"
+msgstr "Previsualizar"
+
+#: ../www/copyright.php:3
+msgid "Privacy"
+msgstr "Privacidad"
+
+#: ../www/my_profile.php:134 ../www/users.php:46 ../www/my_profile.php:125
+#: ../www/my_profile.gt.php:125
+msgid "Profile"
+msgstr "Perfil"
+
+#: ../www/my_profile.php:132 ../www/my_profile.php:123
+#: ../www/my_profile.gt.php:123
+msgid "Profile Information"
+msgstr "Información del Perfil"
+
+#: ../www/my_profile.php:72
+msgid "Provider account information"
+msgstr "Información de la cuenta del Proveedor"
+
+#: ../www/issuer.php:60 ../www/issuer.php:159
+msgid "Published"
+msgstr "Publicado"
+
+#: ../www/badge_revoked.php:58
+msgid "Reason"
+msgstr "Razón"
+
+#: ../www/register.php:38
+msgid "Register"
+msgstr "Registrar"
+
+#: ../www/badge_edit.php:112
+msgid "Remove evidence"
+msgstr "Eliminar evidencia"
+
+#: ../www/my_profile.php:173 ../www/my_profile.php:164
+#: ../www/my_profile.gt.php:164
+msgid "Repo for Badges files"
+msgstr "Repo de los ficheros de Insignias"
+
+#: ../www/my_profile.php:174 ../www/my_profile.php:165
+#: ../www/my_profile.gt.php:165
+msgid "Repo for Badges images"
+msgstr "Repo de las imágenes de las insignias"
+
+#: ../www/my_profile.php:175 ../www/my_profile.php:166
+#: ../www/my_profile.gt.php:166
+msgid "Repo for Badges revoked"
+msgstr "Repo de las insignias revocadas"
+
+#: ../www/my_profile.php:172 ../www/my_profile.php:163
+#: ../www/my_profile.gt.php:163
+msgid "Repo for Issuers files"
+msgstr "Repo para los ficheros de emisores"
+
+#: ../www/badge_earn.php:104 ../www/badge_earn.php:127
+#: ../www/badge_edit.php:68 ../www/badge_edit.php:93 ../www/badge_earn.php:103
+#: ../www/badge_earn.php:126 ../www/events.php:205 ../www/my_profile.php:57
+#: ../www/my_profile.php:48 ../www/my_profile.gt.php:48
+msgid "Required"
+msgstr "Requerido"
+
+#: ../www/issuer.php:124 ../www/issuer.php:127
+msgid "Revk"
+msgstr "Revc"
+
+#: ../www/issuer.php:64 ../www/list_earn.php:56 ../www/list_earn.php:93
+msgid "Revoke"
+msgstr "Revocar"
+
+#: ../www/badge_revoked.php:61
+msgid "Revoked by"
+msgstr "Revocado por"
+
+#: ../www/issuer.php:35
+msgid "Select"
+msgstr "Selecciona"
+
+#: ../www/issuer.php:33
+msgid "Select Issuer"
+msgstr "Selecciona el emisor"
+
+#: ../www/login.php:41 ../www/menu.php:54
+msgid "Sign In"
+msgstr "Acceder"
+
+#: ../www/login.php:27 ../www/login.php:31
+msgid "Sign in"
+msgstr "Acceder"
+
+#: ../www/my_profile.php:159 ../www/my_profile.php:150
+#: ../www/my_profile.gt.php:150
+msgid "System Information"
+msgstr "Información del Sistema"
+
+#: ../www/a_activation.php:41
+msgid "The activation is not longer available."
+msgstr "La activación ya no se encuentra disponible."
+
+#: ../www/events.php:478
+msgid "The badge could not be created"
+msgstr "La insignia no se ha podido crear"
+
+#: ../www/events.php:482
+msgid "The badge could not be created, because it already exists."
+msgstr "La insignia no se ha podido crear, porque ya existe."
+
+#: ../www/events.php:484
+msgid "The badge could not be created. Some data is missing."
+msgstr "La insignia no se ha podido crear. Falta algún dato."
+
+#: ../www/events.php:511
+msgid "The badge could not be published because is disabled"
+msgstr "La insignia no se puede publicar porque está desactivada"
+
+#: ../www/events.php:474
+msgid "The badge is being created"
+msgstr "La insignia se ha creado"
+
+#: ../www/events.php:535
+msgid "The evidence has been deleted"
+msgstr "La evidencia se ha eliminado"
+
+#: ../www/issuer.php:158
+msgid "The object contains all needed information to be published"
+msgstr "El objeto dispone toda la información necesaria para publicarse"
+
+#: ../www/issuer.php:159
+msgid "The object is released to be earned"
+msgstr "El objeto se ha liberado para ser asignado"
+
+#: ../www/events.php:614
+msgid "The user has been"
+msgstr "El usuario se ha "
+
+#: ../www/events.php:638
+msgid "The user has been deleted"
+msgstr "El usuario se ha eliminado"
+
+#: ../www/view_badge_issuer.php:93
+msgid "This Badge ID"
+msgstr "ID de la Insignia"
+
+#: ../www/view_badge_issuer.php:89
+msgid "This Badge provider account secret-key"
+msgstr "Clave del usuario de esta insignia (secret-key)"
+
+#: ../www/view_badge_issuer.php:85
+msgid "This Badge provider user-key"
+msgstr "Código del usuario de esta insignia (user-key)"
+
+#: ../www/events.php:513 ../www/events.php:537
+msgid "This action could not be performed"
+msgstr "Esta acción no se pudo realizar"
+
+#: ../www/my_profile.php:208 ../www/my_profile.php:199
+#: ../www/my_profile.gt.php:199
+msgid "This is the content of the file"
+msgstr "Este es el contenido del fichero"
+
+#: ../www/reset.php:35
+msgid "This is the email address you used to register"
+msgstr "Este es el email que utilizaste para registrarte"
+
+#: ../www/events.php:593
+msgid "This profile could not be changed"
+msgstr "El perfil no se puede modificar"
+
+#: ../www/events.php:616
+msgid "This user could not be"
+msgstr "Este usuario no puede"
+
+#: ../www/events.php:640
+msgid "This user could not be deleted"
+msgstr "Este usuario no puede eliminarse"
+
+#: ../www/a_register.php:61
+msgid "To activate your account, click this link :"
+msgstr "Para activar tu cuenta, haz clic sobre este enlace :"
+
+#: ../www/badge_edit.php:134
+msgid "UPDATE BADGE"
+msgstr "ACTUALIZAR INSIGNIA"
+
+#: ../www/my_profile.php:122 ../www/my_profile.php:113
+#: ../www/my_profile.gt.php:113
+msgid "URL Institution"
+msgstr "Institución URL"
+
+#: ../www/badge_edit.php:81
+msgid "URL of the criteria for earning the achievement."
+msgstr "URL de los criterios para asignar esta insignia."
+
+#: ../www/badge_edit.php:101
+msgid ""
+"URL of the work that the recipient did to earn the achievement. This can be "
+"a page that links out to other pages if linking directly to the work is "
+"infeasible."
+msgstr ""
+"URL del trabajo que realizó el destinatario de la insignia para conseguirla "
+"asignación. Este puede ser un enlace que relacione a otros sinvincular "
+"directamente al trabajo, es inevitable."
+
+#: ../www/my_profile.php:101 ../www/my_profile.php:92
+#: ../www/my_profile.gt.php:92
+msgid "Update data"
+msgstr "Actualizar datos"
+
+#: ../www/badge_earn.php:104 ../www/badge_earn.php:103
+msgid "User Data"
+msgstr "Datos del Usuario"
+
+#: ../www/earn.php:31 ../www/list_earn.php:48
+msgid "UserID"
+msgstr "IDUsuario"
+
+#: ../www/dashboard.php:55 ../www/menu.php:39 ../www/users.php:19
+#: ../www/users.php:20
+msgid "Users"
+msgstr "Usuarios"
+
+#: ../www/badge_earn.php:81
+msgid "VIEW THE BADGE"
+msgstr "VER LA INSIGNIA"
+
+#: ../www/badge_edit.php:92
+msgid "View"
+msgstr "Ver"
+
+#: ../www/view_badge_earn.php:13 ../www/view_badge_earn.php:14
+msgid "View Badge Earn"
+msgstr "Ver Insignia Asignada"
+
+#: ../www/view_badge_issuer.php:13 ../www/view_badge_issuer.php:14
+msgid "View Badge Issuer"
+msgstr "Ver Insignia del Emisor"
+
+#: ../www/badge_earn.php:78 ../www/badge_earn.php:77
+msgid "View the new Badge"
+msgstr "Ver el nuevo Badge"
+
+#: ../www/my_profile.php:166 ../www/my_profile.php:157
+#: ../www/my_profile.gt.php:157
+msgid "Writable"
+msgstr "Escritura"
+
+#: ../www/issuer.php:85 ../www/issuer.php:88 ../www/my_profile.php:186
+#: ../www/my_profile.php:187 ../www/users.php:91 ../www/my_profile.php:177
+#: ../www/my_profile.php:178 ../www/my_profile.gt.php:177
+#: ../www/my_profile.gt.php:178
+msgid "YES"
+msgstr "SI"
+
+#: ../www/events.php:345
+msgid "You Could not modify this badged. Is being awarded."
+msgstr "No puede modificar la insignia. Ya dispone de asignaciones."
+
+#: ../www/view_badge_issuer.php:97 ../www/my_profile.php:93
+#: ../www/my_profile.php:84 ../www/my_profile.gt.php:84
+msgid "You can not use this functionality"
+msgstr "No puede utilizar esta funcionalidad"
+
+#: ../www/events.php:597 ../www/events.php:619 ../www/events.php:643
+msgid "You could not grant this action"
+msgstr "No dispone de permisos para ejecutar esta acción"
+
+#: ../www/a_auth.php:5 ../www/a_auth.php:34
+msgid "You have not privileges to access this page"
+msgstr "No disponses de privilegios para acceder a esta página"
+
+#: ../www/view_badge_issuer.php:82 ../www/my_profile.php:73
+msgid "You will need this data in order to connect the API"
+msgstr "Necesitarás esta información para conectar con la API"
+
+#: ../www/my_profile.php:89 ../www/my_profile.php:80
+#: ../www/my_profile.gt.php:80
+msgid "Your Badge provider account secret-key"
+msgstr "Clave del usuario de conexión (secret-key)"
+
+#: ../www/my_profile.php:85 ../www/my_profile.php:76
+#: ../www/my_profile.gt.php:76
+msgid "Your Badge provider user-key"
+msgstr "Usuario de conexión (user-key)"
+
+#: ../www/register.php:37
+msgid "Your Password Strength"
+msgstr "Fortaleza de la contraseña"
+
+#: ../www/events.php:571
+msgid "Your profile data has been updated"
+msgstr "Tu información del perfil ha sido actualizada"
+
+#: ../www/events.php:608
+msgid "activated"
+msgstr "activada/o"
+
+#: ../www/badge_edit.php:89
+msgid "allowed"
+msgstr "permitido"
+
+#: ../www/events.php:573 ../www/my_profile.php:72 ../www/my_profile.php:63
+#: ../www/my_profile.gt.php:63
+msgid "chars"
+msgstr "carac"
+
+#: ../www/issuer.php:43 ../www/users.php:34
+msgid "clear"
+msgstr "limpiar"
+
+#: ../www/events.php:608
+msgid "deactivated"
+msgstr "desactivada/o"
+
+#: ../www/users.php:31
+msgid "email"
+msgstr "email"
+
+#: ../www/register.php:27
+msgid "free account"
+msgstr "cuenta gratuita"
+
+#: ../www/my_profile.php:71 ../www/my_profile.php:62
+#: ../www/my_profile.gt.php:62
+msgid "if you do not pretend to change your password do not fill this"
+msgstr "si no pretendes cambiar tu contraseña no cumplimentes este campo"
+
+#: ../www/list_earn.php:111
+msgid "json structure"
+msgstr "estructura json"
+
+#: ../www/events.php:206
+msgid "kb"
+msgstr "kb"
+
+#: ../www/events.php:206
+msgid "max."
+msgstr "máx."
+
+#: ../www/my_profile.php:72 ../www/my_profile.php:63
+#: ../www/my_profile.gt.php:63
+msgid "min"
+msgstr "mín"
+
+#: ../www/users.php:31
+msgid "name"
+msgstr "nombre"
+
+#: ../www/badge_revoked.php:40
+msgid "name or email"
+msgstr "nombre o email"
+
+#: ../www/badge_earn.php:125 ../www/users.php:31
+msgid "or"
+msgstr "o"
+
+#: ../www/view_badge_issuer.php:89 ../www/my_profile.php:89
+#: ../www/my_profile.php:80 ../www/my_profile.gt.php:80
+msgid "password"
+msgstr "contraseña"
+
+#: ../www/issuer.php:42 ../www/users.php:33
+msgid "search"
+msgstr "buscar"
+
+#: ../www/view_badge_issuer.php:85 ../www/my_profile.php:85
+#: ../www/my_profile.php:76 ../www/my_profile.gt.php:76
+msgid "user"
+msgstr "usuario"
+
+#: ../www/badge_earn.php:127 ../www/badge_earn.php:126
+msgid "valid URL"
+msgstr "URL válida"
+
+#: ../www/list_earn.php:111 ../www/list_earn.php:112
+msgid "validate"
+msgstr "validar"
