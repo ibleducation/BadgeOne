@@ -72,16 +72,16 @@
 				<p class="alert alert-warning"><?php echo BADGES_ISSUER_INSTITUTION_NAME?></p>
 			</div>
 			<div class="form-group">
-				<label for="course"><?php echo __("Course")?> <?php echo __("Name")?></label>
-				<input type="text" name="course" id="course" value="<?php echo $course?>" class="form-control" required="required" placeholder="<?php echo __("Course")?> <?php echo __("Name")?>">
+				<label for="course"><?php echo __("Badge")?> <?php echo __("Name")?></label>
+				<input type="text" name="course" id="course" value="<?php echo $course?>" class="form-control" required="required" placeholder="<?php echo __("Badge")?> <?php echo __("Name")?>">
 			</div>
 			<div class="form-group">
-				<label for="course"><?php echo __("Course")?> <?php echo __("Criteria URL")?></label>
-				<input type="url" name="course_url" id="course_url" value="<?php echo $course_url?>" class="form-control" required="required" placeholder="<?php echo __("Course")?> <?php echo __("Criteria URL")?>">
+				<label for="course"><?php echo __("Badge")?> <?php echo __("Criteria URL")?></label>
+				<input type="url" name="course_url" id="course_url" value="<?php echo $course_url?>" class="form-control" required="required" placeholder="<?php echo __("Badge")?> <?php echo __("Criteria URL")?>">
 				<small><em><?php echo __("URL of the criteria for earning the achievement.")?></em></small>
 			</div>			
 			<div class="form-group">
-				<label for="course_desc"><?php echo __("Course")?> <?php echo __("Description")?></label><br>
+				<label for="course_desc"><?php echo __("Badge")?> <?php echo __("Description")?></label><br>
 				<textarea id="course_desc" name="course_desc" class="form-control" required="required" rows="10" placeholder="<?php echo __("Description here")?>"><?php echo $course_desc?></textarea>
 			</div>
 			<div class="form-group">

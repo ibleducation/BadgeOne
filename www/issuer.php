@@ -55,7 +55,7 @@
 	      <thead>
 	        <tr class="valign-middle">
 	          <th>#</th>
-	          <th><?php echo __("Course")?></th>
+	          <th><?php echo __("Badge")?></th>
 	          <th class="tocenter"><?php echo __("Enabled")?></th>
 	          <th class="tocenter"><?php echo __("Published")?></th>
 	          <th class="tocenter"><?php echo __("Edit")?></th>
