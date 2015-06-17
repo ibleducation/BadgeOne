@@ -653,9 +653,10 @@ msgstr ""
 
 #: ../www/badge_edit.php:101
 msgid ""
-"URL of the work that the recipient did to earn the achievement. This can be "
-"a page that links out to other pages if linking directly to the work is "
-"infeasible."
+"Use this optional field if you want earners to enter evidence of the work "
+"they did to earn the achievement. Earners need to provide a URL to a page "
+"showing the work or providing further links. Give your requested evidence a "
+"title and a brief description to guide earners."
 msgstr ""
 
 #: ../www/my_profile.php:101 ../www/my_profile.php:92
