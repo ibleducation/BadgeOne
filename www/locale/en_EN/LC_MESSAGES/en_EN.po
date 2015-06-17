@@ -126,7 +126,7 @@ msgstr ""
 #: ../www/badge_earn.php:78 ../www/badge_earn.php:92 ../www/badge_edit.php:76
 #: ../www/badge_edit.php:80 ../www/issuer.php:58 ../www/my_earn.php:32
 #: ../www/view_badge_issuer.php:60 ../www/list_earn.php:51
-msgid "Course"
+msgid "Badge"
 msgstr ""
 
 #: ../www/register.php:25
