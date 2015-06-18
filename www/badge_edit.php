@@ -98,8 +98,8 @@
 		<!-- params -->
 		<div class="col-lg-6">
 		<div class="form-group"><h3><?php echo __("Evidence")?> (<?php echo __("Optional")?>)</h3></div>
-		<div class="form-group"><?php echo __("URL of the work that the recipient did to earn the achievement. This can be a page that links out to other pages if linking directly to the work is infeasible.")?></div>
-	
+		<div class="form-group"><?php echo __("Use this optional field if you want earners to enter evidence of the work they did to earn the achievement. Earners need to provide a URL to a page showing the work or providing further links. Give your requested evidence a title and a brief description to guide earners.")?></div>
+
 		<?php for ($i = 0; $i < $count_params; $i++) { ?>
 			<div class="form-group small">
 				<div class="col-lg-2"><label for="label-<?php echo $i?>-<?php echo $arr_params[$i]['param_id'] ?>"><?php echo __("Label")?></label></div>
