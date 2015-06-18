@@ -44,8 +44,8 @@ define("DB_PASS", "<?php echo DB_PASS ?>");</pre>
     		<br>
     		
     		<p>
-    			<b>Dump into your database the file with inittial data: <b>iblstudiosbadges.model.sql.dump</b></b>
-    			<pre>mysql <?php echo DB_NAME?> < iblstudiosbadges.model.sql.dump -u<?php echo DB_USER?> -p<?php echo DB_PASS?></pre>
+    			<b>Dump into your database the file with inittial data: <b>badgeone_sql_model.dump.dump</b></b>
+    			<pre>mysql <?php echo DB_NAME?> < badgeone_sql_model.dump  -u<?php echo DB_USER?> -p<?php echo DB_PASS?></pre>
     		</p>
     		<br>    		
 

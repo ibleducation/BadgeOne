@@ -76,7 +76,7 @@ spl_autoload_extensions ( '.php, .class.php, .extend.class.php' );
 define("DB_ENGINE", "mysql");
 define("DB_HOST", "localhost");
 define("DB_PORT", 3306 );
-define("DB_NAME", "iblstudiosbadges");
+define("DB_NAME", "badgeone");
 define("DB_USER", "usr_iblbadges");
 define("DB_PASS", "FIiQiLfAGkOrU@1Z3x");
 define("DB_PREFIX", "");
