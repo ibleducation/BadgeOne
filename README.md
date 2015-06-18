@@ -12,7 +12,7 @@ This package was developed by [IBL Studios](http://iblstudios.com/).
 * [Mozilla OpenBadges latest specs] (https://openbadgespec.org/)
 
 ###Requirements:
-* PHP > 5.3.9 (php5-mysql, php5-json) (Recommended > php 5.4.0)
+* PHP > 5.3.9 (php5-mysql, php5-json, php-gettext) (Recommended > php 5.4.0)
 * MySQL 5.x (PDO connections are used with php5)
 * Apache2.4 server (you could use Nginx; remember to configure the options properly)
 * mod_rewrite (to protect certain directories with .htaccess files)
