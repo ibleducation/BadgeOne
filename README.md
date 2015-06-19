@@ -1,4 +1,4 @@
-IBL OpenBadges Server (BadgeOne.com)
+BadgeOne.com - Open Badges Server
 ====================================
 
 This is the IBLOpenBadges Server platform. A platform to award your own institution's badges. 
