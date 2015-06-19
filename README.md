@@ -20,7 +20,7 @@ This package was developed by [IBL Studios](http://iblstudios.com/).
 
 ###Prepare Installation:
 * Create your database and user, and grant privileges.
-* Load the main database. The SQLdump file is provided under `sql/iblstudiosbadges.model.sql.dump`.
+* Load the main database. The SQLdump file is provided under `sql/badgeone_sql_model.dump`.
 * Configure your VirtualHost (absolute domain or subdomain). Sample: `virtualhost/apache-2.4-sample.conf`.
 * The server, API and OAuth platform files are given under the `www/` directory. Place the contents
   in the path you have defined for your VirtualHost.
