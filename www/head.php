@@ -1,4 +1,4 @@
-<title> IBL Studios Badges.</title>
+<title>BadgeOne</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- styles -->
