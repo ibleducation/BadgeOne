@@ -1,10 +1,10 @@
 BadgeOne.com - Open Badges Server
 ====================================
 
-This is the IBLOpenBadges Server platform. A platform to award your own institution's badges. 
+This is the BadgeOne server platform. A platform to award your own institution's badges. 
 The badges you create and earn with this server are compatible with the specifications of the OpenBadges project.
 
-This package was developed by [IBL Studios](http://iblstudios.com/).
+This package was developed by [IBL Studios Education](http://iblstudios.com/).
 
 ## OpenBadges specifications
 * [Mozilla OpenBadges] (http://openbadges.org/)
