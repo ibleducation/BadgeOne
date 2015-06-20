@@ -1,6 +1,8 @@
 BadgeOne.com - Open Badges Server
 ====================================
 
+![BadgeOne](http://iblstudios.com/wp-content/uploads/2015/06/badgeone.png)
+
 This is the **BadgeOne** server platform: a self-hosted platform to award your own institution's open badges. 
 The open badges you create and earn with this server are conformant to the [Open Badges Technical specifications 1.1](https://openbadgespec.org) (May 2015).
 
