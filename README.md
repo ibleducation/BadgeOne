@@ -1,10 +1,10 @@
 BadgeOne.com - Open Badges Server
 ====================================
 
-This is the BadgeOne server platform. A platform to award your own institution's badges. 
-The badges you create and earn with this server are compatible with the specifications of the OpenBadges project.
+This is the **BadgeOne** server platform: a self-hosted platform to award your own institution's open badges. 
+The open badges you create and earn with this server are conformant to the [Open Badges Technical specifications 1.1](https://openbadgespec.org) (May 2015).
 
-This package was developed by [IBL Studios Education](http://iblstudios.com/). Professor Barba advised IBL Studios on aspects like how educators might use open badges; the inter-relations between an open-source badge server, issuers and earners, the Open Badge Infrastructure standards, etc.; and the potential for open badges in MOOCs.
+This software was developed by [IBL Studios Education](http://iblstudios.com/). Professor Lorena A. Barba advised IBL Studios on aspects like how educators might use open badges; the inter-relations between an open-source badge server, issuers and earners; the Open Badge Infrastructure standards; and the potential for open badges in MOOCs.
 
 This project has its origins in the [first integration of open badges in the Open edX platform](http://iblstudios.com/first-integration-of-open-badges-on-open-edx-supported-by-edxs-ceo/), in November 2014.
 
