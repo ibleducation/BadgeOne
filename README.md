@@ -11,7 +11,7 @@ The project has its origins in the [first integration of open badges in the Open
 
 Professor Lorena A. Barba advised IBL Studios on aspects like how educators might use open badges; the inter-relations between an open-source badge server, issuers and earners; the Open Badge Infrastructure standards; and the potential for open badges in MOOCs.
 
-The software is free for any site administrator to download, install and use.
+The software is free for any site administrator to download, install and use, under a GPL 3 license.
 
 ## OpenBadges specifications
 * [Mozilla OpenBadges] (http://openbadges.org/)
