@@ -6,10 +6,9 @@ BadgeOne.com - Open Badges Server
 This is the **BadgeOne** server platform: a self-hosted platform to award your own institution's open badges. 
 The open badges you create and earn with this server are conformant to the [Open Badges Technical specifications 1.1](https://openbadgespec.org) (May 2015).
 
-This software was developed by [IBL Studios Education](http://iblstudios.com/). 
-The project has its origins in the [first integration of open badges in the Open edX platform](http://iblstudios.com/first-integration-of-open-badges-on-open-edx-supported-by-edxs-ceo/), in November 2014.
+This software was developed by [IBL Studios Education](http://iblstudios.com/), with GW Professor Lorena A. Barba in an advisory role, and with financial and technical support from edX.
 
-Professor Lorena A. Barba advised IBL Studios on aspects like how educators might use open badges; the inter-relations between an open-source badge server, issuers and earners; the Open Badge Infrastructure standards; and the potential for open badges in MOOCs.
+The project has its origins in the [first integration of open badges in the Open edX platform](http://iblstudios.com/first-integration-of-open-badges-on-open-edx-supported-by-edxs-ceo/), in November 2014.
 
 The software is free for any site administrator to download, install and use, under a GPL 3 license.
 
@@ -46,3 +45,6 @@ The software is free for any site administrator to download, install and use, un
 * This platform uses OAuth2.0 authentication.
    [OAuth 2.0] (http://oauth.net/2/)
    [OAuth 2.0 Server PHP] (http://bshaffer.github.io/oauth2-server-php-docs/)
+
+###Special Thanks
+* Professor Lorena A. Barba advised IBL Studios on aspects like how educators might use open badges; the inter-relations between an open-source badge server, issuers and earners; the Open Badge Infrastructure standards; and the potential for open badges in MOOCs.
