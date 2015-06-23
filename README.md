@@ -41,6 +41,10 @@ The software is free for any site administrator to download, install and use, un
   access for the first time (default password: `admin123`).
 * Important! Remove the `install.php` file when you finish your installation.
 
+### Server API Documentation 
+
+* This document provides the background information you need to use the BadgetOne API [http://badgeone.com/api_doc/] (http://badgeone.com/api_doc/)
+
 ###About OAuth2
 * This platform uses OAuth2.0 authentication.
    [OAuth 2.0] (http://oauth.net/2/)
