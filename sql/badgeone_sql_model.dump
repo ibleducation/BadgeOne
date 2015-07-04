@@ -95,7 +95,7 @@ CREATE TABLE `badges_issuers` (
   `course` varchar(255) DEFAULT NULL,
   `course_desc` text,
   `course_url` varchar(400) NOT NULL,
-  `badge_img` blob COMMENT 'Image BinaryData',
+  `badge_img` longblob COMMENT 'Image BinaryData',
   `badge_img_extension` varchar(5) DEFAULT NULL,
   `badge_img_type` varchar(100) DEFAULT NULL,
   `badge_img_name` varchar(255) DEFAULT NULL,
@@ -339,4 +339,3 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Users';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
