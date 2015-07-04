@@ -1,4 +1,11 @@
+## BadgeOne (0.9) beta2; urgency=low
+
+  * Released : 20150704
+  * Issue #1 fix
+    - Uploaded images getting cut off halfway
+
 ## BadgeOne (0.9) beta; urgency=low
+
   * Released : 20150612
   * Renamed project name
   * Added Multilang (default EN, sample ES)
