@@ -18,15 +18,15 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 	$stmt = $dbh->prepare("SELECT * FROM users WHERE email = ?");
 	$stmt->execute($sdata);
 	$rows = $stmt->fetchAll();
-	
+
 	if($stmt->rowCount()>0){
-	
+
 	    // error
 	    print "2";
-	
+
 	} else {
 			//params
-			$date_now			= date("Y-m-d H:i:s"); 
+			$date_now			= date("Y-m-d H:i:s");
 			$seddme				= md5(time());
 			$institution		= BADGES_ISSUER_INSTITUTION_NAME;
 			$institution_url 	= BADGES_ISSUER_INSTITUTION_URL;
@@ -36,15 +36,15 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 			$activate_seed 		= ( $allow_noconfirm_registration == 1 ) ? '' : "$seddme";
 			$date_activated		= ( $allow_noconfirm_registration == 1 ) ? $date_now : NULL;
 			$date_created		= $date_now;
-			
+
 	        //add new user and seed data
 	        $sdata = array($email,$name,$institution,$institution_url,$institution_image,$institution_email,md5($upwd),$seddme,$activated,$activate_seed,$date_created,$date_activated);
 	        $stmt = $dbh->prepare("INSERT INTO users (id_user,email,name,institution,institution_url,institution_image,institution_email,password,seed,activated,activate_seed,date_created,date_activated) VALUES ('',?,?,?,?,?,?,?,?,?,?,?,?)");
 	        $stmt->execute($sdata);
-	
+
 	        //get user_id
 	        $user_id = $dbh->lastInsertId();
-        
+
 	        //setup oauth2 client
 	        $client_id 		= $email."-".rand_chars();
 	        $client_secret 	= rand_chars(8) ."-". rand_chars(4) ."-". rand_chars(4) ."-". rand_chars(4) ."-". rand_chars(12);
@@ -53,17 +53,19 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 	        $stmt->execute($sdata);
 
 	        //sendemail
-	        if ( $allow_noconfirm_registration !=1 ) 
+	        if ( $allow_noconfirm_registration !=1 )
 	        {
 	        	$to = "$email";
 	        	$subject = APP_PREFIX." ".__("Confirm your account");
 	        	$url_activation = SERVER_HTTP_HOST."/account_activation.php?s=$seddme&e=$email";
-	        	$message = __("To activate your account, click this link :").$url_activation;
-	        	$header = "From: ".APP_EMAIL."\nContent-Type: text/html";
+	        	$message = __("To activate your account, click this link :")."<<br><a href='".$url_activation."'>".$url_activation."</a>";
+						$header = "MIME-Version: 1.0" . "\r\n";
+						$header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+	        	$header .= "From: ".APP_EMAIL."\n";
 	        	$params = "-f".APP_EMAIL."";
 	        	mail($to, $subject, $message, $header,$params);
 	        }
-	        
+
 	        //autologin
 	        if ( $allow_noconfirm_registration ==1 )
 	        {
@@ -71,16 +73,16 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 		        $expire=time()+60*60*24*30;
 	    	    setcookie("UID", $user_id, $expire);
 	        	setcookie("SEED", $seddme, $expire);
-	        	
+
 	        	print "11";
-	        	
+
 	        } else {
 	        	//pending activation
 	        	print "1";
 	        }
 	}
 
-} else { 
+} else {
 	//error
 	print "2";
 }
