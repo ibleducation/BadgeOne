@@ -12,14 +12,14 @@ $stmt = $dbh->prepare("UPDATE users SET reset_seed = ? , reset_seed_date = now()
 $stmt->execute($sdata);
 
 
-$subject = 'html mail test';
+$subject = APP_PREFIX." Password Reset";
 
 $body = '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"" />
-        <title>OE instances reset password request</title>
+        <title>'.APP_NAME.' reset password request</title>
     </head>
     <body>
 
