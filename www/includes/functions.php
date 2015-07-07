@@ -28,7 +28,7 @@ function get_form() {
 
 /**
  * Setup server config based on HOSTNAME or FQDN
- * 
+ *
  * @return void
  */
 function setupServer($fqdn_devel='1') {
@@ -288,9 +288,9 @@ function random_num($rseed=0, $min = 0, $max = 9999999) {
 /**
  * Generate random value
  * @param int $l ( size of returned string )
- * @param string $c (chars to be used)  
+ * @param string $c (chars to be used)
  * @param string $u (true or false  whether or not a character can appear beside itself )
- * @return string $s 
+ * @return string $s
  */
 function rand_chars($l=6, $c='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890',$u = FALSE) {
 	if (!$u) for ($s = '', $i = 0, $z = strlen($c)-1; $i < $l; $x = rand(0,$z), $s .= $c{$x}, $i++);
@@ -345,7 +345,7 @@ function validateURL($url){
 		return 1;
 	}
 	return 0;
-}	
+}
 
 /**
 * trims text to a space then adds ellipses if desired
@@ -360,16 +360,16 @@ function trim_text($input='', $length='0', $ellipses = true, $strip_html = true)
 	if ($strip_html) {
 		$input = strip_tags($input);
 	}
-	
+
 	//no need to trim, already shorter than trim length
 	if (strlen($input) <= $length || $length==0 ) {
 		return $input;
 	}
-	
+
 	//find last space within length
 	$last_space = strrpos(substr($input, 0, $length), ' ');
 	$trimmed_text = substr($input, 0, $last_space);
-	
+
 	//add ellipses (...)
 	if ($ellipses) {
 		$trimmed_text .= '...';
@@ -393,9 +393,9 @@ function isValidateEmailSyntax($email = "") {
 }
 
 /**
- * Get email hashed 
+ * Get email hashed
  * @param string $email
- * @param string $salt 
+ * @param string $salt
  * 		this version only supports sha256
  * @return string
  */
@@ -422,7 +422,7 @@ function check_system_dir_files($dir='',$perms='')
 					$res = ( is_dir($dir) && is_writable($dir) ) ? 1 : 0;
 				}
 				break;
-					
+
 			default:
 				if ( is_file($dir) ) {
 					$res = ( file_exists( $dir ) ) ? 1 : 0;
@@ -467,7 +467,7 @@ function is_valid_file_json($jsonfile) {
  * @return void
  */
 function delete_files($filetodelete=''){
-	if ( $filetodelete!='' && is_file($filetodelete) && file_exists( $filetodelete ) ) 
+	if ( $filetodelete!='' && is_file($filetodelete) && file_exists( $filetodelete ) )
 	{
 		unlink( $filetodelete );
 	}
@@ -476,11 +476,11 @@ function delete_files($filetodelete=''){
 /**
  * Move files
  * @param string $filetomove (complete path)
- * @param string $filemoved (complete paht) 
+ * @param string $filemoved (complete paht)
  * @return void
  */
 function move_files($filetomove='',$filemoved=''){
-	if ( $filetomove!='' && is_file($filetomove) && $filemoved!='' && file_exists( $filetomove ) ) 
+	if ( $filetomove!='' && is_file($filetomove) && $filemoved!='' && file_exists( $filetomove ) )
 	{
 		rename( $filetomove, $filemoved );
 	}
