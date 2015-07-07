@@ -45,7 +45,7 @@ if (defined('BADGES_ASSERTION_HASHED') && BADGES_ASSERTION_HASHED=='true') {
 	define ('BADGES_ASSERTION_SALT',"");
 }
 
-//App: Badges Issuer Institution
+//App: Badges Issuer Institution : defaults
 define ('BADGES_ISSUER_CONTEXT','https://w3id.org/openbadges/v1');
 define ('BADGES_ISSUER_INSTITUTION_TYPE','IssuerOrg'); //old documentation 'Issuer'
 define ('BADGES_ISSUER_INSTITUTION_FILE_ID',"badgeone.json");
@@ -56,6 +56,9 @@ define ('BADGES_ISSUER_INSTITUTION_DESC',''); //not used in json constructor. do
 define ('BADGES_ISSUER_INSTITUTION_IMAGE',''); //not used in json constructor. do not change and do not remove on this version
 define ('BADGES_ISSUER_INSTITUTION_EMAIL','user@email.local');
 define ('BADGES_ISSUER_INSTITUTION_REVOCATION_LIST',''); //not needed for hosted version
+
+//App: Badges Issuer Params
+define ('ISSUER_CLASS_PREFIX_JSON_FILES','-'.'issuer'.'.json');
 
 //App: Badges Class Params
 

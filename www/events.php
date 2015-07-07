@@ -556,6 +556,7 @@ switch ($event) {
 		$this_editor_id		= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
 		$check_email_editor = COMMONDB_MODULE::get_selected_value("users", "email","WHERE id_user=$this_editor_id AND activated=1 ");
 		$check_user			= ( isset($_POST['check_user']) && strlen(trim($_POST['check_user']))>0 ) ? COMMONDB_MODULE::decrypt_id("users", $_POST['check_user']) : '0';
+		$check_editor_profile= COMMONDB_MODULE::get_selected_value("users", "profile","WHERE id_user=$this_editor_id AND activated=1 ");
 
 		//params to upade
 		//user name
@@ -572,26 +573,37 @@ switch ($event) {
 		$u_pwd				= (isset($_POST['new_pass']) && strlen($_POST['new_pass']) > 0 ) ? $_POST['new_pass'] : '';
 		$u_pwd_check		= (isset($_POST['new_pass']) && strlen($_POST['new_pass']) > ($min_pwd_chars-1) ) ? $_POST['new_pass'] : '';
 
-		//user institution_url
-		//TO-DO: nunpa check for a valid url
+		//institution data
 		$institution			= ( isset($_POST['institution']) && strlen(trim($_POST['institution']))>0 ) ? $_POST['institution'] : '';
-		$institution_url			= ( isset($_POST['institution_url']) && strlen(trim($_POST['institution_url']))>0 ) ? $_POST['institution_url'] : '';
-		$institution_email			= ( isset($_POST['institution_email']) && strlen(trim($_POST['institution_email']))>0 ) ? $_POST['institution_email'] : '';
+		$institution_url		= ( isset($_POST['institution_url']) && strlen(trim($_POST['institution_url']))>0 ) ? $_POST['institution_url'] : '';
+		$institution_url_valid	= validateURL($institution_url);
+		$institution_email		= ( isset($_POST['institution_email']) && strlen(trim($_POST['institution_email']))>0 ) ? isValidateEmailSyntax($_POST['institution_email']) : '';
 
 		//evaluate_changes
 		$allow_changes		= ($u_pwd_check!='' || $u_fullname!='' || $u_email!='' ) ? 1 : 0;
 
 		if ( $check_user == $this_editor_id && $allow_changes == 1 ) {
-			COMMONDB_MODULE::set_value("users", "password",  md5($u_pwd_check), $this_editor_id);
+			//update pwd is needed
+			if ( $u_pwd_check!='' ) { COMMONDB_MODULE::set_value("users", "password",  md5($u_pwd_check), $this_editor_id); }
 
-		//TO-DO: nunpa check for  jsons and issued badges implications
+			//TO-DO: nunpa check for  jsons and issued badges implications
+			if ( $u_fullname!='' ) { COMMONDB_MODULE::set_value("users", "name",  $u_fullname, $this_editor_id); }
 
-			COMMONDB_MODULE::set_value("users", "name",  $u_fullname, $this_editor_id);
-			COMMONDB_MODULE::set_value("users", "institution",  $institution, $this_editor_id);
-			COMMONDB_MODULE::set_value("users", "institution_url",  $institution_url, $this_editor_id);
-			COMMONDB_MODULE::set_value("users", "institution_email",  $institution_email, $this_editor_id);
+			// just for profiles : admin and issuer
+			if ( $check_editor_profile =='admin' || $check_editor_profile =='issuer') {
+				if ( $institution!='' && $institution_url!='' && $institution_url_valid==1 && $institution_email!='' ) {
+					//updatedb
+					COMMONDB_MODULE::launch_direct_system_query("UPDATE users SET institution='$institution', institution_url='$institution_url', institution_email='$institution_email' WHERE id_user='$this_editor_id'");
+					//update json issuer file
+					IBL_OPENBADGES::create_issuer_json($this_editor_id);
+				} else {
+					$event_errors = __("Some Institution data is missing or have errors.");
+				}
+			}
 
-			$event_success = __("Your profile data has been updated");
+			//check partial errors
+			$event_success = ($event_errors=='') ?  __("Your profile data has been updated") : '';
+
 		} else {
 			$event_errors = ( $u_pwd!='') ? __("Password could not be updated")." < ". $min_pwd_chars. __("chars") : __("Nothing to change");
 		}
@@ -610,7 +622,28 @@ switch ($event) {
 			$allow_change_profile = ($requested_user_id>0 && $requested_user_id!=$this_editor_id && $total_b_issue==0 && $new_profile!='' && $old_profile!=$new_profile && $old_profile!='' && $new_profile!='admin' && $old_profile!='admin') ? 1 : 0;
 
 			if ( $allow_change_profile == 1  ) {
+
+				//update profile
 				COMMONDB_MODULE::set_value("users", "profile", "$new_profile", $requested_user_id);
+
+				//update institution data getting data from admin
+				if ($new_profile =='issuer' ) 
+				{
+					$obj_issuer_main = new COMMONDB_MODULE("users", $this_editor_id);
+					$institution =  $obj_issuer_main->institution;
+					$institution_url =  $obj_issuer_main->institution_url;
+					$institution_email = $obj_issuer_main->institution_email;
+
+					COMMONDB_MODULE::launch_direct_system_query("UPDATE users SET institution='$institution', institution_url='$institution_url', institution_email='$institution_email' WHERE id_user='$requested_user_id'");
+					//create json issuer file
+					IBL_OPENBADGES::create_issuer_json($requested_user_id);
+				} else {
+					//remove json file if exists
+					$unique_issuer_uid = get_crypted_id($requested_user_id);
+					$issuer_class_file_path = APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".$unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+					if ( file_exists($issuer_class_file_path) ) { unlink($issuer_class_file_path); }
+				}
+
 				$event_success = "The new profile is set";
 			} else {
 				$event_errors = __("This profile could not be changed");

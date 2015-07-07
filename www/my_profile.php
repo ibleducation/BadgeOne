@@ -1,13 +1,10 @@
 <?php include("config.php"); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-    <?php include("head.php"); ?>
-</head>
+<head><?php include("head.php"); ?></head>
 <body>
 
 <div id="head"><div id="menu"><?php  include("menu.php"); ?></div></div>
-
 <div id="private"> <?php  include("a_auth.php"); ?></div>
 
 <div id="main">
@@ -29,11 +26,12 @@
 			$first_name			= ( isset($explode_fullname[0]) ) ? $explode_fullname[0] : '';
 			$last_name			= ( isset($explode_fullname[0]) ) ? ltrim(substr($fullname, strlen($explode_fullname[0]))) : '';
 			$email 				= $obj_user->email;
-      $institution = $obj_user->institution;
-      $institution_url = $obj_user->institution_url;
-      $institution_email = $obj_user->institution_email;
+			$institution = $obj_user->institution;
+			$institution_url = $obj_user->institution_url;
+			$institution_email = $obj_user->institution_email;
 
-      print "<pre>";print_r($obj_user);print "</pre>";
+			print "<pre>";print_r($obj_user);print "</pre>";
+
 		//oauth data
 		$get_auth_client_id  = COMMONDB_MODULE::get_selected_value("oauth_clients", "client_id", "WHERE user_id='$user_id'");
 		$get_auth_secret_key = COMMONDB_MODULE::get_selected_value("oauth_clients", "client_secret", "WHERE user_id='$user_id'");
@@ -68,24 +66,22 @@
 					<small><em><?php echo __("min")?> <?php echo (defined('APP_USER_MIN_CHARS_PWD') && APP_USER_MIN_CHARS_PWD>0) ? APP_USER_MIN_CHARS_PWD : 4 ?> <?php echo __("chars")?></em></small>
 				</div>
 
-    <?php if ( $user_profile !='general' ) { ?>
+				<?php if ( $user_profile !='general' ) { ?>
+				<div class="form-group">
+					<label for="earn_insittution"><?php echo __("Institution")?></label>
+					<input type="text" name="institution" id="institution" value="<?php echo $institution?>" class="form-control" placeholder="<?php echo __("URL Institution")?>" >
+				</div>
 
-        <div class="form-group">
-          <label for="earn_insittution"><?php echo __("Institution")?></label>
-          <input type="text" name="institution" id="institution" value="<?php echo $institution?>" class="form-control" placeholder="<?php echo __("URL Institution")?>" >
-        </div>
+				<div class="form-group">
+					<label for="earn_insittution"><?php echo __("URL Institution")?></label>
+					<input type="url" name="institution_url" id="institution_url" value="<?php echo $institution_url?>" class="form-control" placeholder="<?php echo __("URL Institution")?>" >
+				</div>
 
-        <div class="form-group">
-          <label for="earn_insittution"><?php echo __("URL Institution")?></label>
-          <input type="text" name="institution_url" id="institution_url" value="<?php echo $institution_url?>" class="form-control" placeholder="<?php echo __("URL Institution")?>" >
-        </div>
-
-        <div class="form-group">
-          <label for="earn_insittution"><?php echo __("Email Institution")?></label>
-          <input type="text" name="institution_email" id="institution_email" value="<?php echo $institution_email?>" class="form-control" placeholder="<?php echo __("URL Institution")?>" >
-        </div>
-
-    <?}?>
+				<div class="form-group">
+					<label for="earn_insittution"><?php echo __("Email Institution")?></label>
+					<input type="email" name="institution_email" id="institution_email" value="<?php echo $institution_email?>" class="form-control" placeholder="<?php echo __("URL Institution")?>" >
+				</div>
+				<?php }?>
 
 			</div>
 			<!-- /main data -->

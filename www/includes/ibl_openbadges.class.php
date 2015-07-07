@@ -26,6 +26,71 @@ class IBL_OPENBADGES
 	}
 
 	/**
+	 * Create OBI comp file
+	 * Issuer json
+	 *
+	 *  Notes from OBI specs:
+	 *   A collection of information about the accomplishment recognized by the Open Badge
+	 *   id = URL -> unique - online path to 'issuer.json' file
+	 *
+	 *  Important:
+	 *    In order to create a badge_assertion this files are required
+	 *    - badge issuer json file
+	 *
+	 * @param int $user_id
+	 * @return int as boolean (1: true, 0:false)
+	 */
+	public static function create_issuer_json($user_id='0'){
+		$check_profile = COMMONDB_MODULE::get_selected_value("users", "id_user", "WHERE id_user='$user_id' AND (profile='admin' OR profile='issuer' )");
+		$check_template = ( file_exists( APP_BADGES_TEMPLATE_BADGE_ISSUER ) )  ? 1 : 0;
+
+		if ($user_id > 0  && $check_profile > 0 ) {
+			$unique_issuer_uid = get_crypted_id($user_id);
+
+			// 1. setting up paths
+			$issuer_class_file_json = $unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+			$issuer_class_file_path = APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".$issuer_class_file_json; //local
+			$issuer_class_id = APP_GENERAL_REPO_BADGES_ISSUER_REMOTE."/".$issuer_class_file_json;  //remote
+
+			// 2. object data
+			$obj_iss = new COMMONDB_MODULE("users", $user_id);
+
+			// 3. prepare replacements
+			$issuer_institution_name = $obj_iss->institution;
+			$issuer_institution_url = $obj_iss->institution_url;
+			$issuer_institution_email = $obj_iss->institution_email;
+			$arr_params_issuer	= array(
+					"BADGES_ISSUER_CONTEXT" => BADGES_ISSUER_CONTEXT,
+					"BADGES_ISSUER_INSTITUTION_TYPE" => BADGES_ISSUER_INSTITUTION_TYPE,
+					"BADGES_ISSUER_INSTITUTION_ID" => $issuer_class_id,
+					"BADGES_ISSUER_INSTITUTION_NAME" => $issuer_institution_name,
+					"BADGES_ISSUER_INSTITUTION_URL" => $issuer_institution_url,
+					"BADGES_ISSUER_INSTITUTION_EMAIL" => $issuer_institution_email
+			);
+
+			// 4. doing replacements
+			$contents_json_issuer = file_get_contents(APP_BADGES_TEMPLATE_BADGE_ISSUER, FILE_USE_INCLUDE_PATH );
+			if ( $contents_json_issuer !='' && count($arr_params_issuer)>0  ) {
+				foreach ( $arr_params_issuer AS $key=>$val )
+				{
+					$contents_json_issuer = str_replace("%$key%","$val",$contents_json_issuer );
+				}
+			}
+
+			// 5. write the new file
+			if ( $contents_json_issuer!='' )
+			{
+				@file_put_contents( $issuer_class_file_path , $contents_json_issuer );
+			}
+
+			// 6. validate json results
+			$is_valid_file = is_valid_file_json($issuer_class_file_path);
+			return ( $is_valid_file == 0 ) ? 0 : 1;			
+		}
+		return 0;
+	}
+
+	/**
 	* Create OBI comp file
 	* BadgeClass json
 	*
