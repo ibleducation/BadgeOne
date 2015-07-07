@@ -332,6 +332,8 @@ CREATE TABLE `users` (
   `seed` text NOT NULL,
   `activated` tinyint(1) unsigned NOT NULL,
   `activate_seed` text NOT NULL,
+  `reset_seed` text NOT NULL,
+  `reset_seed_date` text NOT NULL,
   `date_created` datetime DEFAULT NULL,
   `date_activated` datetime DEFAULT NULL,
   `lastupdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
