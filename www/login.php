@@ -39,6 +39,7 @@ if( isset($logged_user) && $logged_user>0 && isset($_COOKIE["UID"]) && isset($_C
         <input type=text name="email" class='forms toleft' placeholder="<?php echo __("Email")?>" id='emailreg' tabindex="1"><br>
         <input type=password name="password" class='forms toleft' placeholder="<?php echo __("Password")?>" id='password1' tabindex="2"><br>
         <input type="submit" value="<?php echo __("Sign In")?>" class="greybutton" tabindex="3"><br>
+				<a href="./reset" class="reset_link">Forgot your password?</a>
     </form>
 
 </div>

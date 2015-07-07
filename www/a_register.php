@@ -58,7 +58,7 @@ if ( $valid_email==1 && strlen(trim($name))>0 && strlen(trim($upwd))>0 ) {
 	        	$to = "$email";
 	        	$subject = APP_PREFIX." ".__("Confirm your account");
 	        	$url_activation = SERVER_HTTP_HOST."/account_activation.php?s=$seddme&e=$email";
-	        	$message = __("To activate your account, click this link :")."<<br><a href='".$url_activation."'>".$url_activation."</a>";
+	        	$message = __("To activate your account, click this link :")."<br><a href='".$url_activation."'>".$url_activation."</a>";
 						$header = "MIME-Version: 1.0" . "\r\n";
 						$header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 	        	$header .= "From: ".APP_EMAIL."\n";

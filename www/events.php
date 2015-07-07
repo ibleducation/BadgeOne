@@ -627,7 +627,7 @@ switch ($event) {
 				COMMONDB_MODULE::set_value("users", "profile", "$new_profile", $requested_user_id);
 
 				//update institution data getting data from admin
-				if ($new_profile =='issuer' ) 
+				if ($new_profile =='issuer' )
 				{
 					$obj_issuer_main = new COMMONDB_MODULE("users", $this_editor_id);
 					$institution =  $obj_issuer_main->institution;

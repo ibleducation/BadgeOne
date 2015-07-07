@@ -85,7 +85,7 @@ class IBL_OPENBADGES
 
 			// 6. validate json results
 			$is_valid_file = is_valid_file_json($issuer_class_file_path);
-			return ( $is_valid_file == 0 ) ? 0 : 1;			
+			return ( $is_valid_file == 0 ) ? 0 : 1;
 		}
 		return 0;
 	}
