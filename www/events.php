@@ -149,13 +149,10 @@ switch ($event) {
 		//1 step : checks validations
 		$user_id			= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : 0;
 		$user_profile		= ( isset($logged_profile) && $logged_profile!='') ? $logged_profile : '';
-
 		$allow_deletion 	= ($badge_id>0 && $user_id>0) ? COMMONDB_MODULE::count_values("badges_issuers","badge_id","WHERE badge_id='$badge_id' AND user_id='$user_id'") : 0;
 
 		//2. step : deletion
 		if ( $badge_id>0 && $allow_deletion > 0 ) {
-			//COMMONDB_MODULE::delete_value("badges_issuers", $badge_id); //delete real
-			//COMMONDB_MODULE::delete_multiple_values("badges_issuers_params","WHERE badge_id='$bage_id'"); //delete real
 			$q = "UPDATE badges_issuers SET deleted=1, deleted_by='$user_id', date_deleted=NOW(), lastupdate_by='$user_id' WHERE badge_id='$badge_id' LIMIT 1";
 			COMMONDB_MODULE::launch_direct_system_query($q);
 			$event_success = __("Badge deleted");
@@ -174,16 +171,11 @@ switch ($event) {
 		$course_url		= ( isset($_POST["course_url"]) && strlen(trim($_POST["course_url"]))> 0 ) ? $_POST["course_url"] : "";
 		$validate_curl 	= ($course_url!='' && validateURL($course_url)==1) ? 1 : 0;
 
-		//by nunpa dynamic institution data for issuers
+		//get issuer data for this badge
 		$institution = COMMONDB_MODULE::get_selected_value("users", "institution", "WHERE id_user='$user_id'");
 		$institution_url = COMMONDB_MODULE::get_selected_value("users", "institution_url", "WHERE id_user='$user_id'");
 		$institution_email = COMMONDB_MODULE::get_selected_value("users", "institution_email", "WHERE id_user='$user_id'");
-
-		//from config : fixed data
-		//$institution	= (defined('BADGES_ISSUER_INSTITUTION_NAME') && BADGES_ISSUER_INSTITUTION_NAME!='') ? BADGES_ISSUER_INSTITUTION_NAME : ""; //required : obi specs
-		//$institution_url= (defined('BADGES_ISSUER_INSTITUTION_URL') && BADGES_ISSUER_INSTITUTION_URL!='') ? BADGES_ISSUER_INSTITUTION_URL : ""; //required : obi specs
 		$institution_img= (defined('BADGES_ISSUER_INSTITUTION_IMAGE') && BADGES_ISSUER_INSTITUTION_IMAGE!='') ? BADGES_ISSUER_INSTITUTION_IMAGE : "";
-		//$institution_email= (defined('BADGES_ISSUER_INSTITUTION_EMAIL') && BADGES_ISSUER_INSTITUTION_EMAIL!='') ? BADGES_ISSUER_INSTITUTION_EMAIL : "";
 
 		if ($user_id>0 && $institution!="" && $institution_url!="" && $course!="" && $course_desc!="" && $course_url!="" && $validate_curl==1)
 		{
@@ -244,8 +236,6 @@ switch ($event) {
 	break;
 
 	case "update_badge":
-		//TODO-check validation : user_id and badge_id
-
 		//0. step : check badge
 		$badge_id 		= ( isset($_POST["badge_id"]) && $_POST["badge_id"]!="") ? COMMONDB_MODULE::decrypt_id("badges_issuers", $_POST["badge_id"]) : '';
 		$user_id		= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : 0;
@@ -254,23 +244,19 @@ switch ($event) {
 		$course_url		= ( isset($_POST["course_url"]) && strlen(trim($_POST["course_url"]))> 0 ) ? $_POST["course_url"] : "";
 		$validate_curl 	= ($course_url!='' && validateURL($course_url)==1) ? 1 : 0;
 
-		//by nunpa dynamic institution_url
-		$institution = COMMONDB_MODULE::get_selected_value("users", "institution", "WHERE id_user='$user_id'");
-		$institution_url = COMMONDB_MODULE::get_selected_value("users", "institution_url", "WHERE id_user='$user_id'");
-		$institution_email = COMMONDB_MODULE::get_selected_value("users", "institution_email", "WHERE id_user='$user_id'");
-
-		//from config : fixed data
-		//$institution	= (defined('BADGES_ISSUER_INSTITUTION_NAME') && BADGES_ISSUER_INSTITUTION_NAME!='') ? BADGES_ISSUER_INSTITUTION_NAME : ""; //required : obi specs
-		//$institution_url= (defined('BADGES_ISSUER_INSTITUTION_URL') && BADGES_ISSUER_INSTITUTION_URL!='') ? BADGES_ISSUER_INSTITUTION_URL : ""; //required : obi specs
+		//1. step : get institution information from badge user_id (owner)
+		$badge_issuer_id = COMMONDB_MODULE::get_selected_value("badges_issuers", "user_id", "WHERE badge_id='$badge_id'");
+		$institution = COMMONDB_MODULE::get_selected_value("users", "institution", "WHERE id_user='$badge_issuer_id'");
+		$institution_url = COMMONDB_MODULE::get_selected_value("users", "institution_url", "WHERE id_user='$badge_issuer_id'");
+		$institution_email = COMMONDB_MODULE::get_selected_value("users", "institution_email", "WHERE id_user='$badge_issuer_id'");
 		$institution_img= (defined('BADGES_ISSUER_INSTITUTION_IMAGE') && BADGES_ISSUER_INSTITUTION_IMAGE!='') ? BADGES_ISSUER_INSTITUTION_IMAGE : "";
-		//$institution_email= (defined('BADGES_ISSUER_INSTITUTION_EMAIL') && BADGES_ISSUER_INSTITUTION_EMAIL!='') ? BADGES_ISSUER_INSTITUTION_EMAIL : "";
 
-		//1 step : checks validations
+		//3 step : checks validations
 		$total_badges_earns = ($badge_id>0) ? COMMONDB_MODULE::count_values("badges_earns","earn_id","WHERE badge_id='$badge_id'") : 0;
 
 		if ( $badge_id > 0 && $total_badges_earns=='0' && $user_id> 0 && $institution!='' && $institution_url!='' && $course!='' && $course_desc!='' && $course_url!='' && $validate_curl==1)
 		{
-			//1. update badge info
+			//4. update badge info
 			$q = "UPDATE badges_issuers SET institution='$institution',institution_url='$institution_url',institution_image='$institution_img',institution_email='$institution_email',course='$course',course_desc='$course_desc',course_url='$course_url',lastupdate_by='$user_id' WHERE badge_id='$badge_id'";
 			COMMONDB_MODULE::launch_direct_system_query($q);
 			$event_success = "Your Badge has been updated";
@@ -299,7 +285,7 @@ switch ($event) {
 				}
 			}
 
-			//3. update params
+			//5. update params
 			if ($badge_id>0)
 			{
 				//update existing params
@@ -341,8 +327,7 @@ switch ($event) {
 							{
 								$field_label 		= cleanup_string($_POST["$field_label"]);
 								$field_description 	= cleanup_string($_POST["$field_description"]);
-								$q = "INSERT INTO badges_issuers_params (param_id,badge_id,label,description,type,enabled,date_created,created_by,lastupdate_by)
-								VALUES('','$badge_id', '$field_label','$field_description','text',1,NOW(),$user_id,$user_id) ";
+								$q = "INSERT INTO badges_issuers_params (param_id,badge_id,label,description,type,enabled,lastupdate_by) VALUES('','$badge_id', '$field_label','$field_description','text',1,$user_id) ";
 								COMMONDB_MODULE::launch_direct_system_query($q);
 							}
 						}
@@ -547,7 +532,6 @@ switch ($event) {
 		}
 	break;
 
-
 	//
 	// ------------------ Users ------------------- //
 	//
@@ -691,6 +675,12 @@ switch ($event) {
 			if ( $allow_delete == 1  ) {
 				COMMONDB_MODULE::delete_multiple_values("users","WHERE id_user='$requested_user_id'");
 				COMMONDB_MODULE::delete_multiple_values("oauth_clients","WHERE user_id='$requested_user_id'");
+
+				//remove json file if exists
+				$unique_issuer_uid = get_crypted_id($requested_user_id);
+				$issuer_class_file_path = APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".$unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+				if ( file_exists($issuer_class_file_path) ) { unlink($issuer_class_file_path); }
+
 				$event_success = __("The user has been deleted");
 			} else {
 				$event_errors = __("This user could not be deleted");

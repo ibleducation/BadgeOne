@@ -14,8 +14,11 @@
     <div class='page_header'><?php echo __("Dashboard")?></div>
 
     <!-- contents -->
-	<div class="container"><div class="col-lg-12"><br></div></div>
-    
+
+    <?php if ( isset($logged_user) && isset($logged_profile) ) { IBL_OPENBADGES::autogenerate_issuer_json($logged_user, $logged_profile); } ?>
+
+    <div class="container"><div class="col-lg-12"><br></div></div>
+
     <div class="col-lg-3 col-md-3">
     	<div class="list-group text-center">
     		<a href="./my_profile.php" class="list-group-item list-group-item-success">

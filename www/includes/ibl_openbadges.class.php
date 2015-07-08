@@ -108,11 +108,19 @@ class IBL_OPENBADGES
 	* @return int as boolean (1: true, 0:false)
 	*/
 	public static function create_badgeclass_json($earned_badge_id='0'){
-
+		//check earned badge_id and template
 		$new_earn_id 		= IBL_OPENBADGES::check_earned_badge_id($earned_badge_id);
 		$check_template 	= ( file_exists( APP_BADGES_TEMPLATE_BADGE_CLASS ) )  ? 1 : 0;
-		$check_issuer_json	= ( file_exists( APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".BADGES_ISSUER_INSTITUTION_FILE_ID ) )  ? 1 : 0;
 
+		//check issuer data
+		$issuer_badge_id = COMMONDB_MODULE::get_selected_value("badges_earns", "badge_id", "WHERE earn_id='$earned_badge_id'");
+		$issuer_id = COMMONDB_MODULE::get_selected_value("badges_issuers", "user_id", "WHERE badge_id='$issuer_badge_id'");
+		$unique_issuer_uid = get_crypted_id($issuer_id);
+		$file_issuer_json_local =  APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".$unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+		$file_issuer_json_remote =  APP_GENERAL_REPO_BADGES_ISSUER_REMOTE."/".$unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+		$check_issuer_json	= ( file_exists( $file_issuer_json_local ) )  ? 1 : 0;
+
+		//process generation
 		if ( $new_earn_id>0 && $check_template ==1 && $check_issuer_json==1 )
 		{
 			// 0. unique id : earn_badge_id
@@ -131,7 +139,7 @@ class IBL_OPENBADGES
 			$badges_class_issuer_badge_course_description = $obj_be->course_desc;
 			$badges_class_issuer_badge_course_image = BADGES_ASSERTION_BADGE_ISSUER_PATH_REMOTE_IMAGE.$unique_badge_uid;
 			$badges_class_issuer_badge_course_url = $obj_be->course_url;
-			$badges_class_issuer =BADGES_CLASS_ISSUER;
+			$badges_class_issuer =$file_issuer_json_remote;
 			$arr_params_badgeclas	= array(
 					"BADGES_CLASS_CONTEXT" => BADGES_ASSERTION_CONTEXT,
 					"BADGES_CLASS_TYPE" => BADGES_CLASS_TYPE,
@@ -184,10 +192,17 @@ class IBL_OPENBADGES
 	 * @return int as boolean (1: true, 0:false)
 	 */
 	 public static function create_badgeassertion_json($earned_badge_id='0'){
-
+	 	//check earned badge_id and template
 		$new_earn_id 		= IBL_OPENBADGES::check_earned_badge_id($earned_badge_id);
 		$check_template 	= ( file_exists( APP_BADGES_TEMPLATE_BADGE_ASSERTION ) )  ? 1 : 0;
-		$check_issuer_json	= ( file_exists( APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".BADGES_ISSUER_INSTITUTION_FILE_ID ) )  ? 1 : 0;
+
+		//check issuer data
+		$issuer_badge_id = COMMONDB_MODULE::get_selected_value("badges_earns", "badge_id", "WHERE earn_id='$earned_badge_id'");
+		$issuer_id = COMMONDB_MODULE::get_selected_value("badges_issuers", "user_id", "WHERE badge_id='$issuer_badge_id'");
+		$unique_issuer_uid = get_crypted_id($issuer_id);
+		$file_issuer_json_local =  APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".$unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+		$file_issuer_json_remote =  APP_GENERAL_REPO_BADGES_ISSUER_REMOTE."/".$unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+		$check_issuer_json	= ( file_exists( $file_issuer_json_local ) )  ? 1 : 0;
 
 		if ( $new_earn_id>0 && $check_template ==1 && $check_issuer_json==1 )
 		{
@@ -260,6 +275,86 @@ class IBL_OPENBADGES
 		return 0;
 	}
 
+	/**
+	 * Check issuer json file exists
+	 * @param int $issuer_user_id
+	 * @return int as boolean (1: true, 0:false)
+	 */
+	public static function check_issuer_json($issuer_user_id='0'){
+		$check_profile = COMMONDB_MODULE::get_selected_value("users", "id_user", "WHERE id_user='$issuer_user_id' AND (profile='admin' OR profile='issuer' )");
+		$check_template = ( file_exists( APP_BADGES_TEMPLATE_BADGE_ISSUER ) )  ? 1 : 0;
+		if ($issuer_user_id > 0  && $check_profile > 0 ) {
+			$unique_issuer_uid = get_crypted_id($issuer_user_id);
+			$issuer_class_file_json = $unique_issuer_uid.ISSUER_CLASS_PREFIX_JSON_FILES;
+			$issuer_class_file_path = APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".$issuer_class_file_json; //local
+			if ( file_exists( $issuer_class_file_path ) ) 
+				return 1;
+			return 0;
+		}
+		return 0;
+	}
+
+	/**
+	 * Autogenerate issuer json file
+	 * @param int $user_id 
+	 * @param int $user_profile
+	 * @return void
+	 */
+	public static function autogenerate_issuer_json($user_id='0', $user_profile=''){
+		if ( $user_id>0 && ( $user_profile=='admin' || $user_profile=='issuer') )
+		{
+			if ( IBL_OPENBADGES::check_issuer_json($user_id) == 0  ) {
+				IBL_OPENBADGES::create_issuer_json($user_id);
+			}
+		}
+	}
+
+	/**
+	 * Show issuer json file
+	 * @param int $user_id
+	 * @param int $user_profile
+	 * @param string $show_path 
+	 * 	default (empty) : returns filename
+	 *  local : returns local path 
+	 *  remote : returns remote path
+	 * @return void
+	 */
+	public static function show_path_issuer_json($user_id='0', $user_profile='',$show_path=''){
+		$res = '';
+		if ( $user_id>0 && ( $user_profile=='admin' || $user_profile=='issuer') )
+		{
+			if ( IBL_OPENBADGES::check_issuer_json($user_id) == 1  ) {
+				switch ($show_path){
+					case "local": $res = APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".get_crypted_id($user_id).ISSUER_CLASS_PREFIX_JSON_FILES; break;
+					case "remote": $res = APP_GENERAL_REPO_BADGES_ISSUER_REMOTE."/".get_crypted_id($user_id).ISSUER_CLASS_PREFIX_JSON_FILES; break;
+					default: $res = get_crypted_id($user_id).ISSUER_CLASS_PREFIX_JSON_FILES; break;
+				}
+				return $res;
+			}
+		}
+		return $res;
+	}
+
+	/**
+	 * Read issuer json file
+	 * @param int $user_id
+	 * @param int $user_profile
+	 * @param string $show_path
+	 * 	default (empty) : returns filename
+	 *  local : returns local path
+	 *  remote : returns remote path
+	 * @return void
+	 */
+	public static function read_issuer_json($user_id='0', $user_profile=''){
+		$res = '';
+		if ( $user_id>0 && ( $user_profile=='admin' || $user_profile=='issuer') )
+		{
+			if ( IBL_OPENBADGES::check_issuer_json($user_id) == 1  ) {
+				return file_get_contents( APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".get_crypted_id($user_id).ISSUER_CLASS_PREFIX_JSON_FILES , FILE_USE_INCLUDE_PATH);
+			}
+		}
+		return $res;
+	}
 
 	/**
 	 * Destroys object itself

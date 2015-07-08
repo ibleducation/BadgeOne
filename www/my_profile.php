@@ -29,9 +29,7 @@
 			$institution = $obj_user->institution;
 			$institution_url = $obj_user->institution_url;
 			$institution_email = $obj_user->institution_email;
-
-			print "<pre>";print_r($obj_user);print "</pre>";
-
+			//UTILS_COMMON::pre($obj_user);
 		//oauth data
 		$get_auth_client_id  = COMMONDB_MODULE::get_selected_value("oauth_clients", "client_id", "WHERE user_id='$user_id'");
 		$get_auth_secret_key = COMMONDB_MODULE::get_selected_value("oauth_clients", "client_secret", "WHERE user_id='$user_id'");
@@ -67,6 +65,7 @@
 				</div>
 
 				<?php if ( $user_profile !='general' ) { ?>
+				<div class="form-group"><h3><?php echo __("Main Institution Data")?> (* <?php echo __("Required")?>)</h3></div>
 				<div class="form-group">
 					<label for="earn_insittution"><?php echo __("Institution")?></label>
 					<input type="text" name="institution" id="institution" value="<?php echo $institution?>" class="form-control" placeholder="<?php echo __("URL Institution")?>" >
@@ -180,7 +179,7 @@
 		    	$dirsfiles_to_check = array(
 		    		//badges
 		    		"app_repo" => array('name'=>__("General Repository"), 'dir'=> APP_GENERAL_REPO."/" , 'perms'=>'' ) ,
-		    		"app_repo_issuers" => array('name'=>__("Repo for Issuers files"), 'dir'=> APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/" , 'perms'=>'' ),
+		    		"app_repo_issuers" => array('name'=>__("Repo for Issuers files"), 'dir'=> APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/" , 'perms'=>'writable' ),
 		    		"app_repo_badges" => array('name'=>__("Repo for Badges files"), 'dir'=> APP_GENERAL_REPO_BADGES_EARN_LOCAL."/" , 'perms'=>'writable' ),
 		    		"app_repo_images" => array('name'=>__("Repo for Badges images"), 'dir'=> APP_GENERAL_REPO_BADGES_IMG_LOCAL."/" , 'perms'=>'writable' ),
 		    		"app_repo_revoked" => array('name'=>__("Repo for Badges revoked"), 'dir'=> APP_GENERAL_REPO_BADGES_REVOKED_LOCAL."/" , 'perms'=>'writable' ),
@@ -213,20 +212,18 @@
 			<div class="col-lg-6 col-md-6">
 			<!-- check main json issuer file -->
 				<h3><br></h3>
-
 				<div class="form-group"><?php echo __("Master Issuer Json File")?></div>
-    			<p class="small">
-    			<?php echo __("This is the content of the file")?> : <strong><?php echo APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/".BADGES_ISSUER_INSTITUTION_FILE_ID ?></strong>
-    			<br><br>
-<pre>{
-"@context": "<?php echo BADGES_ISSUER_CONTEXT?>",
-"id" : "<?php echo BADGES_ISSUER_INSTITUTION_ID?>",
-"@type": "IssuerOrg",
-"name": "<?php echo BADGES_ISSUER_INSTITUTION_NAME?>",
-"url": "<?php echo BADGES_ISSUER_INSTITUTION_URL?>",
-"email": "<?php echo BADGES_ISSUER_INSTITUTION_EMAIL?>",
-}
-</pre>
+				<p class="small">
+				<?php echo __("This is the content of the file")?> : <strong><?php echo IBL_OPENBADGES::show_path_issuer_json($logged_user, $logged_profile, $show_path='local'); ?></strong>
+				<br><br>
+				<?php 
+				$show_contents_file_json = IBL_OPENBADGES::read_issuer_json($logged_user, $logged_profile);
+				if ( $show_contents_file_json !='' ) {
+					print "<pre>".$show_contents_file_json."</pre>";
+				} else {
+					print '<div class="alert alert-danger">'.__("The Json Issuer's file does not exists")."<br>".__("Update your profile in order to regenerate the Json file").'</div>';
+				}
+				?>
 				</p>
 			<!-- /check main json issuer file -->
 
