@@ -156,6 +156,7 @@ class IBL_OPENBADGES
 			if ( $contents_json_badgesclass !='' && count($arr_params_badgeclas)>0  ) {
 				foreach ( $arr_params_badgeclas AS $key=>$val )
 				{
+					$val = str_replace("\n","\\n",$val); //json multilines
 					$contents_json_badgesclass = str_replace("%$key%","$val",$contents_json_badgesclass );
 				}
 			}
