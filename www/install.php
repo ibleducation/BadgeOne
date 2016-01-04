@@ -72,7 +72,7 @@ try {
 	    	$dirsfiles_to_check = array(
 	    		//badges
 	    		"app_repo" => array('name'=>'General Repository', 'dir'=> APP_GENERAL_REPO."/" , 'perms'=>'' ) ,
-	    		"app_repo_issuers" => array('name'=>'Repo for Issuers files', 'dir'=> APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/" , 'perms'=>'' ),
+	    		"app_repo_issuers" => array('name'=>'Repo for Issuers files', 'dir'=> APP_GENERAL_REPO_BADGES_ISSUER_LOCAL."/" , 'perms'=>'writable' ),
 	    		"app_repo_badges" => array('name'=>'Repo for Badges files', 'dir'=> APP_GENERAL_REPO_BADGES_EARN_LOCAL."/" , 'perms'=>'writable' ),
 	    		"app_repo_images" => array('name'=>'Repo for Badges images', 'dir'=> APP_GENERAL_REPO_BADGES_IMG_LOCAL."/" , 'perms'=>'writable' ),
 	    		"app_repo_revoked" => array('name'=>'Repo for Badges revoked', 'dir'=> APP_GENERAL_REPO_BADGES_REVOKED_LOCAL."/" , 'perms'=>'writable' ),
@@ -108,6 +108,9 @@ try {
 					<br>
     				sudo chown www-data:user files/badges/images <br>
     				sudo chmod 775 files/badges/images<br>
+					<br>
+    				sudo chown www-data:user files/badges/issuers <br>
+    				sudo chmod 775 files/badges/issuers<br>
 					<br>
     				sudo chown www-data:user files/badges/revoked <br>
     				sudo chmod 775 files/badges/revoked<br>
@@ -217,7 +220,6 @@ try {
 			<?php 
 				$user_admin = COMMONDB_MODULE :: get_selected_value("users", "id_user", "WHERE profile='admin' AND activated=1");
 				$obj_admin = new COMMONDB_MODULE("users", $user_admin);
-				
 				//check issuer data
 				$admin_issuer 		=  ( $obj_admin->institution!='' && $obj_admin->institution == BADGES_ISSUER_INSTITUTION_NAME ) ? BADGES_ISSUER_INSTITUTION_NAME : '';
 				$admin_issuer_url 	=  ( $obj_admin->institution_url!='' && $obj_admin->institution_url == BADGES_ISSUER_INSTITUTION_URL ) ? BADGES_ISSUER_INSTITUTION_URL : '';
@@ -265,9 +267,9 @@ try {
 							$sdata = array('admin',$u_email,$u_fullname,BADGES_ISSUER_INSTITUTION_NAME,BADGES_ISSUER_INSTITUTION_URL,BADGES_ISSUER_INSTITUTION_EMAIL,md5('admin123'),1,$date_now,$date_now);
 							$stmt = $dbh->prepare("INSERT INTO users (id_user,profile,email,name,institution,institution_url,institution_email,password,activated,date_created,date_activated) VALUES ('',?,?,?,?,?,?,?,?,?,?)");
 							$stmt->execute($sdata);
-	
+
 							$new_admin_id = $dbh->lastInsertId();
-							
+
 							if ( $new_admin_id > 0 ) {
 								
 								//setup oauth2 client
@@ -276,12 +278,21 @@ try {
 								$sdata = array($client_id,$client_secret,$new_admin_id);
 								$stmt = $dbh->prepare("INSERT INTO oauth_clients (client_id,client_secret,user_id) VALUES(?,?,?) ");
 								$stmt->execute($sdata);
-								
+
 								echo "<br>";
 								echo "<p class='alert alert-success'>
 								New user admin created.<br> 
-								Now you could sing-in : user: $u_email | password: admin123 
+								Now you could sing-in : user: $u_email | password: admin123 <br> 
+								Sing-in : <a href=\"/login.php\">HERE</a>
 								</p>";
+
+								//create json issuer file
+								IBL_OPENBADGES::create_issuer_json($new_admin_id);
+
+								//next step update data - first action - do not need corrections
+								$user_admin = $new_admin_id;
+								$admin_issuer_data_ok = 1;
+								
 							} else {
 								echo "<br>";
 								echo "<p class='alert alert-danger'>Something wrong happen. Please try again.</p>";
@@ -297,8 +308,8 @@ try {
 				<?php }  ?>
 			</div>
 			
+			<?php if ( $user_admin > 0 )  { ?>
 			<div class="form-group"><a name="update_admin_user"></a>
-				
 				<label>Issuer Admin data : <?php echo ( $user_admin> 0 && $admin_issuer_data_ok==1) ? '<span class="label label-success">OK</span>' : '<span class="label label-danger">KO</span>'?></label>
 				<?php if ( $admin_issuer_data_ok == 0 )  { ?>
 				<br>
@@ -325,9 +336,8 @@ try {
 				
 				<?php } ?> 
 			</div>
-			
-			
-			
+			<?php } ?> 
+
     	</div>
     	<!-- /check dirs and files -->    	
     	

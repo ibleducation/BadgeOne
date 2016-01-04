@@ -1,9 +1,9 @@
 <?php
 /***
- *  Badges : OBI base on latest documentation 
+ *  Badges : OBI base on latest documentation
  *  Dec 2013: https://github.com/mozilla/openbadges-specification/blob/master/Assertion/latest.md
  *  May 2015: https://openbadgespec.org/
- * 
+ *
  */
 
 
@@ -116,7 +116,7 @@ define ('APP_PREFIX', "[badgeone]"); //used in composed emails if needed
 define ('APP_USER_MIN_CHARS_PWD', 5); //min chars for user passwords
 
 //App: General Options
-define ('APP_ALLOW_NOCONFIRM_REGISTRATION',1); //1: allows direct registration instead email confirmation 
+define ('APP_ALLOW_NOCONFIRM_REGISTRATION',0); //1: allows direct registration instead email confirmation 
 define ('APP_EMAIL',"user@email.local");
 
 //App: Badges App Params
@@ -127,7 +127,7 @@ define ('BADGES_IMAGE_ALLOWED_EXTENSIONS','png'); //Mozilla backing api - just s
 
 //
 // APP : BADGES SETTINGS
-// 
+//
 include('settings.php');
 
 //
@@ -164,7 +164,7 @@ if(isset($_COOKIE["UID"]) && isset($_COOKIE["SEED"]) && $_COOKIE["UID"]!='' && $
     $stmt = $dbh->prepare("SELECT * FROM users WHERE id_user = ? and seed = ? and activated=1 LIMIT 1");
     $stmt->execute($sdata);
     $yosoy = $stmt->fetch();
-	
+
     if(!$stmt->rowCount()){
         header("Location: ./logout.php");
     } else {

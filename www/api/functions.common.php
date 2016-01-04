@@ -209,6 +209,8 @@ function cleanup_string ($str) {
 	$new_str = preg_replace("/\"/","´", $new_str);
 	// Replace duplicated spaces
 	$new_str = preg_replace("/  /", " ", $new_str);
+        // Replace \r to \n
+        $new_str = preg_replace("/\r/", "\n", $new_str);
 	// Replace duplicated \n chars
 	$new_str = preg_replace("/\n\n/", "\n", $new_str);
 	// Clean spaces beging and end
