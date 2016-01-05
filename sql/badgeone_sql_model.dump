@@ -27,6 +27,7 @@ CREATE TABLE `badges_earns` (
   `grading` varchar(255) DEFAULT NULL,
   `enabled` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `published` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `show_public` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `date_created` datetime DEFAULT NULL,
   `created_by` bigint(20) DEFAULT '0',

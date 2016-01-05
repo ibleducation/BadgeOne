@@ -532,6 +532,24 @@ switch ($event) {
 		}
 	break;
 
+	case "set_public_earn":
+		$this_earn_id		 = ( isset($_POST["earn_id"]) && $_POST["earn_id"]!='' ) ? COMMONDB_MODULE::decrypt_id("badges_earns", $_POST["earn_id"] )  : 0;
+		$this_editor_id		 = ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
+		$check_editor_profile= COMMONDB_MODULE::get_selected_value("users", "profile","WHERE id_user=$this_editor_id AND activated=1 ");
+		$check_editor_earned = COMMONDB_MODULE::get_selected_value("badges_earns", "earn_id","WHERE earn_id='$this_earn_id' AND user_id='$this_editor_id'");
+		$allow_change_publish = ($check_editor_earned>0 && $check_editor_earned==$this_earn_id && $this_earn_id>0) ? 1 : 0;
+	
+		if ( $allow_change_publish ==1 ) {
+			$old_value			= COMMONDB_MODULE::get_selected_value("badges_earns","show_public","WHERE earn_id='$this_earn_id'");
+			$new_value			= ( $old_value ==1 ) ? 0 : 1;
+			COMMONDB_MODULE::set_value("badges_earns", "show_public", "$new_value", $this_earn_id);
+			COMMONDB_MODULE::set_value("badges_earns", "lastupdate_by", "$this_editor_id",  $this_earn_id);
+			$event_success = "The badge has been updated";
+		} else {
+			$event_errors = __("This action could not be performed");
+		}
+	break;
+		
 	//
 	// ------------------ Users ------------------- //
 	//
