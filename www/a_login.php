@@ -23,6 +23,10 @@ if($stmt->rowCount()>0){
     
     setcookie("SEED", $seddme, $expire);
 
+	//link registered user with earned|revoked badges before registration
+	$link_user_earned_badges = COMMONDB_MODULE::launch_direct_system_query("UPDATE badges_earns SET user_id='".$rows["id_user"]."' WHERE earn_email='".$form["email"]."' AND user_id='0'");
+	$link_user_revoked_badges = COMMONDB_MODULE::launch_direct_system_query("UPDATE badges_revocations SET user_id='".$rows["id_user"]."' WHERE earn_email='".$form["email"]."' AND user_id='0'");
+
     print "1";
 
 } else {

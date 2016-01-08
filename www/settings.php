@@ -13,6 +13,8 @@ define ('APP_GENERAL_REPO_BADGES_ISSUER_LOCAL',APP_GENERAL_REPO_BADGES."/issuers
 define ('APP_GENERAL_REPO_BADGES_EARN_LOCAL',APP_GENERAL_REPO_BADGES."/earns");
 define ('APP_GENERAL_REPO_BADGES_IMG_LOCAL',APP_GENERAL_REPO_BADGES."/images");
 define ('APP_GENERAL_REPO_BADGES_REVOKED_LOCAL',APP_GENERAL_REPO_BADGES."/revoked");
+define ('APP_GENERAL_REPO_USERS',APP_GENERAL_REPO."/users");
+define ('APP_GENERAL_REPO_USERS_PICTURES',APP_GENERAL_REPO_USERS."/pictures");
 
 //App: Badges Templates
 define ('APP_BADGES_TEMPLATE_BADGE_ISSUER',APP_GENERAL_REPO_TEMPLATES."/issuer.json");
@@ -73,6 +75,10 @@ define ('BADGES_CLASS_ISSUER',BADGES_ISSUER_INSTITUTION_ID);
 
 //App: Badges Assertion IMGS
 define ('BADGES_ASSERTION_IMAGE_PREFIX','-'.'img'.'.png');
+
+//App: Picutres Users Params
+define ('USERS_PICTURES_ALLOW_EXTENSIONS','jpg,jpeg,png'); //separeted by comma
+define ('USERS_PICTURES_MAX_SIZE_BYTES','1048576'); //mesure in bytes
 
 /** -- IMPORTANT! do not change the order --- **/
 ?>

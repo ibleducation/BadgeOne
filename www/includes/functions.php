@@ -487,4 +487,49 @@ function move_files($filetomove='',$filemoved=''){
 		rename( $filetomove, $filemoved );
 	}
 }
+
+/**
+ * Upload files
+ * @param object $objfile (object)
+ * @param string $resfilename (new filename)
+ * @param string $pathupload (path to upload) 
+ * @param string $max_size (in bytes)
+ * @param string $allowed_extensions (string extensions separated by comma) 
+ * @return int $error_is
+ */
+function upload_global_files($objfile,$resfilename,$pathupload, $max_size='',$allowed_extensions=''){
+	(array) $error = array();
+	(array) $error_code = array(
+			0 => __(""),
+			1 => __("Invalid file extension. Allowed: $allowed_extensions"),
+			2 => __("File size is too large"),
+			3 => __("System error"),
+	);	
+	
+	(string)$pathupload     = "$pathupload";
+
+	$valid_extensions = explode(",",$allowed_extensions);
+
+	if(!in_array(substr(strrchr(strtolower($objfile["name"]),'.'),1),$valid_extensions)  ){
+		$error[1] = $error_code[1];
+	}
+
+	if($objfile["size"] > $max_size){
+		$error[2] = $error_code[2];
+	}
+
+	//ready to move
+	if(count($error) == 0)
+	{
+		$path_resfilename	= $pathupload."/".$resfilename;
+
+		if ( move_uploaded_file($objfile["tmp_name"],$path_resfilename) )
+		{
+			$path_root = $pathupload;
+		}else{
+			$error[3] = $error_code[3];
+		}
+	}
+	return $error;
+}
 ?>

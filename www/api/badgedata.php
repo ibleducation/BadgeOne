@@ -53,7 +53,8 @@ if (!$server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
 		            if( $stmt->rowCount() > 0 )
 				    {
 						while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
-							$arr_params[] = array( 'param_id'=>$rs->param_id,'label'=>$rs->label, 'description'=>$rs->label_desc, 'type'=>$rs->type, 'required'=>$rs->required );
+							$label_desc = preg_replace("/´/", "&acute;", $rs->label_desc);
+							$arr_params[] = array( 'param_id'=>$rs->param_id,'label'=>$rs->label, 'description'=>$label_desc, 'type'=>$rs->type, 'required'=>$rs->required );
 						}
 					} else {
 						$arr_params[] = array( 'param_id'=>'0' );

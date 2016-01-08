@@ -9,6 +9,8 @@ $validate_auth = 1;
 $event	= ( isset($_POST['event']) && $_POST['event']!='') ? $_POST['event'] : "";
 $event_errors = "";
 $event_success= "";
+$update_additional_user_info = "";
+$error_additional_user_info = "";
 
 switch ($event) {
 
@@ -581,6 +583,54 @@ switch ($event) {
 		$institution_url_valid	= validateURL($institution_url);
 		$institution_email		= ( isset($_POST['institution_email']) && strlen(trim($_POST['institution_email']))>0 ) ? isValidateEmailSyntax($_POST['institution_email']) : '';
 
+		//user additional information
+
+		//picture upload
+		$old_picture = COMMONDB_MODULE::get_value("users", "picture", $this_editor_id);
+		if ( isset($_FILES["picture"]) && $_FILES['picture']["name"]!='') {
+			$objfile = $_FILES["picture"];
+			$new_picture = get_crypted_id($this_editor_id).".".substr(strrchr(strtolower($objfile["name"]),'.'),1);
+			$pathupload = APP_GENERAL_REPO_USERS_PICTURES;
+			$max_size = (defined("USERS_PICTURES_MAX_SIZE_BYTES") && USERS_PICTURES_MAX_SIZE_BYTES!='') ? USERS_PICTURES_MAX_SIZE_BYTES : "";
+			$allowed_extensions = (defined("USERS_PICTURES_ALLOW_EXTENSIONS") && USERS_PICTURES_ALLOW_EXTENSIONS!='') ? USERS_PICTURES_ALLOW_EXTENSIONS : "";
+			$picture_upload = upload_global_files($objfile,$new_picture,$pathupload, $max_size, $allowed_extensions);
+			if ( count($picture_upload) >0  ) {
+				foreach ($picture_upload AS $error_value) {
+					$error_additional_user_info .= __("Error Picture").": $error_value . <br>";
+				} 
+			} else {
+				if ( $old_picture!='' && $old_picture!=$new_picture && file_exists(APP_GENERAL_REPO_USERS_PICTURES."/".$old_picture))
+				{
+					delete_files(APP_GENERAL_REPO_USERS_PICTURES."/".$old_picture);
+				}				
+				$update_additional_user_info = "picture='$new_picture',";
+			}
+		}
+		//picture delete
+		if ( isset($_POST["del_picture"]) ) {
+			if ( $old_picture!='' && file_exists(APP_GENERAL_REPO_USERS_PICTURES."/".$old_picture)) 
+			{
+				delete_files(APP_GENERAL_REPO_USERS_PICTURES."/".$old_picture);
+				$update_additional_user_info = "picture='',";
+			}
+			//prevent upload new imgs if deleted is check
+			if ( isset($new_picture) && $new_picture!='' && file_exists(APP_GENERAL_REPO_USERS_PICTURES."/".$new_picture) ){
+				delete_files(APP_GENERAL_REPO_USERS_PICTURES."/".$new_picture);
+				$update_additional_user_info = "picture='',";	
+			}
+		}
+		//other user data
+		$arr_urls_user_info = array("url_website","url_social_facebook","url_social_twitter","url_social_gplus","url_social_linkedin");
+		foreach ($arr_urls_user_info AS $url_value) {
+			$check_url_data = ( isset($_POST[$url_value]) && strlen(trim($_POST[$url_value]))>0 ) ? $_POST[$url_value] : '';
+			$update_additional_user_info .= ( validateURL($check_url_data) == 1 ) ? "$url_value='$check_url_data'," : "";
+			$update_additional_user_info .= ( ($check_url_data!='' && validateURL($check_url_data) == 1 ) ||  $check_url_data == "") ? "$url_value='$check_url_data'," : "";
+		 	$error_additional_user_info .= ($check_url_data !="" && validateURL($check_url_data) != 1 ) ? __("Error URL").": $check_url_data" : ""; 
+		}
+		
+		$about_user =  ( isset($_POST['about_user']) && strlen(trim($_POST['about_user']))>0 ) ? htmlspecialchars($_POST['about_user'],ENT_QUOTES) : '';
+		$update_additional_user_info .= "about_user='$about_user',";
+		
 		//evaluate_changes
 		$allow_changes		= ($u_pwd_check!='' || $u_fullname!='' || $u_email!='' ) ? 1 : 0;
 
@@ -588,23 +638,28 @@ switch ($event) {
 			//update pwd is needed
 			if ( $u_pwd_check!='' ) { COMMONDB_MODULE::set_value("users", "password",  md5($u_pwd_check), $this_editor_id); }
 
-			//TO-DO: nunpa check for  jsons and issued badges implications
+			//TO-DO: check for jsons and issued badges implications
 			if ( $u_fullname!='' ) { COMMONDB_MODULE::set_value("users", "name",  $u_fullname, $this_editor_id); }
 
 			// just for profiles : admin and issuer
 			if ( $check_editor_profile =='admin' || $check_editor_profile =='issuer') {
 				if ( $institution!='' && $institution_url!='' && $institution_url_valid==1 && $institution_email!='' ) {
 					//updatedb
-					COMMONDB_MODULE::launch_direct_system_query("UPDATE users SET institution='$institution', institution_url='$institution_url', institution_email='$institution_email' WHERE id_user='$this_editor_id'");
+					COMMONDB_MODULE::launch_direct_system_query("UPDATE users SET $update_additional_user_info institution='$institution', institution_url='$institution_url', institution_email='$institution_email' WHERE id_user='$this_editor_id'");
 					//update json issuer file
 					IBL_OPENBADGES::create_issuer_json($this_editor_id);
 				} else {
 					$event_errors = __("Some Institution data is missing or have errors.");
 				}
+			} else {
+				//general users update additional data
+				if ( $update_additional_user_info != '' ) {
+					COMMONDB_MODULE::launch_direct_system_query("UPDATE users SET $update_additional_user_info lastupdate=NOW() WHERE id_user='$this_editor_id'");
+				}
 			}
 
 			//check partial errors
-			$event_success = ($event_errors=='') ?  __("Your profile data has been updated") : '';
+			$event_success = ($event_errors=='') ?  __("Your profile data has been updated") : "";
 
 		} else {
 			$event_errors = ( $u_pwd!='') ? __("Password could not be updated")." < ". $min_pwd_chars. __("chars") : __("Nothing to change");

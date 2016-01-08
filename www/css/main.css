@@ -6,7 +6,7 @@ hr { border-color: #afc2d1;}
 #head{ height: 75px; border-bottom: 1px solid #949494; background-color: #fff; position:fixed; width:100%; z-index:999;}
 #main{ margin:auto; width:1100px; padding-top:75px; display: block; min-height:550px;}
 #menu{ width:1100px; margin:auto;}
-#footer{ min-height:240px; background-color:#181c27; color:#a19d9d; border-bottom: 1px solid #393939; border-top:1px solid #949494;}
+#footer{ background-color:#181c27; color:#a19d9d; border-bottom: 1px solid #393939; border-top:1px solid #949494;}
 #copyright{ min-height:30px; background-color:#24282f; color:#a19d9d; font-size:12px;}
 #logo_space{ position:relative; float:left; width: 340px;}
 #menu_space{ position:relative; float: right; margin-top:10px; padding-top:10px;}
@@ -99,4 +99,22 @@ input.forms, .forms:focus{ background-color:#f0f0f0; }
 	background-image: -o-linear-gradient(top, #181c27, #293147);
 	background-image: linear-gradient(to bottom, #181c27, #293147);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#4b546a, endColorstr=#2c354b);
 	color:#ffffff;
+}
+
+/*pictures*/
+.thumbnail {
+    background-color: #fff;
+    border: 0;
+    border-left: 8px solid #0c91ec;
+    border-radius: 3px;
+    display: block;
+    line-height: 1.42857;
+    margin-bottom: 10px;
+    padding: 0;
+    transition: border 0.2s ease-in-out 0s;
+}
+.img-responsive, .thumbnail a > img, .thumbnail > img {
+    display: block;
+    max-height: auto;
+    max-width: 190px;
 }

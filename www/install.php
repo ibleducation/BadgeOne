@@ -81,6 +81,8 @@ try {
 	    		"app_file_template_issuer" => array('name'=>'Issuer Template', 'dir'=> APP_BADGES_TEMPLATE_BADGE_ISSUER , 'perms'=>'' ),
 	    		"app_file_template_asser" => array('name'=>'Assertion Template', 'dir'=> APP_BADGES_TEMPLATE_BADGE_ASSERTION , 'perms'=>'' ),
 	    		"app_file_template_badge" => array('name'=>'BadgeClass Template', 'dir'=> APP_BADGES_TEMPLATE_BADGE_CLASS , 'perms'=>'' ),
+	    		//users
+	    		"app_repo_users_pictures" => array('name'=>'General Repository for Users Pictures', 'dir'=> APP_GENERAL_REPO_USERS_PICTURES , 'perms'=>'writable' ),
 	    	);
 	    	
 	    	foreach ( $dirsfiles_to_check AS $repo ) 
@@ -114,6 +116,9 @@ try {
 					<br>
     				sudo chown www-data:user files/badges/revoked <br>
     				sudo chmod 775 files/badges/revoked<br>
+					<br>
+    				sudo chown www-data:user files/users/pictures <br>
+    				sudo chmod 775 files/users/pictures<br>    				
     			</blockquote>
     		</p>
     		
