@@ -2,20 +2,24 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
     <?php include("head.php"); ?>
+
     <link rel="stylesheet" href="css/portfolio.css" type="text/css" />
 </head>
 <body>
 
 <div id="head">
-    <div id="menu">
-        <?php  include("menu.php"); ?>
-   </div>
+    <div id="menu"><?php  include("menu.php"); ?></div>
 </div>
-	
+
+<?php  if( isset($_COOKIE["UID"]) && $_COOKIE["UID"]!='' ) { ?>
+
+<?php print $_COOKIE["UID"]; }?>
+
 <?php 
 $portfolio_uid = (isset($_GET["u"]) && is_numeric($_GET["u"]) && strlen($_GET["u"])<12  && $_GET["u"]>0 ) ? $_GET["u"] : 0;
-$arr_data_earns= array();
+$is_this_portfolio_logged_user_id  = ( isset($_COOKIE["UID"]) && $_COOKIE["UID"]!='' && $portfolio_uid == $_COOKIE["UID"] ) ? 1 : 0;
 
 if ( $portfolio_uid > 0 )
 {
@@ -42,14 +46,30 @@ if ( $portfolio_uid > 0 )
 		$social_links .= ( $url_social_data!='' ) ? '<a href="'.$url_social_data.'" target="_blank" class="btn btn-md btn-default"><i class="'.$ico.'"></i></a> ': "";
 	}
 	
-	$where_data_earns = "WHERE user_id='$portfolio_uid' AND deleted='0' AND enabled='1' AND show_public='1'";
-	$arr_data_earns   = COMMONDB_MODULE::get_list("badges_earns","$where_data_earns","earn_id");
+	//badges from badgeone 
+	$arr_badges_badgeone =
+	COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_earns",
+		 "earn_id AS item_id, user_id, institution, course AS badge_name, course_desc AS badge_description, badge_img_name AS badge_image, '' AS badge_image_url,
+			date_created AS issued_on, '' AS assertion_evidence, '' AS badge_criteria, '' AS imported_from, DATE_FORMAT(date_created,'%Y%m%d%H%i%s') AS orderdate",
+		 "WHERE user_id='$portfolio_uid' AND deleted='0' AND enabled='1' AND show_public='1'","");
+	
+	//badges imported
+	$arr_badges_imported =
+	COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_earns_imported",
+			"imported_id AS item_id, user_id, issuer_institution_name AS institution, badge_name, badge_description, badge_image AS badge_image, badge_imageUrl AS badge_image_url,  
+			assertion_issued_on AS issued_on, assertion_evidence, badge_criteria, imported_from, DATE_FORMAT(assertion_issued_on,'%Y%m%d%H%i%s') AS orderdate",
+			"WHERE user_id='$portfolio_uid' AND show_public='1'","");
+	
+	//merge badges
+	$arr_merge_badges = array_merge($arr_badges_badgeone,$arr_badges_imported);
+	$arr_merge_badges = (count($arr_merge_badges)>0) ? sort_by_array_key($arr_merge_badges,'orderdate','DESC') : array();
+	//var_dump($arr_merge_badges);
 }
 ?>
 
 <a name="viewcompletebadge"></a>
 <div id="main">
-	
+
 	<div class="row"><div class="col-lg-12">
 		<div class="col-lg-3" style="padding-top:20px;"><?php echo (isset($picture)) ? "$show_picture" : "";?></div>
 		<div class="col-lg-4"><?php echo (isset($fullname) )? "<h1>$fullname</h1>" : "" ?></div>
@@ -68,7 +88,6 @@ if ( $portfolio_uid > 0 )
 		<div class="container" id="tabContainer">
 		    <ul class="nav nav-tabs">
 		        <li class="nav active"><a href="#earned" data-toggle="tab"><?php echo __("Earned")?></a></li>
-		       <!-- <li class="nav"><a href="#given" data-toggle="tab"><?php echo __("Given")?></a></li>  --> 
 		    </ul>
 		
 		    <!-- Tab panes -->
@@ -76,49 +95,58 @@ if ( $portfolio_uid > 0 )
 		        <div class="tab-pane fade in active" id="earned">
 		        
 				<!-- earned -->
-				<?php  if ( $portfolio_uid > 0 && count($arr_data_earns) > 0 ) { ?>
+				<?php  if ( $portfolio_uid > 0 && count($arr_merge_badges) > 0 ) { ?>
 					<div class="container" style="margin-top:20px;">
 					
 					<div class="row form-group" style="width:90%">
 			
 						<div class="col-lg-3 form-group" id="show-lateral-panel" style="display:none;">
 						<?php 
+						
 						$i =1;
-						foreach ($arr_data_earns AS $earn_id) 
+						foreach ($arr_merge_badges AS $item) 
 						{
-							 $obj_bg 	= new COMMONDB_MODULE("badges_earns", $earn_id);
-							 $cryted_id 		= $obj_bg->crypted_id;
-							 $user_id  		    = $obj_bg->user_id;
-							 $institution  	    = $obj_bg->institution;
-							 $course  		    = $obj_bg->course;
-							 $course_desc	    = $obj_bg->course_desc;
-							 $earn_fullname	    = $obj_bg->earn_fullname;
-							 $earn_email	    = $obj_bg->earn_email;
-							 //badge
-							 $badge_img_name	= $obj_bg->badge_img_name;
-							 $show_badge_img    =  ( $badge_img_name!='') ? "fileearn.php?bgid=$cryted_id&amp;".NOCACHE : "";
-							 //get params
-							 $arr_params		= COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_earns_params","param_id,label,content","WHERE earn_id='$earn_id' AND deleted='0' ORDER BY param_id","");
-							 $count_params 		= count($arr_params);
-							 $url_download_badge_image = BADGES_IMAGE_GENERATOR_API_URL.APP_GENERAL_REPO_BADGES_EARN_REMOTE."/".$cryted_id.BADGES_ASSERTION_PREFIX_JSON_FILES;
-						?>
+							$item_id			= $item["item_id"];
+							$cryted_id 			= get_crypted_id( $item["item_id"] );
+							$user_id  		    = $item["user_id"];
+							$institution	    = $item["institution"];
+							$badge_name		 	= $item["badge_name"];
+							$badge_description	= $item["badge_description"];
+							$badge_image		= $item["badge_image"];
+							$badge_image_url	= $item["badge_image_url"];
+							if ( $item["imported_from"] == '' ) {
+								$show_badge_img    =  ( $badge_image!='') ? "fileearn.php?bgid=$cryted_id&amp;".NOCACHE : "";
+								$badge_evidence = "";
+								$arr_params		= COMMONDB_MODULE::get_arr_relations_lists_aliases("badges_earns_params","param_id,label,content","WHERE earn_id='$item_id' AND deleted='0' ORDER BY param_id","");
+								$count_params 		= count($arr_params);
+								$url_download_badge_image = BADGES_IMAGE_GENERATOR_API_URL.APP_GENERAL_REPO_BADGES_EARN_REMOTE."/".$cryted_id.BADGES_ASSERTION_PREFIX_JSON_FILES;
+								$url_linkedin = ( $is_this_portfolio_logged_user_id == 1 ) ? "https://www.linkedin.com/shareArticle?mini=true&url=".SERVER_HTTP_HOST.""."/share_badge/$user_id/$cryted_id/0/&title=$badge_name" : "";
+							} else {
+								$show_badge_img    = ( $badge_image_url!='') ? "$badge_image_url&amp;".NOCACHE :  ( ($badge_image!='') ? "$badge_image&amp;".NOCACHE : "" );
+								$badge_evidence    = ($item["assertion_evidence"]!='') ? $item["assertion_evidence"] : $item["badge_criteria"];
+								$count_params 	   = 0;
+								$url_download_badge_image = ( $badge_image_url!='') ? "$badge_image_url&amp;".NOCACHE : "";
+								$url_linkedin="";
+							}
+							?>
 							<div class="showpanel" id="showpanel-<?php echo $i?>">
 				            <div class="panel panel-info" style="display:none;" id="bpanel-<?php echo $i?>">
 				                <div class="panel-heading">
 				                	<a href="#viewcompletebadge" onclick="hideEarnBadge(<?php echo $i?>);" class="pull-right"><label for="toggle-<?php echo $i?>"><span class="fa fa-times"></span></label></a>
-				                	<h3 class="panel-title"><?php echo $course?></h3>
+				                	<h3 class="panel-title"><?php echo $badge_name?></h3>
 				                </div>
 				                <div class="panel-image hide-panel-body">
-									<?php if ( $badge_img_name !='') { ?><img src='<?php echo $show_badge_img?>' class="panel-image-preview"><?php }?>	                    
+									<?php if ( $badge_image !='') { ?><img src='<?php echo $show_badge_img?>' class="panel-image-preview"><?php }?>            
 				                </div>
 				                <div class="panel-body">
 				                    <h4>Institution</h4>
 				                    <p class="small"><?php echo $institution?></p>
+
 				                    <h4>Title</h4>
-				                    <p class="small"><?php echo $course?></p>
-				                    
+				                    <p class="small"><?php echo $badge_name?></p>
+
 				                    <h4>Description</h4>
-				                    <p class="small"><?php echo $course_desc?></p>
+				                    <p class="small"><?php echo $badge_description?></p>
 				                    
 				                    <?php if ( $count_params > 0 ) { ?>
 				                    <h4><?php echo __("Evidences")?></h4>
@@ -126,10 +154,16 @@ if ( $portfolio_uid > 0 )
 										<p class="small"><strong><?php echo $arr_params[$y]['label']?></strong>: <?php echo $arr_params[$y]['content']?></p>
 										<?php }?>
 				                    <?php }?>
+				                    
+				                    <?php if ( $badge_evidence!='' ) { ?>
+				                    <h4><?php echo __("Evidences")?></h4>
+										<p class="small"><?php echo $badge_evidence?></p>
+				                    <?php }?>
 				                </div>
 				                <div class="panel-footer text-center panel-info">
 				                    <a href="#viewcompletebadge" onclick="hideEarnBadge(<?php echo $i?>);"><label for="toggle-<?php echo $i?>"><span class="fa fa-times"></span></label></a>
-				                    <a href="<?php echo $url_download_badge_image?>" target="_blank" title="<?php echo __("Download this Badge")?>"><span class="fa fa-download"></span></a>
+				                    <?php if ($url_download_badge_image!=''){ ?><a href="<?php echo $url_download_badge_image?>" target="_blank" title="<?php echo __("Download this Badge")?>"><span class="fa fa-download"></span></a><?php }?>
+				                    <?php if ($url_linkedin!=''){ ?><a href="<?php echo $url_linkedin?>" target="_blank" title="<?php echo __("Share on Linkedin")?>"><span class="fa fa-linkedin"> share</span></a><?php }?>
 				                </div>
 				            </div></div>
 						<?php 
@@ -140,29 +174,38 @@ if ( $portfolio_uid > 0 )
 						<div class="col-lg-9 form-group">
 						<?php 
 						$i =1; $x =1;
-						foreach ($arr_data_earns AS $earn_id) 
+						foreach ($arr_merge_badges AS $item) 
 						{
-							 $obj_bg 	= new COMMONDB_MODULE("badges_earns", $earn_id);
-							 $cryted_id 		= $obj_bg->crypted_id;
-							 $course  		    = $obj_bg->course;
-							 //badge
-							 $badge_img_name	= $obj_bg->badge_img_name;
-							 $show_badge_img    =  ( $badge_img_name!='') ? "fileearn.php?bgid=$cryted_id&amp;".NOCACHE : "";
-							 $url_download_badge_image = BADGES_IMAGE_GENERATOR_API_URL.APP_GENERAL_REPO_BADGES_EARN_REMOTE."/".$cryted_id.BADGES_ASSERTION_PREFIX_JSON_FILES;
+							$cryted_id 			= get_crypted_id( $item["item_id"] );
+							$institution	    = $item["institution"];
+							$badge_name		 	= $item["badge_name"];
+							$badge_description	= $item["badge_description"];
+							$badge_image		= $item["badge_image"];		
+							$badge_image_url	= $item["badge_image_url"];
+							if ( $item["imported_from"] == '' ) {
+								$show_badge_img    =  ( $badge_image!='') ? "fileearn.php?bgid=$cryted_id&amp;".NOCACHE : "";
+								$url_download_badge_image = BADGES_IMAGE_GENERATOR_API_URL.APP_GENERAL_REPO_BADGES_EARN_REMOTE."/".$cryted_id.BADGES_ASSERTION_PREFIX_JSON_FILES;
+								$url_linkedin = ( $is_this_portfolio_logged_user_id == 1 ) ? "https://www.linkedin.com/shareArticle?mini=true&url=".SERVER_HTTP_HOST.""."/share_badge/$user_id/$cryted_id/0/&title=$badge_name" : "";
+							} else{
+								$show_badge_img    = ( $badge_image_url!='') ? "$badge_image_url&amp;".NOCACHE :  ( ($badge_image!='') ? "$badge_image&amp;".NOCACHE : "" );
+								$url_download_badge_image = ( $badge_image_url!='') ? "$badge_image_url&amp;".NOCACHE : "";
+								$url_linkedin="";
+							}
 						?>
 				        <div class="col-xs-12 col-md-3">
 				            <div class="panel panel-default">
 				                <div class="panel-heading">
-				                    <h3 class="panel-title"><?php echo $course?></h3>
+				                    <h3 class="panel-title"><?php echo $badge_name?></h3>
 				                </div>
 				                <div class="panel-image hide-panel-body">
-									<?php if ( $badge_img_name !='') { ?>
+									<?php if ( $badge_image !='') { ?>
 										<a href="#viewcompletebadge" onclick="showEarnBadge(<?php echo $i?>);"><img src='<?php echo $show_badge_img?>' class="panel-image-preview"></a>
 									<?php }?>	                    
 				                </div>
 				                <div class="panel-footer text-center">
 				                    <a href="#viewcompletebadge" onclick="showEarnBadge(<?php echo $i?>);"><span class="fa fa-eye"></span></a>
-				                    <a href="<?php echo $url_download_badge_image?>" target="_blank" title="<?php echo __("Download this Badge")?>"><span class="fa fa-download"></span></a>
+				                    <?php if ($url_download_badge_image!=''){ ?><a href="<?php echo $url_download_badge_image?>" target="_blank" title="<?php echo __("Download this Badge")?>"><span class="fa fa-download"></span></a><?php }?>
+				                    <?php if ($url_linkedin!=''){ ?><a href="<?php echo $url_linkedin?>" target="_blank" title="<?php echo __("Share on Linkedin")?>"><span class="fa fa-linkedin"> share</span></a><?php }?>
 				                </div>
 				            </div>
 				        </div>	
@@ -178,8 +221,10 @@ if ( $portfolio_uid > 0 )
 				<!-- /earned -->		        
 		        
 		        </div>
+
+
 		        
-		        <!-- <div class="tab-pane fade" id="given"></div> -->
+		        </div>
 		    </div>
 		</div>
 	</div>
@@ -203,6 +248,7 @@ function showEarnBadge(id){
 	$("#bpanel-"+id).show();
 }
 </script>
+
 
 <div id='footer' class='wrapper'>
     <?php include("footer.php"); ?>

@@ -8,7 +8,9 @@ $validate_auth = 1;
 //function to validate auth
 $event	= ( isset($_POST['event']) && $_POST['event']!='') ? $_POST['event'] : "";
 $event_errors = "";
+$event_errors_import = "";
 $event_success= "";
+$event_success_import= "";
 $update_additional_user_info = "";
 $error_additional_user_info = "";
 
@@ -551,7 +553,7 @@ switch ($event) {
 			$event_errors = __("This action could not be performed");
 		}
 	break;
-		
+	
 	//
 	// ------------------ Users ------------------- //
 	//
@@ -764,6 +766,56 @@ switch ($event) {
 	break;
 
 	default : break;
+	
+	//
+	// ------------------ Imported Badges ------------------- //
+	//
+	case "set_public_imported":
+		$this_imported_id	 = ( isset($_POST["imported_id"]) && $_POST["imported_id"]!='' ) ? COMMONDB_MODULE::decrypt_id("badges_earns_imported", $_POST["imported_id"] )  : 0;
+		$this_editor_id		 = ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
+		$check_editor_profile= COMMONDB_MODULE::get_selected_value("users", "profile","WHERE id_user=$this_editor_id AND activated=1 ");
+		$check_editor_imported = COMMONDB_MODULE::get_selected_value("badges_earns_imported", "imported_id","WHERE imported_id='$this_imported_id' AND user_id='$this_editor_id'");
+		$allow_change_publish = ($check_editor_imported>0 && $check_editor_imported==$this_imported_id && $this_imported_id>0) ? 1 : 0;
+	
+		if ( $allow_change_publish ==1 ) {
+			$old_value			= COMMONDB_MODULE::get_selected_value("badges_earns_imported","show_public","WHERE imported_id='$this_imported_id'");
+			$new_value			= ( $old_value ==1 ) ? 0 : 1;
+			COMMONDB_MODULE::set_value("badges_earns_imported", "show_public", "$new_value", $this_imported_id);
+			COMMONDB_MODULE::set_value("badges_earns_imported", "lastupdate_by", "$this_editor_id",  $this_imported_id);
+			$event_success_import = "The imported badge has been updated";
+		} else {
+			$event_errors_import = __("This action could not be performed");
+		}
+	break;
+	
+	case "get_imported":
+		$imported_from 		= "MozillaBackPack";
+		$this_editor_id		= ( isset($logged_user) && $logged_user>0 ) ? $logged_user : '0';
+		$check_editor_email = COMMONDB_MODULE::get_selected_value("users", "email","WHERE id_user=$this_editor_id AND activated=1 ");
+		$imported_email = ($this_editor_id >0  && $check_editor_email!='') ? $check_editor_email : "";
+		
+		if ( $imported_email !='' ) {
+			$displayer_id = IBL_MOZILLABACKPACK::convert_email_to_diplayer_id($imported_email);
+			if ( $displayer_id > 0 ) 
+			{
+				$collections  = IBL_MOZILLABACKPACK::fetch_collections($displayer_id,$imported_email='');
+				$fetch_badges_to_import = IBL_MOZILLABACKPACK::fetch_badges($collections,$displayer_id);
+				$collections  = ( count($collections)>0 ) ? $collections : array();
+				$fetch_badges_to_import = IBL_MOZILLABACKPACK::fetch_badges($collections,$displayer_id);
+				$import_badges = IBL_MOZILLABACKPACK::import_badges( $fetch_badges_to_import, $user_id, $displayer_id);
 
+				if ( $import_badges == "error" ) {
+					$event_errors_import =  __("Nothing found : Could not proceed your request");
+				} else {
+					$event_success_import =  $import_badges;
+				}				
+				
+			} else {
+				$event_errors_import = __("No user found");
+			}
+		} else {
+			$event_errors_import = __("This action could not be performed");
+		}
+	break;
 }
 ?>

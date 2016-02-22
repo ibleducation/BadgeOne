@@ -14,11 +14,12 @@ $arr_menu_logged = array(
 	'7' => './badge_edit.php',
 	'8' => './list_earn.php',
 	'9' => './badge_earn.php',
-	'9' => './badge_revoked.php',		
+	'10' => './badge_revoked.php',		
+	'11' => './myportfolio.php',
 );
 $key_logged 	= ( defined('CURRENT_PAGE') && CURRENT_PAGE!='' && array_search('./'.CURRENT_PAGE, $arr_menu_logged) ) ? array_search('./'.CURRENT_PAGE, $arr_menu_logged) : "";
 //submenu pages - alter keys positions
-$key_logged 	= ($key_logged==7 || $key_logged==8 || $key_logged==9) ? 3 : $key_logged;
+$key_logged 	= ( $key_logged==7 || $key_logged==8 || $key_logged==9 ) ? 3 : $key_logged;
 
 $arr_menu_public = array(
 	'1' => './register.php',
@@ -46,6 +47,7 @@ $key_public = ( defined('CURRENT_PAGE') && CURRENT_PAGE!='' && array_search('./'
 			<li><a href='<?php echo $arr_menu_logged[4]?>'><span class="btn <?php echo ($key_logged==4) ? "btn-primary" : "btn-default"?>"><?php echo __("My Badges")?></span></a></li>
 
             <li><a href="<?php echo $arr_menu_logged[5]?>"><span class="btn <?php echo ($key_logged==5) ? "btn-primary" : "btn-default"?>"><?php echo __("My Profile")?></span></a></li>
+            <li><a href="<?php echo $arr_menu_logged[11]?>?u=<?php echo $_COOKIE["UID"]?>"><span class="btn <?php echo ($key_logged==11) ? "btn-primary" : "btn-default"?>"><?php echo __("Public Portfolio")?></span></a></li>
             <li><a href='<?php echo $arr_menu_logged[6]?>' class='btn btn-primary btn-white btn-border3x btn-margin-left'><?php echo __("Logout")?> <i class="fa fa-sign-out"></i></a></li>
 
         <?php } else { ?>

@@ -39,7 +39,7 @@
 			$url_social_facebook = $obj_user->url_social_facebook;
 			$url_social_twitter = $obj_user->url_social_twitter;
 			$url_social_gplus = $obj_user->url_social_gplus;
-			$url_social_linkedin = $obj_user->url_social_facebook;
+			$url_social_linkedin = $obj_user->url_social_linkedin;
 
 		//oauth data
 		$get_auth_client_id  = COMMONDB_MODULE::get_selected_value("oauth_clients", "client_id", "WHERE user_id='$user_id'");

@@ -3,8 +3,6 @@
 --
 
 DROP TABLE IF EXISTS `badges_earns`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `badges_earns` (
   `earn_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `badge_id` bigint(19) unsigned NOT NULL DEFAULT '0',
@@ -42,15 +40,12 @@ CREATE TABLE `badges_earns` (
   KEY `deleted` (`deleted`),
   KEY `badge_id` (`badge_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Earn Badges';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `badges_earns_params`
 --
 
 DROP TABLE IF EXISTS `badges_earns_params`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `badges_earns_params` (
   `param_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `earn_id` bigint(19) unsigned NOT NULL DEFAULT '0',
@@ -77,15 +72,12 @@ CREATE TABLE `badges_earns_params` (
   KEY `deleted` (`deleted`),
   KEY `required` (`required`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Issuer Badges Params';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `badges_issuers`
 --
 
 DROP TABLE IF EXISTS `badges_issuers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `badges_issuers` (
   `badge_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(19) unsigned NOT NULL DEFAULT '0',
@@ -115,15 +107,12 @@ CREATE TABLE `badges_issuers` (
   KEY `deleted` (`deleted`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Issuer Badges';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `badges_issuers_params`
 --
 
 DROP TABLE IF EXISTS `badges_issuers_params`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `badges_issuers_params` (
   `param_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `badge_id` bigint(19) unsigned NOT NULL DEFAULT '0',
@@ -148,15 +137,12 @@ CREATE TABLE `badges_issuers_params` (
   KEY `deleted` (`deleted`),
   KEY `required` (`required`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Issuer Badges Params';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `badges_revocations`
 --
 
 DROP TABLE IF EXISTS `badges_revocations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `badges_revocations` (
   `revocation_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `revocation_reason` varchar(100) DEFAULT 'Issued in error',
@@ -196,15 +182,12 @@ CREATE TABLE `badges_revocations` (
   KEY `deleted` (`deleted`),
   KEY `badge_id` (`badge_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Badges Revoked';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `oauth_access_tokens`
 --
 
 DROP TABLE IF EXISTS `oauth_access_tokens`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_access_tokens` (
   `access_token` varchar(40) NOT NULL,
   `client_id` varchar(80) NOT NULL,
@@ -213,15 +196,12 @@ CREATE TABLE `oauth_access_tokens` (
   `scope` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`access_token`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `oauth_authorization_codes`
 --
 
 DROP TABLE IF EXISTS `oauth_authorization_codes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_authorization_codes` (
   `authorization_code` varchar(40) NOT NULL,
   `client_id` varchar(80) NOT NULL,
@@ -231,15 +211,12 @@ CREATE TABLE `oauth_authorization_codes` (
   `scope` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`authorization_code`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `oauth_clients`
 --
 
 DROP TABLE IF EXISTS `oauth_clients`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_clients` (
   `client_id` varchar(100) NOT NULL,
   `client_secret` varchar(80) NOT NULL,
@@ -250,30 +227,24 @@ CREATE TABLE `oauth_clients` (
   `lastupdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`client_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `oauth_jwt`
 --
 
 DROP TABLE IF EXISTS `oauth_jwt`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_jwt` (
   `client_id` varchar(80) NOT NULL,
   `subject` varchar(80) DEFAULT NULL,
   `public_key` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`client_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `oauth_refresh_tokens`
 --
 
 DROP TABLE IF EXISTS `oauth_refresh_tokens`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_refresh_tokens` (
   `refresh_token` varchar(40) NOT NULL,
   `client_id` varchar(80) NOT NULL,
@@ -282,28 +253,22 @@ CREATE TABLE `oauth_refresh_tokens` (
   `scope` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`refresh_token`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `oauth_scopes`
 --
 
 DROP TABLE IF EXISTS `oauth_scopes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_scopes` (
   `scope` text,
   `is_default` tinyint(1) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `oauth_users`
 --
 
 DROP TABLE IF EXISTS `oauth_users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(2000) DEFAULT NULL,
@@ -311,15 +276,12 @@ CREATE TABLE `oauth_users` (
   `last_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id_user` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `profile` enum('admin','issuer','general') NOT NULL DEFAULT 'general',
@@ -348,4 +310,55 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Users';
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `badges_earns_imported`
+--
+
+DROP TABLE IF EXISTS `badges_earns_imported`;
+CREATE TABLE `badges_earns_imported` (
+  `imported_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(19) unsigned NOT NULL DEFAULT '0',
+  `user_email` varchar(100) DEFAULT NULL,
+  `imported_from` varchar(100) DEFAULT NULL,
+  `imported_email` varchar(100) DEFAULT NULL,
+  `imported_user_id` varchar(100) DEFAULT NULL,
+  `assertion_lastValidated` varchar(100) DEFAULT NULL,
+  `assertion_hostedUrl` text,
+  `assertion_id` text,
+  `assertion_uid` text COMMENT 'Unique Identifier on a per-origin basis',
+  `assertion_type` varchar(100) DEFAULT NULL,
+  `assertion_recipient` text,
+  `assertion_evidence` varchar(200) DEFAULT NULL,
+  `assertion_image` text,
+  `assertion_orig_issued_on` varchar(100) DEFAULT NULL,
+  `assertion_issued_on` datetime DEFAULT NULL,
+  `assertion_orig_expires` varchar(100) DEFAULT NULL,
+  `assertion_expires` datetime DEFAULT NULL,
+  `badge_id` text,
+  `badge_type` varchar(100) DEFAULT NULL,
+  `badge_name` text,
+  `badge_image` text,
+  `badge_imageUrl` text,
+  `badge_description` text,
+  `badge_criteria` text,
+  `badge_issuer` text,
+  `issuer_institution_id` text,
+  `issuer_institution_type` varchar(100) DEFAULT NULL,
+  `issuer_institution_name` text,
+  `issuer_institution_url` text,
+  `issuer_institution_email` text,
+  `enabled` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `show_public` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `date_created` datetime DEFAULT NULL,
+  `created_by` bigint(20) DEFAULT '0',
+  `lastupdate_by` bigint(20) DEFAULT '0',
+  `lastupdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`imported_id`),
+  KEY `user_id` (`user_id`),
+  KEY `user_email` (`user_email`),
+  KEY `imported_user_id` (`imported_user_id`),
+  KEY `imported_email` (`imported_email`),
+  KEY `show_public` (`show_public`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Imported Earn Badges';

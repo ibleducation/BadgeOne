@@ -532,4 +532,21 @@ function upload_global_files($objfile,$resfilename,$pathupload, $max_size='',$al
 	}
 	return $error;
 }
+
+/**
+ * Sort by array_key
+ * @param array $array
+ * @param string $sort_key
+ * @param string $dir (ASC or DESC)
+ * @param string $max_size (in bytes)
+ * @param string $allowed_extensions (string extensions separated by comma)
+ * @return int $error_is
+ */
+function sort_by_array_key($array,$sort_key, $dir = 'ASC') {
+	usort($array, function($a,$b) use ($sort_key){
+		return strnatcasecmp($a["$sort_key"], $b["$sort_key"]);
+	});
+		if ( $dir == 'DESC' ) { return array_reverse($array); }
+		else { return $array; }
+}
 ?>

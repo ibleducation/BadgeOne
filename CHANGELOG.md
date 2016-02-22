@@ -1,3 +1,9 @@
+## BadgeOne (0.9) beta5; urgency=low
+  * Released: 20160222
+  * New:
+     - import badges from MozillaBack
+     - share badges in linkedin
+
 ## BadgeOne (0.9) beta4; urgency=low
   * Released: 20160108
   * New:

@@ -172,6 +172,7 @@ if(isset($_COOKIE["UID"]) && isset($_COOKIE["SEED"]) && $_COOKIE["UID"]!='' && $
     	$logged_user 	 = $yosoy['id_user'];
     	$logged_user_name= $yosoy['name'];
     	$logged_profile  = $yosoy['profile'];
+    	$logged_email  = $yosoy['email'];
     }
 }
 ?>

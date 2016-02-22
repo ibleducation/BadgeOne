@@ -3,263 +3,317 @@
 # This file is distributed under the same license as the BadgeOne package.
 # IBLStudios <iblstudios@iblstudios.com>, 2016
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: BadgeOne 0.9\n"
+"Project-Id-Version: BadgeOne 0.9 \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-05 14:21+0100\n"
-"PO-Revision-Date: 2016-01-05 14:29+0100\n"
+"POT-Creation-Date: 2016-02-22 13:02+0100\n"
+"PO-Revision-Date: 2016-02-22 13:02+0100\n"
 "Last-Translator: IBLStudios <iblstudios@iblstudios.com>\n"
 "Language-Team: en_EN <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: en\n"
+
 
 #: ../www/issuer.php:48 ../www/badge_edit.php:136
-msgid "ADD NEW BADGE"
-msgstr ""
+msgid   "ADD NEW BADGE"
+msgstr  ""
+
+#: ../www/my_profile.php:94
+msgid   "About Me"
+msgstr  ""
+
+#: ../www/myportfolio.php:78
+msgid   "About me"
+msgstr  ""
 
 #: ../www/account_activation.php:29 ../www/account_activation.php:35
-msgid "Account Activation"
-msgstr ""
+msgid   "Account Activation"
+msgstr  ""
 
 #: ../www/a_activation.php:36
-msgid "Activation Complete. You could Sign-In now"
-msgstr ""
+msgid   "Activation Complete. You could Sign-In now"
+msgstr  ""
 
 #: ../www/my_profile.php:129 ../www/my_profile.php:148
-msgid "Activation Date"
-msgstr ""
+#: ../www/my_profile.php:207
+msgid   "Activation Date"
+msgstr  ""
 
 #: ../www/users.php:47
-msgid "Active"
-msgstr ""
+msgid   "Active"
+msgstr  ""
+
+#: ../www/my_profile.php:138
+msgid   "Additional User Information"
+msgstr  ""
 
 #: ../www/earn.php:56 ../www/issuer.php:135 ../www/list_earn.php:89
 #: ../www/users.php:105
-msgid "Are you sure?"
-msgstr ""
+msgid   "Are you sure?"
+msgstr  ""
 
 #: ../www/my_profile.php:170 ../www/my_profile.php:189
-msgid "Assertion Template"
-msgstr ""
+#: ../www/my_profile.php:248
+msgid   "Assertion Template"
+msgstr  ""
 
 #: ../www/badge_earn.php:65
-msgid "BACK TO EARN LIST"
-msgstr ""
+msgid   "BACK TO EARN LIST"
+msgstr  ""
 
 #: ../www/list_earn.php:37 ../www/badge_revoked.php:48 ../www/badge_edit.php:22
-msgid "BACK TO ISSUER LIST"
-msgstr ""
+msgid   "BACK TO ISSUER LIST"
+msgstr  ""
 
 #: ../www/issuer.php:58 ../www/badge_edit.php:75 ../www/badge_edit.php:76
 #: ../www/badge_edit.php:79 ../www/badge_edit.php:80 ../www/badge_edit.php:84
 #: ../www/badge_edit.php:88 ../www/badge_edit.php:92
-msgid "Badge"
-msgstr ""
+msgid   "Badge"
+msgstr  ""
 
-#: ../www/events.php:135
-msgid "Badge Earn deleted"
-msgstr ""
+#: ../www/events.php:135 ../www/events.php:139
+msgid   "Badge Earn deleted"
+msgstr  ""
 
-#: ../www/events.php:161 ../www/events.php:158
-msgid "Badge deleted"
-msgstr ""
+#: ../www/events.php:161 ../www/events.php:158 ../www/events.php:162
+msgid   "Badge deleted"
+msgstr  ""
 
 #: ../www/badge_earn.php:142
-msgid "Badge does not exists or is not enabled"
-msgstr ""
+msgid   "Badge does not exists or is not enabled"
+msgstr  ""
 
 #: ../www/issuer.php:116
-msgid "Badge not enabled"
-msgstr ""
+msgid   "Badge not enabled"
+msgstr  ""
 
 #: ../www/my_profile.php:171 ../www/my_profile.php:190
-msgid "BadgeClass Template"
-msgstr ""
+#: ../www/my_profile.php:249
+msgid   "BadgeClass Template"
+msgstr  ""
 
 #: ../www/badge_revoked.php:19 ../www/badge_revoked.php:20
-msgid "Badges revoked"
-msgstr ""
+msgid   "Badges revoked"
+msgstr  ""
 
 #: ../www/events.php:205 ../www/events.php:206 ../www/events.php:207
 #: ../www/events.php:202 ../www/events.php:203 ../www/events.php:204
-msgid "Bage IMG"
-msgstr ""
+#: ../www/events.php:208
+msgid   "Bage IMG"
+msgstr  ""
 
 #: ../www/badge_edit.php:134
-msgid "CREATE A NEW BADGE"
-msgstr ""
+msgid   "CREATE A NEW BADGE"
+msgstr  ""
 
 #: ../www/a_reset.php:35
-msgid "Change your password"
-msgstr ""
+msgid   "Change your password"
+msgstr  ""
 
 #: ../www/my_profile.php:153 ../www/my_profile.php:172
-msgid "Check directories and required files"
-msgstr ""
+#: ../www/my_profile.php:231
+msgid   "Check directories and required files"
+msgstr  ""
+
+#: ../www/my_profile.php:85
+msgid   "Check to delete picture"
+msgstr  ""
 
 #: ../www/a_register.php:59
-msgid "Confirm your account"
-msgstr ""
+msgid   "Confirm your account"
+msgstr  ""
 
 #: ../www/events.php:137 ../www/events.php:141 ../www/events.php:163
 #: ../www/issuer.php:133 ../www/users.php:103 ../www/events.php:160
-msgid "Could not be deleted"
-msgstr ""
+#: ../www/events.php:145 ../www/events.php:164
+msgid   "Could not be deleted"
+msgstr  ""
 
 #: ../www/issuer.php:99
-msgid "Could not be modified"
-msgstr ""
+msgid   "Could not be modified"
+msgstr  ""
 
 #: ../www/events.php:190 ../www/events.php:345 ../www/events.php:187
-#: ../www/events.php:339
-msgid "Could not proceed"
-msgstr ""
+#: ../www/events.php:339 ../www/events.php:191 ../www/events.php:343
+msgid   "Could not proceed"
+msgstr  ""
 
 #: ../www/events.php:190 ../www/events.php:345 ../www/events.php:187
-#: ../www/events.php:339
-msgid "Could not proceed. Invalid syntax for Course Criteria URL"
-msgstr ""
+#: ../www/events.php:339 ../www/events.php:191 ../www/events.php:343
+msgid   "Could not proceed. Invalid syntax for Course Criteria URL"
+msgstr  ""
 
 #: ../www/badge_earn.php:78 ../www/badge_earn.php:92 ../www/earn.php:34
 #: ../www/my_earn.php:32 ../www/view_badge_issuer.php:60
-#: ../www/list_earn.php:51 ../www/my_earn.php:36
-msgid "Course"
-msgstr ""
+#: ../www/list_earn.php:51 ../www/my_earn.php:36 ../www/my_earn.tab2.php:29
+#: ../www/my_earn.tab1.php:10
+msgid   "Course"
+msgstr  ""
 
 #: ../www/register.php:25
-msgid "Create Account"
-msgstr ""
+msgid   "Create Account"
+msgstr  ""
 
-#: ../www/menu.php:53 ../www/register.php:24
-msgid "Create Free Account"
-msgstr ""
+#: ../www/menu.php:53 ../www/register.php:24 ../www/menu.php:55
+msgid   "Create Free Account"
+msgstr  ""
 
 #: ../www/users.php:48
-msgid "Created"
-msgstr ""
+msgid   "Created"
+msgstr  ""
 
 #: ../www/badge_edit.php:79 ../www/badge_edit.php:80
-msgid "Criteria URL"
-msgstr ""
+msgid   "Criteria URL"
+msgstr  ""
 
 #: ../www/dashboard.php:13 ../www/dashboard.php:14 ../www/menu.php:37
-msgid "Dashboard"
-msgstr ""
+#: ../www/menu.php:38
+msgid   "Dashboard"
+msgstr  ""
 
 #: ../www/badge_revoked.php:57
-msgid "Date"
-msgstr ""
+msgid   "Date"
+msgstr  ""
 
 #: ../www/earn.php:37 ../www/earn.php:59 ../www/issuer.php:65
 #: ../www/issuer.php:133 ../www/users.php:49 ../www/users.php:103
 #: ../www/users.php:109
-msgid "Delete"
-msgstr ""
+msgid   "Delete"
+msgstr  ""
 
 #: ../www/badge_edit.php:84 ../www/badge_edit.php:109 ../www/badge_edit.php:122
-msgid "Description"
-msgstr ""
+msgid   "Description"
+msgstr  ""
 
 #: ../www/badge_edit.php:85
-msgid "Description here"
-msgstr ""
+msgid   "Description here"
+msgstr  ""
 
 #: ../www/view_badge_earn.php:46 ../www/myportfolio.php:100
-#: ../www/myportfolio.php:133
-msgid "Download this Badge"
-msgstr ""
+#: ../www/myportfolio.php:133 ../www/myportfolio.php:165
+#: ../www/myportfolio.php:207
+msgid   "Download this Badge"
+msgstr  ""
 
 #: ../www/badge_earn.php:86 ../www/badge_earn.php:134 ../www/list_earn.php:34
-msgid "EARN A NEW BADGE"
-msgstr ""
+msgid   "EARN A NEW BADGE"
+msgstr  ""
 
 #: ../www/issuer.php:63 ../www/issuer.php:113 ../www/issuer.php:116
-msgid "Earn"
-msgstr ""
+msgid   "Earn"
+msgstr  ""
 
 #: ../www/badge_earn.php:19 ../www/badge_earn.php:20
-msgid "Earn a new Badge"
-msgstr ""
+msgid   "Earn a new Badge"
+msgstr  ""
+
+#: ../www/myportfolio.php:90 ../www/my_earn.php:33
+msgid   "Earned"
+msgstr  ""
 
 #: ../www/earn.php:19 ../www/earn.php:20 ../www/list_earn.php:19
-msgid "Earns of Issuer Badges"
-msgstr ""
+msgid   "Earns of Issuer Badges"
+msgstr  ""
 
 #: ../www/issuer.php:61 ../www/issuer.php:99 ../www/issuer.php:101
-msgid "Edit"
-msgstr ""
+msgid   "Edit"
+msgstr  ""
 
 #: ../www/badge_edit.php:19 ../www/badge_edit.php:20
-msgid "Edit Badge"
-msgstr ""
+msgid   "Edit Badge"
+msgstr  ""
 
 #: ../www/my_profile.php:56 ../www/my_profile.php:57 ../www/badge_earn.php:111
 #: ../www/badge_earn.php:112 ../www/earn.php:33 ../www/login.php:39
 #: ../www/my_earn.php:31 ../www/register.php:35 ../www/list_earn.php:50
 #: ../www/users.php:45 ../www/badge_revoked.php:60 ../www/my_profile.php:58
-#: ../www/my_earn.php:35
-msgid "Email"
-msgstr ""
+#: ../www/my_earn.php:35 ../www/my_earn.tab2.php:27 ../www/my_earn.tab1.php:9
+#: ../www/my_profile.php:69 ../www/my_profile.php:70
+msgid   "Email"
+msgstr  ""
 
 #: ../www/my_profile.php:117 ../www/my_profile.php:80 ../www/my_profile.php:136
-msgid "Email Institution"
-msgstr ""
+#: ../www/my_profile.php:111 ../www/my_profile.php:112
+#: ../www/my_profile.php:195
+msgid   "Email Institution"
+msgstr  ""
 
 #: ../www/issuer.php:59 ../www/issuer.php:158
-msgid "Enabled"
-msgstr ""
+msgid   "Enabled"
+msgstr  ""
 
-#: ../www/events.php:207 ../www/events.php:204
-msgid "Error extension"
-msgstr ""
+#: ../www/events.php:601
+msgid   "Error Picture"
+msgstr  ""
 
-#: ../www/events.php:206 ../www/events.php:203
-msgid "Error size"
-msgstr ""
+#: ../www/events.php:630
+msgid   "Error URL"
+msgstr  ""
+
+#: ../www/events.php:207 ../www/events.php:204 ../www/events.php:208
+msgid   "Error extension"
+msgstr  ""
+
+#: ../www/events.php:206 ../www/events.php:203 ../www/events.php:207
+msgid   "Error size"
+msgstr  ""
 
 #: ../www/a_activation.php:46
-msgid "Error. Incorrect credentials"
-msgstr ""
+msgid   "Error. Incorrect credentials"
+msgstr  ""
 
 #: ../www/badge_earn.php:120 ../www/badge_edit.php:100
-msgid "Evidence"
-msgstr ""
+msgid   "Evidence"
+msgstr  ""
 
 #: ../www/view_badge_earn.php:57 ../www/view_badge_issuer.php:64
-#: ../www/myportfolio.php:92
-msgid "Evidences"
-msgstr ""
+#: ../www/myportfolio.php:92 ../www/myportfolio.php:152
+#: ../www/myportfolio.php:159
+msgid   "Evidences"
+msgstr  ""
 
 #: ../www/my_profile.php:157 ../www/my_profile.php:176
-msgid "Exists"
-msgstr ""
+#: ../www/my_profile.php:235
+msgid   "Exists"
+msgstr  ""
+
+#: ../www/includes/functions.php:505
+msgid   "File size is too large"
+msgstr  ""
 
 #: ../www/users.php:30 ../www/badge_revoked.php:39
-msgid "Find user"
-msgstr ""
+msgid   "Find user"
+msgstr  ""
+
+#: ../www/my_earn.tab2.php:26
+msgid   "From"
+msgstr  ""
 
 #: ../www/my_profile.php:51 ../www/my_profile.php:52 ../www/badge_earn.php:106
-#: ../www/badge_earn.php:107 ../www/my_profile.php:53
-msgid "Full name"
-msgstr ""
+#: ../www/badge_earn.php:107 ../www/my_profile.php:53 ../www/my_profile.php:64
+#: ../www/my_profile.php:65
+msgid   "Full name"
+msgstr  ""
 
 #: ../www/earn.php:32 ../www/my_earn.php:30 ../www/list_earn.php:49
-#: ../www/my_earn.php:34
-msgid "Fullname"
-msgstr ""
+#: ../www/my_earn.php:34 ../www/my_earn.tab1.php:8
+msgid   "Fullname"
+msgstr  ""
 
 #: ../www/my_profile.php:162 ../www/my_profile.php:181
-msgid "General Repository"
-msgstr ""
+#: ../www/my_profile.php:240
+msgid   "General Repository"
+msgstr  ""
 
 #: ../www/my_profile.php:168 ../www/my_profile.php:187
-msgid "General Repository Templates"
-msgstr ""
+#: ../www/my_profile.php:246
+msgid   "General Repository Templates"
+msgstr  ""
 
 #: ../www/my_profile.php:15 ../www/badge_earn.php:19 ../www/dashboard.php:13
 #: ../www/earn.php:19 ../www/issuer.php:19 ../www/login.php:27
@@ -268,564 +322,654 @@ msgstr ""
 #: ../www/account_activation.php:29 ../www/users.php:19
 #: ../www/badge_revoked.php:19 ../www/badge_edit.php:19
 #: ../www/my_profile.php:12
-msgid "Home"
-msgstr ""
+msgid   "Home"
+msgstr  ""
 
 #: ../www/register.php:39
-msgid "I accept the Terms of Service"
-msgstr ""
+msgid   "I accept the Terms of Service"
+msgstr  ""
 
 #: ../www/issuer.php:161
-msgid ""
-"If you want to disable temporally or permanently the earn process, just "
-"unpublish the item."
-msgstr ""
+msgid   "If you want to disable temporally or permanently the earn process, "
+        "just unpublish the item."
+msgstr  ""
 
 #: ../www/badge_edit.php:88 ../www/badge_edit.php:92 ../www/badge_edit.php:93
-msgid "Image"
-msgstr ""
+msgid   "Image"
+msgstr  ""
+
+#: ../www/my_earn.php:34
+msgid   "Imported"
+msgstr  ""
 
 #: ../www/my_profile.php:157 ../www/my_profile.php:176
-msgid "Info"
-msgstr ""
+#: ../www/my_profile.php:235
+msgid   "Info"
+msgstr  ""
 
 #: ../www/my_profile.php:109 ../www/earn.php:35 ../www/my_earn.php:33
 #: ../www/list_earn.php:52 ../www/badge_edit.php:71 ../www/my_profile.php:70
-#: ../www/my_profile.php:128 ../www/my_earn.php:37
-msgid "Institution"
-msgstr ""
+#: ../www/my_profile.php:128 ../www/my_earn.php:37 ../www/my_earn.tab2.php:30
+#: ../www/my_earn.tab1.php:11 ../www/my_profile.php:101
+#: ../www/my_profile.php:102 ../www/my_profile.php:187
+msgid   "Institution"
+msgstr  ""
 
 #: ../www/dashboard.php:43 ../www/dashboard.php:46
-msgid "Issue Badges"
-msgstr ""
+msgid   "Issue Badges"
+msgstr  ""
 
-#: ../www/menu.php:43
-msgid "Issuer"
-msgstr ""
+#: ../www/my_earn.tab2.php:28
+msgid   "Issued On"
+msgstr  ""
+
+#: ../www/menu.php:43 ../www/menu.php:44
+msgid   "Issuer"
+msgstr  ""
 
 #: ../www/issuer.php:20
-msgid "Issuer : Managed badges"
-msgstr ""
+msgid   "Issuer : Managed badges"
+msgstr  ""
 
 #: ../www/my_profile.php:172 ../www/my_profile.php:191
-msgid "Issuer JSON master file"
-msgstr ""
+#: ../www/my_profile.php:250
+msgid   "Issuer JSON master file"
+msgstr  ""
 
 #: ../www/issuer.php:19
-msgid "Issuer Panel"
-msgstr ""
+msgid   "Issuer Panel"
+msgstr  ""
 
 #: ../www/my_profile.php:169 ../www/my_profile.php:188
-msgid "Issuer Template"
-msgstr ""
+#: ../www/my_profile.php:247
+msgid   "Issuer Template"
+msgstr  ""
 
 #: ../www/badge_edit.php:105 ../www/badge_edit.php:118
-msgid "Label"
-msgstr ""
+msgid   "Label"
+msgstr  ""
 
 #: ../www/my_profile.php:133 ../www/my_profile.php:152
-msgid "Lastupdate"
-msgstr ""
+#: ../www/my_profile.php:211
+msgid   "Lastupdate"
+msgstr  ""
 
 #: ../www/list_earn.php:109 ../www/list_earn.php:110
-msgid "Links to Json File"
-msgstr ""
+msgid   "Links to Json File"
+msgstr  ""
 
 #: ../www/list_earn.php:20
-msgid "List of Earned Badges"
-msgstr ""
+msgid   "List of Earned Badges"
+msgstr  ""
 
-#: ../www/menu.php:49
-msgid "Logout"
-msgstr ""
+#: ../www/menu.php:49 ../www/menu.php:51
+msgid   "Logout"
+msgstr  ""
 
 #: ../www/badge_edit.php:68
-msgid "Main Badge Data"
-msgstr ""
+msgid   "Main Badge Data"
+msgstr  ""
 
-#: ../www/my_profile.php:68
-msgid "Main Institution Data"
-msgstr ""
+#: ../www/my_profile.php:68 ../www/my_profile.php:99
+msgid   "Main Institution Data"
+msgstr  ""
 
 #: ../www/my_profile.php:107 ../www/my_profile.php:126
-msgid "Main Institution Information"
-msgstr ""
+#: ../www/my_profile.php:185
+msgid   "Main Institution Information"
+msgstr  ""
 
-#: ../www/my_profile.php:48 ../www/my_profile.php:49
-msgid "Main User Data"
-msgstr ""
+#: ../www/my_profile.php:48 ../www/my_profile.php:49 ../www/my_profile.php:61
+msgid   "Main User Data"
+msgstr  ""
 
 #: ../www/my_profile.php:197 ../www/my_profile.php:215
-msgid "Master Issuer Json File"
-msgstr ""
+#: ../www/my_profile.php:274
+msgid   "Master Issuer Json File"
+msgstr  ""
 
-#: ../www/events.php:234 ../www/events.php:231
-msgid "Max params reached"
-msgstr ""
+#: ../www/events.php:234 ../www/events.php:231 ../www/events.php:235
+msgid   "Max params reached"
+msgstr  ""
 
 #: ../www/badge_edit.php:89
-msgid "Max. size"
-msgstr ""
+msgid   "Max. size"
+msgstr  ""
 
 #: ../www/list_earn.php:108
-msgid "More Info"
-msgstr ""
+msgid   "More Info"
+msgstr  ""
 
 #: ../www/dashboard.php:32 ../www/menu.php:46 ../www/dashboard.php:35
-msgid "My Badges"
-msgstr ""
+#: ../www/menu.php:47
+msgid   "My Badges"
+msgstr  ""
 
 #: ../www/my_profile.php:15 ../www/my_profile.php:16 ../www/dashboard.php:22
 #: ../www/menu.php:48 ../www/my_profile.php:12 ../www/my_profile.php:13
-#: ../www/dashboard.php:25
-msgid "My Profile"
-msgstr ""
+#: ../www/dashboard.php:25 ../www/menu.php:49
+msgid   "My Profile"
+msgstr  ""
+
+#: ../www/my_profile.php:141
+msgid   "My WebSite"
+msgstr  ""
+
+#: ../www/my_profile.php:142
+msgid   "My Website"
+msgstr  ""
 
 #: ../www/my_profile.php:177 ../www/my_profile.php:178 ../www/issuer.php:85
 #: ../www/issuer.php:88 ../www/users.php:91 ../www/my_profile.php:196
-#: ../www/my_profile.php:197 ../www/my_earn.php:53
-msgid "NO"
-msgstr ""
+#: ../www/my_profile.php:197 ../www/my_earn.php:53 ../www/my_earn.tab2.php:46
+#: ../www/my_earn.tab1.php:27 ../www/my_profile.php:255
+#: ../www/my_profile.php:256
+msgid   "NO"
+msgstr  ""
 
 #: ../www/register.php:33 ../www/users.php:44 ../www/badge_revoked.php:59
 #: ../www/badge_edit.php:75 ../www/badge_edit.php:76
-msgid "Name"
-msgstr ""
+msgid   "Name"
+msgstr  ""
+
+#: ../www/events.php:814
+msgid   "No user found"
+msgstr  ""
 
 #: ../www/list_earn.php:69 ../www/list_earn.php:74
-msgid "None"
-msgstr ""
+msgid   "None"
+msgstr  ""
 
 #: ../www/issuer.php:145 ../www/users.php:116 ../www/badge_revoked.php:84
-msgid "Nothing found"
-msgstr ""
+msgid   "Nothing found"
+msgstr  ""
 
-#: ../www/events.php:573 ../www/events.php:610
-msgid "Nothing to change"
-msgstr ""
+#: ../www/events.php:808
+msgid   "Nothing found : Could not proceed your request"
+msgstr  ""
+
+#: ../www/events.php:573 ../www/events.php:610 ../www/events.php:667
+msgid   "Nothing to change"
+msgstr  ""
 
 #: ../www/list_earn.php:111 ../www/list_earn.php:112
-msgid "Online tool"
-msgstr ""
+msgid   "Online tool"
+msgstr  ""
 
 #: ../www/badge_earn.php:120 ../www/badge_edit.php:100
-msgid "Optional"
-msgstr ""
+msgid   "Optional"
+msgstr  ""
 
 #: ../www/my_profile.php:61 ../www/login.php:40 ../www/register.php:34
-#: ../www/my_profile.php:62
-msgid "Password"
-msgstr ""
+#: ../www/my_profile.php:62 ../www/my_profile.php:74
+msgid   "Password"
+msgstr  ""
 
 #: ../www/register.php:36
-msgid "Password Confirmation"
-msgstr ""
+msgid   "Password Confirmation"
+msgstr  ""
 
 #: ../www/reset.php:24
-msgid "Password Reset"
-msgstr ""
+msgid   "Password Reset"
+msgstr  ""
 
-#: ../www/events.php:573 ../www/events.php:610
-msgid "Password could not be updated"
-msgstr ""
+#: ../www/events.php:573 ../www/events.php:610 ../www/events.php:667
+msgid   "Password could not be updated"
+msgstr  ""
 
 #: ../www/my_profile.php:157 ../www/my_profile.php:176
-msgid "Path"
-msgstr ""
+#: ../www/my_profile.php:235
+msgid   "Path"
+msgstr  ""
+
+#: ../www/my_profile.php:81
+msgid   "Picture"
+msgstr  ""
 
 #: ../www/reset.php:27
-msgid ""
-"Please enter your email address below, and we will email instructions for "
-"setting a new password."
-msgstr ""
+msgid   "Please enter your email address below, and we will email "
+        "instructions for setting a new password."
+msgstr  ""
 
 #: ../www/register.php:27
-msgid "Please fill the form below to create a new"
-msgstr ""
+msgid   "Please fill the form below to create a new"
+msgstr  ""
 
 #: ../www/earn.php:36 ../www/earn.php:53 ../www/issuer.php:62
 #: ../www/my_earn.php:34 ../www/my_earn.php:48 ../www/list_earn.php:53
 #: ../www/list_earn.php:83 ../www/my_earn.php:39 ../www/my_earn.php:62
-msgid "Preview"
-msgstr ""
+#: ../www/my_earn.tab1.php:13 ../www/my_earn.tab1.php:36
+msgid   "Preview"
+msgstr  ""
 
 #: ../www/copyright.php:3
-msgid "Privacy"
-msgstr ""
+msgid   "Privacy"
+msgstr  ""
 
 #: ../www/my_profile.php:125 ../www/users.php:46 ../www/my_profile.php:144
-msgid "Profile"
-msgstr ""
+#: ../www/my_profile.php:203
+msgid   "Profile"
+msgstr  ""
 
 #: ../www/my_profile.php:123 ../www/my_profile.php:142
-msgid "Profile Information"
-msgstr ""
+#: ../www/my_profile.php:201
+msgid   "Profile Information"
+msgstr  ""
 
-#: ../www/my_profile.php:72 ../www/my_profile.php:91
-msgid "Provider account information"
-msgstr ""
+#: ../www/my_profile.php:72 ../www/my_profile.php:91 ../www/my_profile.php:122
+msgid   "Provider account information"
+msgstr  ""
 
-#: ../www/my_earn.php:38
-msgid "Public"
-msgstr ""
+#: ../www/my_earn.php:38 ../www/my_earn.tab2.php:31 ../www/my_earn.tab1.php:12
+msgid   "Public"
+msgstr  ""
+
+#: ../www/menu.php:50
+msgid   "Public Portfolio"
+msgstr  ""
 
 #: ../www/issuer.php:60 ../www/issuer.php:159
-msgid "Published"
-msgstr ""
+msgid   "Published"
+msgstr  ""
 
 #: ../www/badge_revoked.php:58
-msgid "Reason"
-msgstr ""
+msgid   "Reason"
+msgstr  ""
 
 #: ../www/register.php:38
-msgid "Register"
-msgstr ""
+msgid   "Register"
+msgstr  ""
 
 #: ../www/badge_edit.php:112
-msgid "Remove evidence"
-msgstr ""
+msgid   "Remove evidence"
+msgstr  ""
 
 #: ../www/my_profile.php:164 ../www/my_profile.php:183
-msgid "Repo for Badges files"
-msgstr ""
+#: ../www/my_profile.php:242
+msgid   "Repo for Badges files"
+msgstr  ""
 
 #: ../www/my_profile.php:165 ../www/my_profile.php:184
-msgid "Repo for Badges images"
-msgstr ""
+#: ../www/my_profile.php:243
+msgid   "Repo for Badges images"
+msgstr  ""
 
 #: ../www/my_profile.php:166 ../www/my_profile.php:185
-msgid "Repo for Badges revoked"
-msgstr ""
+#: ../www/my_profile.php:244
+msgid   "Repo for Badges revoked"
+msgstr  ""
 
 #: ../www/my_profile.php:163 ../www/my_profile.php:182
-msgid "Repo for Issuers files"
-msgstr ""
+#: ../www/my_profile.php:241
+msgid   "Repo for Issuers files"
+msgstr  ""
 
 #: ../www/my_profile.php:48 ../www/badge_earn.php:103 ../www/badge_earn.php:126
 #: ../www/events.php:205 ../www/badge_edit.php:68 ../www/badge_edit.php:93
 #: ../www/events.php:202 ../www/my_profile.php:49 ../www/my_profile.php:68
-msgid "Required"
-msgstr ""
+#: ../www/events.php:206 ../www/my_profile.php:61 ../www/my_profile.php:99
+msgid   "Required"
+msgstr  ""
 
 #: ../www/issuer.php:124 ../www/issuer.php:127
-msgid "Revk"
-msgstr ""
+msgid   "Revk"
+msgstr  ""
 
 #: ../www/issuer.php:64 ../www/list_earn.php:56 ../www/list_earn.php:93
-msgid "Revoke"
-msgstr ""
+msgid   "Revoke"
+msgstr  ""
 
 #: ../www/badge_revoked.php:61
-msgid "Revoked by"
-msgstr ""
+msgid   "Revoked by"
+msgstr  ""
 
 #: ../www/issuer.php:35
-msgid "Select"
-msgstr ""
+msgid   "Select"
+msgstr  ""
 
 #: ../www/issuer.php:33
-msgid "Select Issuer"
-msgstr ""
+msgid   "Select Issuer"
+msgstr  ""
 
-#: ../www/login.php:41 ../www/menu.php:54
-msgid "Sign In"
-msgstr ""
+#: ../www/myportfolio.php:166 ../www/myportfolio.php:208
+msgid   "Share on Linkedin"
+msgstr  ""
+
+#: ../www/login.php:41 ../www/menu.php:54 ../www/menu.php:56
+msgid   "Sign In"
+msgstr  ""
 
 #: ../www/login.php:27 ../www/login.php:31
-msgid "Sign in"
-msgstr ""
+msgid   "Sign in"
+msgstr  ""
 
-#: ../www/events.php:602
-msgid "Some Institution data is missing or have errors."
-msgstr ""
+#: ../www/events.php:602 ../www/events.php:654
+msgid   "Some Institution data is missing or have errors."
+msgstr  ""
+
+#: ../www/includes/ibl_mozillabackpack.class.php:280
+#: ../www/includes/ibl_mozillabackpack.class.php:284
+msgid   "Synchronization completed"
+msgstr  ""
+
+#: ../www/my_earn.tab2.php:11
+msgid   "Syncronize and import your badges from"
+msgstr  ""
 
 #: ../www/my_profile.php:150 ../www/my_profile.php:169
-msgid "System Information"
-msgstr ""
+#: ../www/my_profile.php:228
+msgid   "System Information"
+msgstr  ""
 
-#: ../www/my_profile.php:224
-msgid "The Json Issuer's file does not exists"
-msgstr ""
+#: ../www/includes/functions.php:506
+msgid   "System error"
+msgstr  ""
+
+#: ../www/my_profile.php:224 ../www/my_profile.php:283
+msgid   "The Json Issuer's file does not exists"
+msgstr  ""
 
 #: ../www/a_activation.php:41
-msgid "The activation is not longer available."
-msgstr ""
+msgid   "The activation is not longer available."
+msgstr  ""
 
-#: ../www/events.php:478 ../www/events.php:472
-msgid "The badge could not be created"
-msgstr ""
+#: ../www/events.php:478 ../www/events.php:472 ../www/events.php:476
+msgid   "The badge could not be created"
+msgstr  ""
 
-#: ../www/events.php:482 ../www/events.php:476
-msgid "The badge could not be created, because it already exists."
-msgstr ""
+#: ../www/events.php:482 ../www/events.php:476 ../www/events.php:480
+msgid   "The badge could not be created, because it already exists."
+msgstr  ""
 
-#: ../www/events.php:484 ../www/events.php:478
-msgid "The badge could not be created. Some data is missing."
-msgstr ""
+#: ../www/events.php:484 ../www/events.php:478 ../www/events.php:482
+msgid   "The badge could not be created. Some data is missing."
+msgstr  ""
 
-#: ../www/events.php:511 ../www/events.php:505
-msgid "The badge could not be published because is disabled"
-msgstr ""
+#: ../www/events.php:511 ../www/events.php:505 ../www/events.php:509
+msgid   "The badge could not be published because is disabled"
+msgstr  ""
 
-#: ../www/events.php:474 ../www/events.php:468
-msgid "The badge is being created"
-msgstr ""
+#: ../www/events.php:474 ../www/events.php:468 ../www/events.php:472
+msgid   "The badge is being created"
+msgstr  ""
 
-#: ../www/events.php:535 ../www/events.php:529
-msgid "The evidence has been deleted"
-msgstr ""
+#: ../www/events.php:535 ../www/events.php:529 ../www/events.php:533
+msgid   "The evidence has been deleted"
+msgstr  ""
 
 #: ../www/issuer.php:158
-msgid "The object contains all needed information to be published"
-msgstr ""
+msgid   "The object contains all needed information to be published"
+msgstr  ""
 
 #: ../www/issuer.php:159
-msgid "The object is released to be earned"
-msgstr ""
+msgid   "The object is released to be earned"
+msgstr  ""
 
-#: ../www/events.php:614 ../www/events.php:672
-msgid "The user has been"
-msgstr ""
+#: ../www/events.php:614 ../www/events.php:672 ../www/events.php:729
+msgid   "The user has been"
+msgstr  ""
 
-#: ../www/events.php:638 ../www/events.php:702
-msgid "The user has been deleted"
-msgstr ""
+#: ../www/events.php:638 ../www/events.php:702 ../www/events.php:759
+msgid   "The user has been deleted"
+msgstr  ""
 
 #: ../www/view_badge_issuer.php:93
-msgid "This Badge ID"
-msgstr ""
+msgid   "This Badge ID"
+msgstr  ""
 
 #: ../www/view_badge_issuer.php:89
-msgid "This Badge provider account secret-key"
-msgstr ""
+msgid   "This Badge provider account secret-key"
+msgstr  ""
 
 #: ../www/view_badge_issuer.php:85
-msgid "This Badge provider user-key"
-msgstr ""
+msgid   "This Badge provider user-key"
+msgstr  ""
 
 #: ../www/events.php:513 ../www/events.php:537 ../www/events.php:507
-#: ../www/events.php:531 ../www/events.php:549
-msgid "This action could not be performed"
-msgstr ""
+#: ../www/events.php:531 ../www/events.php:549 ../www/events.php:511
+#: ../www/events.php:535 ../www/events.php:553 ../www/events.php:787
+#: ../www/events.php:817
+msgid   "This action could not be performed"
+msgstr  ""
+
+#: ../www/my_earn.tab2.php:8
+#, php-format
+msgid   "This action performs a request in Mozilla with your current user "
+        "email (%s), to retrieve the badges from your public collections."
+msgstr  ""
 
 #: ../www/my_profile.php:199 ../www/my_profile.php:217
-msgid "This is the content of the file"
-msgstr ""
+#: ../www/my_profile.php:276
+msgid   "This is the content of the file"
+msgstr  ""
 
 #: ../www/reset.php:35
-msgid "This is the email address you used to register"
-msgstr ""
+msgid   "This is the email address you used to register"
+msgstr  ""
 
-#: ../www/events.php:593 ../www/events.php:651
-msgid "This profile could not be changed"
-msgstr ""
+#: ../www/events.php:593 ../www/events.php:651 ../www/events.php:708
+msgid   "This profile could not be changed"
+msgstr  ""
 
-#: ../www/events.php:616 ../www/events.php:674
-msgid "This user could not be"
-msgstr ""
+#: ../www/events.php:616 ../www/events.php:674 ../www/events.php:731
+msgid   "This user could not be"
+msgstr  ""
 
-#: ../www/events.php:640 ../www/events.php:704
-msgid "This user could not be deleted"
-msgstr ""
+#: ../www/events.php:640 ../www/events.php:704 ../www/events.php:761
+msgid   "This user could not be deleted"
+msgstr  ""
 
 #: ../www/a_register.php:61
-msgid "To activate your account, click this link :"
-msgstr ""
+msgid   "To activate your account, click this link :"
+msgstr  ""
 
 #: ../www/badge_edit.php:134
-msgid "UPDATE BADGE"
-msgstr ""
+msgid   "UPDATE BADGE"
+msgstr  ""
 
 #: ../www/my_profile.php:113 ../www/my_profile.php:71 ../www/my_profile.php:75
 #: ../www/my_profile.php:76 ../www/my_profile.php:81 ../www/my_profile.php:132
-msgid "URL Institution"
-msgstr ""
+#: ../www/my_profile.php:106 ../www/my_profile.php:107
+#: ../www/my_profile.php:191
+msgid   "URL Institution"
+msgstr  ""
 
 #: ../www/badge_edit.php:81
-msgid "URL of the criteria for earning the achievement."
-msgstr ""
+msgid   "URL of the criteria for earning the achievement."
+msgstr  ""
 
-#: ../www/my_profile.php:92 ../www/my_profile.php:111
-msgid "Update data"
-msgstr ""
+#: ../www/my_profile.php:92 ../www/my_profile.php:111 ../www/my_profile.php:170
+msgid   "Update data"
+msgstr  ""
 
-#: ../www/my_profile.php:224
-msgid "Update your profile in order to regenerate the Json file"
-msgstr ""
+#: ../www/my_profile.php:224 ../www/my_profile.php:283
+msgid   "Update your profile in order to regenerate the Json file"
+msgstr  ""
 
 #: ../www/badge_edit.php:101
-msgid ""
-"Use this optional field if you want earners to enter evidence of the work "
-"they did to earn the achievement. Earners need to provide a URL to a page "
-"showing the work or providing further links. Give your requested evidence a "
-"title and a brief description to guide earners."
-msgstr ""
+msgid   "Use this optional field if you want earners to enter evidence of the "
+        "work they did to earn the achievement. Earners need to provide a URL "
+        "to a page showing the work or providing further links. Give your "
+        "requested evidence a title and a brief description to guide earners."
+msgstr  ""
 
 #: ../www/badge_earn.php:103
-msgid "User Data"
-msgstr ""
+msgid   "User Data"
+msgstr  ""
 
 #: ../www/earn.php:31 ../www/list_earn.php:48
-msgid "UserID"
-msgstr ""
+msgid   "UserID"
+msgstr  ""
 
 #: ../www/dashboard.php:55 ../www/menu.php:39 ../www/users.php:19
-#: ../www/users.php:20 ../www/dashboard.php:58
-msgid "Users"
-msgstr ""
+#: ../www/users.php:20 ../www/dashboard.php:58 ../www/menu.php:40
+msgid   "Users"
+msgstr  ""
 
-#: ../www/my_earn.php:23
-msgid "VIEW MY PUBLIC PORTFOLIO"
-msgstr ""
+#: ../www/my_earn.php:23 ../www/my_earn.php:27
+msgid   "VIEW MY PUBLIC PORTFOLIO"
+msgstr  ""
 
 #: ../www/badge_earn.php:81
-msgid "VIEW THE BADGE"
-msgstr ""
+msgid   "VIEW THE BADGE"
+msgstr  ""
 
 #: ../www/badge_edit.php:92
-msgid "View"
-msgstr ""
+msgid   "View"
+msgstr  ""
 
 #: ../www/view_badge_earn.php:13 ../www/view_badge_earn.php:14
-msgid "View Badge Earn"
-msgstr ""
+msgid   "View Badge Earn"
+msgstr  ""
 
 #: ../www/view_badge_issuer.php:13 ../www/view_badge_issuer.php:14
-msgid "View Badge Issuer"
-msgstr ""
+msgid   "View Badge Issuer"
+msgstr  ""
 
 #: ../www/badge_earn.php:77
-msgid "View the new Badge"
-msgstr ""
+msgid   "View the new Badge"
+msgstr  ""
 
 #: ../www/my_profile.php:157 ../www/my_profile.php:176
-msgid "Writable"
-msgstr ""
+#: ../www/my_profile.php:235
+msgid   "Writable"
+msgstr  ""
 
 #: ../www/my_profile.php:177 ../www/my_profile.php:178 ../www/issuer.php:85
 #: ../www/issuer.php:88 ../www/users.php:91 ../www/my_profile.php:196
-#: ../www/my_profile.php:197 ../www/my_earn.php:53
-msgid "YES"
-msgstr ""
+#: ../www/my_profile.php:197 ../www/my_earn.php:53 ../www/my_earn.tab2.php:46
+#: ../www/my_earn.tab1.php:27 ../www/my_profile.php:255
+#: ../www/my_profile.php:256
+msgid   "YES"
+msgstr  ""
 
-#: ../www/events.php:345 ../www/events.php:339
-msgid "You Could not modify this badged. Is being awarded."
-msgstr ""
+#: ../www/events.php:345 ../www/events.php:339 ../www/events.php:343
+msgid   "You Could not modify this badged. Is being awarded."
+msgstr  ""
 
 #: ../www/my_profile.php:84 ../www/view_badge_issuer.php:97
-#: ../www/my_profile.php:103
-msgid "You can not use this functionality"
-msgstr ""
+#: ../www/my_profile.php:103 ../www/my_profile.php:134
+msgid   "You can not use this functionality"
+msgstr  ""
 
 #: ../www/events.php:597 ../www/events.php:619 ../www/events.php:643
 #: ../www/events.php:655 ../www/events.php:677 ../www/events.php:707
-msgid "You could not grant this action"
-msgstr ""
+#: ../www/events.php:712 ../www/events.php:734 ../www/events.php:764
+msgid   "You could not grant this action"
+msgstr  ""
 
 #: ../www/a_auth.php:5 ../www/a_auth.php:34
-msgid "You have not privileges to access this page"
-msgstr ""
+msgid   "You have not privileges to access this page"
+msgstr  ""
 
 #: ../www/my_profile.php:73 ../www/view_badge_issuer.php:82
-#: ../www/my_profile.php:92
-msgid "You will need this data in order to connect the API"
-msgstr ""
+#: ../www/my_profile.php:92 ../www/my_profile.php:123
+msgid   "You will need this data in order to connect the API"
+msgstr  ""
 
-#: ../www/my_profile.php:80 ../www/my_profile.php:99
-msgid "Your Badge provider account secret-key"
-msgstr ""
+#: ../www/my_profile.php:80 ../www/my_profile.php:99 ../www/my_profile.php:130
+msgid   "Your Badge provider account secret-key"
+msgstr  ""
 
-#: ../www/my_profile.php:76 ../www/my_profile.php:95
-msgid "Your Badge provider user-key"
-msgstr ""
+#: ../www/my_profile.php:76 ../www/my_profile.php:95 ../www/my_profile.php:126
+msgid   "Your Badge provider user-key"
+msgstr  ""
 
 #: ../www/register.php:37
-msgid "Your Password Strength"
-msgstr ""
+msgid   "Your Password Strength"
+msgstr  ""
 
-#: ../www/events.php:571 ../www/events.php:607
-msgid "Your profile data has been updated"
-msgstr ""
+#: ../www/events.php:571 ../www/events.php:607 ../www/events.php:664
+msgid   "Your profile data has been updated"
+msgstr  ""
 
-#: ../www/events.php:608 ../www/events.php:666
-msgid "activated"
-msgstr ""
+#: ../www/events.php:608 ../www/events.php:666 ../www/events.php:723
+msgid   "activated"
+msgstr  ""
 
 #: ../www/badge_edit.php:89
-msgid "allowed"
-msgstr ""
+msgid   "allowed"
+msgstr  ""
 
 #: ../www/my_profile.php:63 ../www/events.php:573 ../www/events.php:610
-#: ../www/my_profile.php:64
-msgid "chars"
-msgstr ""
+#: ../www/my_profile.php:64 ../www/events.php:667 ../www/my_profile.php:76
+msgid   "chars"
+msgstr  ""
 
 #: ../www/issuer.php:43 ../www/users.php:34
-msgid "clear"
-msgstr ""
+msgid   "clear"
+msgstr  ""
 
-#: ../www/events.php:608 ../www/events.php:666
-msgid "deactivated"
-msgstr ""
+#: ../www/events.php:608 ../www/events.php:666 ../www/events.php:723
+msgid   "deactivated"
+msgstr  ""
 
 #: ../www/users.php:31
-msgid "email"
-msgstr ""
+msgid   "email"
+msgstr  ""
 
 #: ../www/register.php:27
-msgid "free account"
-msgstr ""
+msgid   "free account"
+msgstr  ""
 
-#: ../www/my_profile.php:62 ../www/my_profile.php:63
-msgid "if you do not pretend to change your password do not fill this"
-msgstr ""
+#: ../www/my_earn.php:34
+msgid   "from"
+msgstr  ""
+
+#: ../www/my_profile.php:62 ../www/my_profile.php:63 ../www/my_profile.php:75
+msgid   "if you do not pretend to change your password do not fill this"
+msgstr  ""
 
 #: ../www/list_earn.php:111
-msgid "json structure"
-msgstr ""
+msgid   "json structure"
+msgstr  ""
 
-#: ../www/events.php:206 ../www/events.php:203
-msgid "kb"
-msgstr ""
+#: ../www/events.php:206 ../www/events.php:203 ../www/events.php:207
+msgid   "kb"
+msgstr  ""
 
-#: ../www/events.php:206 ../www/events.php:203
-msgid "max."
-msgstr ""
+#: ../www/events.php:206 ../www/events.php:203 ../www/events.php:207
+msgid   "max."
+msgstr  ""
 
-#: ../www/my_profile.php:63 ../www/my_profile.php:64
-msgid "min"
-msgstr ""
+#: ../www/my_profile.php:63 ../www/my_profile.php:64 ../www/my_profile.php:76
+msgid   "min"
+msgstr  ""
 
 #: ../www/users.php:31
-msgid "name"
-msgstr ""
+msgid   "name"
+msgstr  ""
 
 #: ../www/badge_revoked.php:40
-msgid "name or email"
-msgstr ""
+msgid   "name or email"
+msgstr  ""
+
+#: ../www/my_earn.php:33
+msgid   "on this server"
+msgstr  ""
 
 #: ../www/badge_earn.php:125 ../www/users.php:31
-msgid "or"
-msgstr ""
+msgid   "or"
+msgstr  ""
 
 #: ../www/my_profile.php:80 ../www/view_badge_issuer.php:89
-#: ../www/my_profile.php:99
-msgid "password"
-msgstr ""
+#: ../www/my_profile.php:99 ../www/my_profile.php:130
+msgid   "password"
+msgstr  ""
 
 #: ../www/issuer.php:42 ../www/users.php:33
-msgid "search"
-msgstr ""
+msgid   "search"
+msgstr  ""
 
 #: ../www/my_profile.php:76 ../www/view_badge_issuer.php:85
-#: ../www/my_profile.php:95
-msgid "user"
-msgstr ""
+#: ../www/my_profile.php:95 ../www/my_profile.php:126
+msgid   "user"
+msgstr  ""
 
 #: ../www/badge_earn.php:126
-msgid "valid URL"
-msgstr ""
+msgid   "valid URL"
+msgstr  ""
 
 #: ../www/list_earn.php:111 ../www/list_earn.php:112
-msgid "validate"
-msgstr ""
+msgid   "validate"
+msgstr  ""

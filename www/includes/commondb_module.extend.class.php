@@ -86,16 +86,20 @@ class COMMONDB_MODULE extends COMMONDB_MODULES
 					$i=0;
 					while ($rs = $stmt->fetch(PDO::FETCH_OBJ))
 					{
-						foreach (explode(",", $fields) AS $field){
-							
+						foreach (explode(",", $fields) AS $field)
+						{
 							$field = ( preg_match('/AS /', $field) ) ? explode("AS", $field) : $field;
 							$field = (is_array($field)) ? $field[1] : $field;
 							$field = trim($field);
 							
-							if ($arr_key!=""){
-								$arr_res[$rs->$arr_key][$field] = $rs->$field;
-							} else {
-								$arr_res[$i][$field] = $rs->$field;
+							$field_dateformat = ( preg_match('/^DATE_FORMAT/', $field, $matches ) ) ? "dateformat" : "";
+							if ( $field_dateformat =='' ) 
+							{
+								if ($arr_key!=""){
+									$arr_res[$rs->$arr_key][$field] = $rs->$field;
+								} else {
+									$arr_res[$i][$field] = $rs->$field;
+								}								
 							}
 						}
 						$i+=1;
