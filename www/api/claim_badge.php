@@ -17,8 +17,8 @@ if (!$server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
 
 	//get values from post
 	$bgid		  		= ( isset($_POST['id']) && is_numeric($_POST['id']) && $_POST['id']>0 ) ? $_POST['id'] : 0;
-	$earn_first_name   	= ( isset($_POST['first_name']) && strlen(trim($_POST['first_name']))>0 ) ? $_POST['first_name'] : '';
-	$earn_last_name   	= ( isset($_POST['last_name']) && strlen(trim($_POST['last_name']))>0 ) ? $_POST['last_name'] : '';
+	$earn_first_name   	= ( isset($_POST['first_name']) && strlen(trim($_POST['first_name']))>0 ) ? urldecode($_POST['first_name']) : '';
+	$earn_last_name   	= ( isset($_POST['last_name']) && strlen(trim($_POST['last_name']))>0 ) ? urldecode($_POST['last_name']) : '';
 	$earn_fullname	 	= "$earn_first_name $earn_last_name";
 	$earn_email   		= ( isset($_POST['email']) && strlen(trim($_POST['email']))>0 ) ? $_POST['email'] : '';
 	

@@ -1,3 +1,7 @@
+## BadgeOne (0.9) beta6; urgency=low
+  * Released: 20160304
+  * Fix: charsets | api htaccess
+
 ## BadgeOne (0.9) beta5; urgency=low
   * Released: 20160222
   * New:
