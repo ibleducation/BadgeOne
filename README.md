@@ -12,9 +12,9 @@ The project has its origins in the [first integration of open badges in the Open
 The software is free for any site administrator to download, install and use, under a GPL 3 license.
 
 ## OpenBadges specifications
-* [Mozilla OpenBadges] (http://openbadges.org/)
-* [Mozilla OpenBadges wiki] (https://github.com/mozilla/openbadges-backpack/wiki/)
-* [Mozilla OpenBadges latest specs] (https://openbadgespec.org/)
+* [Mozilla OpenBadges](http://openbadges.org/)
+* [Mozilla OpenBadges wiki](https://github.com/mozilla/openbadges-backpack/wiki/)
+* [Mozilla OpenBadges latest specs](https://openbadgespec.org/)
 
 ### Requirements:
 * PHP > 5.3.9 (php5-mysql, php5-json, php-gettext) (Recommended > php 5.4.0)
