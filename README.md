@@ -42,12 +42,12 @@ The software is free for any site administrator to download, install and use, un
 
 ### Server API Documentation 
 
-* This document provides the background information you need to use the BadgetOne API [http://badgeone.com/api_doc/] (http://badgeone.com/api_doc/)
+* This document provides the background information you need to use the BadgetOne API [http://badgeone.com/api_doc/](http://badgeone.com/api_doc/)
 
 ### About OAuth2
 * This platform uses OAuth2.0 authentication.
-   [OAuth 2.0] (http://oauth.net/2/)
-   [OAuth 2.0 Server PHP] (http://bshaffer.github.io/oauth2-server-php-docs/)
+   [OAuth 2.0](http://oauth.net/2/)
+   [OAuth 2.0 Server PHP](http://bshaffer.github.io/oauth2-server-php-docs/)
 
 ### Special Thanks
 * Professor Lorena A. Barba advised IBL Studios on aspects like how educators might use open badges; the inter-relations between an open-source badge server, issuers and earners; the Open Badge Infrastructure standards; and the potential for open badges in MOOCs.
